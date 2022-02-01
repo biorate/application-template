@@ -1,0 +1,32 @@
+{
+  "name": "client",
+  "version": "0.0.0",
+  "description": "app client template",
+  "main": "dist",
+  "scripts": {
+    "build": "npx webpack --config=../../webpack.config.js --mode=production --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
+    "build:debug": "npx webpack serve --history-api-fallback --config=../../webpack.config.js --mode=development --hot --open --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist"
+  },
+  "keywords": [],
+  "author": "llevkin",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@superwf/mobx-react-router": "^7.4.0",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "history": "^5.2.0",
+    "mobx": "^6.3.12",
+    "mobx-react": "^7.2.1",
+    "mobx-react-router": "^4.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^6.2.1"
+  },
+  "dependencies": {
+    "@biorate/symbolic": "^0.14.0"
+  }
+}
