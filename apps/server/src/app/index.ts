@@ -5,6 +5,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './providers';
 import { ProbeController } from './controllers/probe';
+import { MetricsController } from './controllers/metrics';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { ProbeController } from './controllers/probe';
       rootPath: join(__dirname, '../../..', 'client/dist'),
     }),
   ],
-  controllers: [ProbeController],
+  controllers: [ProbeController, MetricsController],
   providers: [
     {
       provide: APP_GUARD,
