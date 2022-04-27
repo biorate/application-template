@@ -21,7 +21,7 @@ export class Application implements IApplication {
     const host = this.config.get<string>('app.host', '0.0.0.0');
     const port = this.config.get<number>('app.port', 3000);
     this.app = await NestFactory.create(AppModule, { logger: new Logger() });
-    this.app.setGlobalPrefix('/api');
+    this.app.setGlobalPrefix(this.config.get<string>('app.globalPrefix', ''));
     this.app.useGlobalFilters(new AllExceptionsFilter());
     this.app.useGlobalInterceptors(new ResponseInterceptor());
     this.app.useGlobalPipes(new ValidationPipe());

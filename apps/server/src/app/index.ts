@@ -1,9 +1,9 @@
 import { join } from 'path';
-import * as ResponseTime from 'response-time';
 import { Module, MiddlewareConsumer } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './providers';
+import { ResponseTime } from './middlewares/response-time';
 import { RequestCount } from './middlewares/request-count';
 import { ProbeController } from './controllers/probe';
 import { MetricsController } from './controllers/metrics';
@@ -24,7 +24,7 @@ import { MetricsController } from './controllers/metrics';
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ResponseTime()).forRoutes('*');
+    consumer.apply(ResponseTime).forRoutes('*');
     consumer.apply(RequestCount).forRoutes('*');
   }
 }

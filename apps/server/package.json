@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./dist/index.js",
     "build": "npx tsc -p ./tsconfig.build.json --outDir ./dist",
-    "start:debug": "cross-env NODE_ENV=debug nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "start:debug": "cross-env NODE_ENV=debug nodemon --watch 'src/**/*.ts' --exec 'ts-node-dev' src/index.ts",
     "test": "npx nyc --reporter=lcov --reporter=text-summary -- npx mocha --exit -r ts-node/register tests/**/*.spec.ts"
   },
   "keywords": [],
@@ -24,12 +24,12 @@
     "class-validator": "^0.13.1",
     "cookie-parser": "^1.4.5",
     "helmet": "^4.6.0",
-    "response-time": "^2.3.2",
+    "on-headers": "^1.0.2",
     "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
-    "@types/express": "^4.17.13",
     "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
     "nodemon": "^2.0.7"
   }
 }
