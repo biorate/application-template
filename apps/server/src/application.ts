@@ -1,4 +1,4 @@
-import * as helmet from 'helmet';
+import helmet from 'helmet';
 import * as cookieParser from 'cookie-parser';
 import { init, injectable, inject, Types } from '@biorate/inversion';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
