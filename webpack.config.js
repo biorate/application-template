@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 const lerna = require('./lerna.json');
 const argv = require('minimist')(process.argv.slice(2));
 const production = argv.mode === 'production';
@@ -12,7 +13,7 @@ module.exports = {
     filename: 'index.js',
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.css', '.scss', '.less'],
+    extensions: ['.js', '.ts', '.tsx', '.css', '.scss', '.less', '.vue'],
     fallback: {
       path: require.resolve('path-browserify'),
       util: require.resolve('util-browserify'),
@@ -26,10 +27,23 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
+          },
         },
       },
       {
@@ -50,7 +64,8 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.loader,
+          { loader: 'vue-style-loader' },
           {
             loader: 'css-loader',
             options: {
@@ -116,6 +131,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_DEBUG': JSON.stringify(process.env.NODE_DEBUG),
       'process.env.API_URL': JSON.stringify(production ? null : apiUrl),
