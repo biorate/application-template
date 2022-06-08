@@ -20,7 +20,10 @@
     "mobx-react": "^7.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router": "^5.2.1"
+    "react-router": "^5.2.1",
+    "vue-class-component": "^8.0.0-rc.1",
+    "vue-property-decorator": "^10.0.0-rc.3",
+    "vuex": "^4.0.2"
   },
   "dependencies": {
     "@biorate/symbolic": "^0.26.0"
