@@ -29,6 +29,7 @@ export class Application implements IApplication {
       helmet(
         this.config.get<unknown>('app.middleware.helmet', {
           contentSecurityPolicy: false,
+          crossOriginEmbedderPolicy: false,
         }),
       ),
     );
