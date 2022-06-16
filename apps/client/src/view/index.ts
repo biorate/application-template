@@ -11,19 +11,13 @@ export class View {
 
   @init() protected initialize() {
     createApp(App)
-      .component('test', Test)
+      .component('Test', Test)
       .use(
         createStore<Hello>({
           state: this.hello,
         }),
         Types.Hello,
       )
-      // .use(
-      //   createStore<A>({
-      //     state: new A(),
-      //   }),
-      //   key2,
-      // )
       .mount('#root');
   }
 }
