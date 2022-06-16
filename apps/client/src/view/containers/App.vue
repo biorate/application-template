@@ -1,11 +1,11 @@
 <style scoped>
-.test {
+.app {
   font-size: 30px;
 }
 </style>
 
 <template>
-  <div>{{ hello }}</div>
+  <div class="app">{{ hello }}</div>
   <Test string="world" :number="store.state.world" />
 </template>
 
@@ -13,7 +13,7 @@
 import { useStore } from 'vuex';
 import { Vue, Provide } from 'vue-property-decorator';
 import { Types } from '@biorate/inversion';
-import { Hello } from '../store';
+import { Hello } from '../../store';
 
 export default class App extends Vue {
   protected store = useStore<Hello>(Types.Hello);

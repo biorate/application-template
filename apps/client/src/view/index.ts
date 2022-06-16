@@ -2,8 +2,8 @@ import { init, injectable, inject, Types } from '@biorate/inversion';
 import { createApp } from 'vue';
 import { createStore } from 'vuex';
 import { Hello } from '../store';
-import App from './App.vue';
-import Test from './Test.vue';
+import { Test } from './components';
+import { App } from './containers';
 
 @injectable()
 export class View {
