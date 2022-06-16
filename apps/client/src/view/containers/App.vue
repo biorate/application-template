@@ -13,10 +13,10 @@
 import { useStore } from 'vuex';
 import { Vue, Provide } from 'vue-property-decorator';
 import { Types } from '@biorate/inversion';
-import { Hello } from '../../store';
+import { IStore } from '../../interfaces';
 
 export default class App extends Vue {
-  protected store = useStore<Hello>(Types.Hello);
+  protected store = useStore<IStore.IHello>(Types.Hello);
 
   @Provide() protected hello = 'hello';
 

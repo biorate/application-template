@@ -4,9 +4,10 @@ import { createStore } from 'vuex';
 import { Hello } from '../store';
 import { Test } from './components';
 import { App } from './containers';
+import { IView } from '../interfaces';
 
 @injectable()
-export class View {
+export class View implements IView {
   @inject(Types.Hello) protected hello: Hello;
 
   @init() protected initialize() {
