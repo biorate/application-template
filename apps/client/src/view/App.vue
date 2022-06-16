@@ -1,23 +1,32 @@
-<style>
+<style scoped>
 .test {
   font-size: 30px;
 }
 </style>
 
 <template>
-  <div class="test" v-for="item of $store.state.arr">test {{ b }}</div>
+  <div class="test">test</div>
+  <div>{{ hello.state.world }}</div>
+  <test prop-a="123" />
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Provide } from 'vue-property-decorator';
-import { init, injectable, Types } from '@biorate/inversion';
+import { useStore } from 'vuex';
+import { Vue, Prop, Provide, Ref } from 'vue-property-decorator';
+import { inject, Types } from '@biorate/inversion';
+import { Hello } from '../store';
+// import { init, injectable, Types } from '@biorate/inversion';
 
 export default class App extends Vue {
+  protected hello = useStore<Hello>(Types.Hello);
+
   @Prop({ default: 10 }) protected readonly prop: number;
 
-  @Provide() protected foo = 'foo';
+  @Provide() protected foo = 1;
 
-  public created() {}
+  public created() {
+    console.log(this.hello.state.world);
+  }
 
   public mounted() {}
 }

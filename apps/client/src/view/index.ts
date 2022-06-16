@@ -1,35 +1,22 @@
-import { init, injectable, Types } from '@biorate/inversion';
+import { init, injectable, inject, Types } from '@biorate/inversion';
 import { createApp } from 'vue';
 import { createStore } from 'vuex';
+import { Hello } from '../store';
 import App from './App.vue';
-
-class A {
-  a = 1;
-}
-
-class B extends A {
-  b = 222;
-  arr = [1, 2, 3];
-
-  action() {
-    ++this.arr[1];
-    ++this.arr[2];
-  }
-
-  actionB() {
-    ++this.b;
-  }
-}
+import Test from './Test.vue';
 
 @injectable()
 export class View {
+  @inject(Types.Hello) protected hello: Hello;
+
   @init() protected initialize() {
     createApp(App)
+      .component('test', Test)
       .use(
-        createStore<B>({
-          state: new B(),
+        createStore<Hello>({
+          state: this.hello,
         }),
-        Types.Store,
+        Types.Hello,
       )
       // .use(
       //   createStore<A>({
