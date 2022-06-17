@@ -1,8 +1,4 @@
 <style scoped>
-.app {
-  font-size: 30px;
-}
-
 .container {
   width: 100%;
   height: 300px;
