@@ -15,8 +15,8 @@
 <script lang="ts">
 import { Provide, Vue } from 'vue-property-decorator';
 import { useStore } from 'vuex';
-import { IStore } from '../../interfaces';
 import { Types } from '@biorate/inversion';
+import { IStore } from '../../interfaces';
 
 export default class App extends Vue {
   protected store = useStore<IStore.IHello>(Types.Hello);
@@ -24,7 +24,10 @@ export default class App extends Vue {
   @Provide() protected hello = 'hello';
 
   public created() {
-    setInterval(() => this.store.dispatch('increment'), 1000);
+    setInterval(
+      () => this.store.commit('set', { world: this.store.state.world + 1 }),
+      1000,
+    );
   }
 
   public mounted() {}

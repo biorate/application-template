@@ -1,12 +1,9 @@
-import { MutationTree } from 'vuex';
-
 export namespace IStore {
-  export interface IStoreBase<T> {
-    mutations?: MutationTree<T>;
+  export interface IBase {
+    set(data: Record<string, unknown>): void;
   }
 
-  export interface IHello extends IStoreBase<IHello> {
+  export interface IHello extends IBase {
     world: number;
-    increment(): void;
   }
 }

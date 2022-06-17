@@ -1,16 +1,8 @@
 import { injectable } from '@biorate/inversion';
+import { Base } from './base';
 import { IStore } from '../interfaces';
-import { action, mutation } from './decorators';
 
 @injectable()
-export class Hello implements IStore.IHello {
+export class Hello extends Base implements IStore.IHello {
   public world = 0;
-
-  @mutation public inc() {
-    ++this.world;
-  }
-
-  @action public increment() {
-    this.inc();
-  }
 }

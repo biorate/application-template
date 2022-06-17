@@ -1,5 +1,4 @@
 import { create } from '@biorate/symbolic';
-import { IStore } from '../interfaces';
 
 const decorate =
   (symbol: symbol) =>
@@ -10,12 +9,13 @@ const decorate =
     Reflect.defineMetadata(symbol, metadata, target);
   };
 
-const getDecorated = (symbol: symbol) => (store: IStore.IStoreBase<unknown>) => {
+const getDecorated = (symbol: symbol) => (store: unknown) => {
   const metadata = Reflect.getMetadata(symbol, store);
   if (!metadata) return;
   const data = {};
   for (const field in metadata)
-    data[field] = (store, args) => metadata[field].apply(store.state, args);
+    data[field] = (store: { state: unknown }, ...args) =>
+      metadata[field].apply(store.state ?? store, args);
   return data;
 };
 
