@@ -3,7 +3,7 @@ import { createApp } from 'vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { createStore } from 'vuex';
 import { Flex } from './components';
-import { App, Page1, Page2 } from './containers';
+import { App, First, Second } from './containers';
 import { IView, IStore } from '../interfaces';
 import { getActions, getMutations } from '../store/decorators';
 
@@ -18,9 +18,9 @@ export class View implements IView {
         createRouter({
           history: createWebHashHistory(),
           routes: [
-            { path: '/', component: Page1 },
-            { path: '/page1', component: Page1 },
-            { path: '/page2', component: Page2 },
+            { path: '/', component: First },
+            { path: '/first', component: First },
+            { path: '/second', component: Second },
           ],
         }),
       )

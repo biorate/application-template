@@ -8,11 +8,11 @@
 </style>
 
 <template>
-  <Flex center middle class="page" @click="$router.push('/page2')">Page1</Flex>
+  <Flex center middle class="page" @click="$router.push('/second')">First</Flex>
 </template>
 
 <script lang="ts">
 import { Vue } from 'vue-property-decorator';
 
-export default class App extends Vue {}
+export default class First extends Vue {}
 </script>
