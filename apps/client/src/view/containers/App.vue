@@ -2,14 +2,27 @@
 .app {
   font-size: 30px;
 }
+
+.container {
+  width: 100%;
+  height: 300px;
+  background: gray;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: green;
+}
 </style>
 
 <template>
   <router-view></router-view>
-  <div class="app">{{ hello }}</div>
-  <div>{{ store.state.foo }}</div>
-  <div>{{ store.state.bar }}</div>
-  <Test string="world" :number="store.state.world" />
+  <Flex class="container" around middle>
+    <Flex center middle class="box">{{ hello }}</Flex>
+    <Flex center middle class="box">{{ store.state.world }}</Flex>
+    <Flex center middle class="box">world</Flex>
+  </Flex>
 </template>
 
 <script lang="ts">

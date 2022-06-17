@@ -1,7 +1,14 @@
-<style scoped></style>
+<style scoped>
+.page {
+  user-select: none;
+  background: aqua;
+  width: 100%;
+  height: 100px;
+}
+</style>
 
 <template>
-  <div>Page1</div>
+  <Flex center middle class="page" @click="$router.push('/page2')">Page1</Flex>
 </template>
 
 <script lang="ts">
