@@ -1,8 +1,4 @@
-<style scoped>
-.app {
-  font-size: 30px;
-}
-</style>
+<style scoped></style>
 
 <template>
   <div>Page2</div>

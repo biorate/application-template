@@ -1,38 +1,30 @@
 import { create } from '@biorate/symbolic';
 import { IStore } from '../interfaces';
 
+const decorate =
+  (symbol: symbol) =>
+  (target: Object, propertyKey: string, descriptor: PropertyDescriptor) => {
+    let metadata = Reflect.getMetadata(symbol, target);
+    if (!metadata) metadata = {};
+    metadata[propertyKey] = descriptor.value;
+    Reflect.defineMetadata(symbol, metadata, target);
+  };
+
+const getDecorated = (symbol: symbol) => (store: IStore.IStoreBase<unknown>) => {
+  const metadata = Reflect.getMetadata(symbol, store);
+  if (!metadata) return;
+  const data = {};
+  for (const field in metadata)
+    data[field] = (store, args) => metadata[field].apply(store.state, args);
+  return data;
+};
+
 export const Vuex = create('Vuex');
 
-export const Mutation =
-  () => (target: Object, propertyKey: string, descriptor: PropertyDescriptor) => {
-    let metadata = Reflect.getMetadata(Vuex.Mutations, target);
-    if (!metadata) metadata = {};
-    metadata[propertyKey] = descriptor.value;
-    Reflect.defineMetadata(Vuex.Mutations, metadata, target);
-  };
+export const mutation = decorate(Vuex.Mutations);
 
-export const Actions =
-  () => (target: Object, propertyKey: string, descriptor: PropertyDescriptor) => {
-    let metadata = Reflect.getMetadata(Vuex.Actions, target);
-    if (!metadata) metadata = {};
-    metadata[propertyKey] = descriptor.value;
-    Reflect.defineMetadata(Vuex.Actions, metadata, target);
-  };
+export const action = decorate(Vuex.Actions);
 
-export const getMutations = (store: IStore.IStoreBase<unknown>) => {
-  const metadata = Reflect.getMetadata(Vuex.Mutations, store);
-  if (!metadata) return;
-  const mutations = {};
-  for (const field in metadata)
-    mutations[field] = (store, args) => metadata[field].apply(store, args);
-  return mutations;
-};
+export const getMutations = getDecorated(Vuex.Mutations);
 
-export const getActions = (store: IStore.IStoreBase<unknown>) => {
-  const metadata = Reflect.getMetadata(Vuex.Actions, store);
-  if (!metadata) return;
-  const actions = {};
-  for (const field in metadata)
-    actions[field] = (store, args) => metadata[field].apply(store, args);
-  return actions;
-};
+export const getActions = getDecorated(Vuex.Actions);

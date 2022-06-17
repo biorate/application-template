@@ -24,7 +24,7 @@ export default class App extends Vue {
   @Provide() protected hello = 'hello';
 
   public created() {
-    setInterval(() => this.store.state.increment(), 1000);
+    setInterval(() => this.store.dispatch('increment'), 1000);
   }
 
   public mounted() {}
