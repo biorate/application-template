@@ -1,3 +1,3 @@
-export { default as App } from './App.vue';
-export { default as First } from './First.vue';
-export { default as Second } from './Second.vue';
+export { default as App } from './v-app.vue';
+export { default as First } from './v-first.vue';
+export { default as Second } from './v-second.vue';

@@ -1,1 +1,1 @@
-export { default as Flex } from './Flex.vue';
+export { default as Flex } from './v-flex.vue';

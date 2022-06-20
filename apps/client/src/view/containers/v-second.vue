@@ -8,7 +8,7 @@
 </style>
 
 <template>
-  <Flex center middle class="page" @click="$router.push('/first')">Second</Flex>
+  <v-flex center middle class="page" @click="$router.push('/first')">Second</v-flex>
 </template>
 
 <script lang="ts">

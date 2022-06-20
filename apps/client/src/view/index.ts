@@ -1,6 +1,7 @@
 import { init, injectable, inject, Types } from '@biorate/inversion';
 import { createApp } from 'vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
+import { createI18n } from 'vue-i18n';
 import { createStore } from 'vuex';
 import { Flex } from './components';
 import { App, First, Second } from './containers';
@@ -13,7 +14,7 @@ export class View implements IView {
 
   @init() protected initialize() {
     createApp(App)
-      .component('Flex', Flex)
+      .component('v-flex', Flex)
       .use(
         createRouter({
           history: createWebHashHistory(),
@@ -31,6 +32,20 @@ export class View implements IView {
           actions: getActions(this.hello),
         }),
         Types.Hello,
+      )
+      .use(
+        createI18n({
+          locale: 'en-US',
+          fallbackLocale: 'ru-RU',
+          messages: {
+            'ru-RU': {
+              привет: 'мир!',
+            },
+            'en-US': {
+              привет: 'world!',
+            },
+          },
+        }),
       )
       .mount('#root');
   }

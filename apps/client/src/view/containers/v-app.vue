@@ -14,11 +14,11 @@
 
 <template>
   <router-view></router-view>
-  <Flex class="container" around middle>
-    <Flex center middle class="box">{{ hello }}</Flex>
-    <Flex center middle class="box">{{ store.state.world }}</Flex>
-    <Flex center middle class="box">world</Flex>
-  </Flex>
+  <v-flex class="container" around middle>
+    <v-flex center middle class="box">{{ hello }}</v-flex>
+    <v-flex center middle class="box">{{ store.state.world }}</v-flex>
+    <v-flex center middle class="box">{{ $t('привет') }}</v-flex>
+  </v-flex>
 </template>
 
 <script lang="ts">
