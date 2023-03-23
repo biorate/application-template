@@ -11,7 +11,7 @@ import {
 describe('Первый набор тестов', () => {
   beforeEach(() => {
     testStructure(Epic.Name, Feature.FirstScreen, Story.FirstStory);
-    owner('60126579');
+    owner('60000000');
     tag('auto');
 
     cy.visit('/');
@@ -19,7 +19,7 @@ describe('Первый набор тестов', () => {
 
   it('Первый тест', () => {
     description('Описание');
-    issue('POF-716', 'https://jira.lmru.tech/browse/POF-716');
+    issue('POF-716', 'https://biorate.jira.ru/browse/POF-716');
 
     step('Первый шаг');
     cy.getByDataTestId('button').should('be.visible').doClick();
