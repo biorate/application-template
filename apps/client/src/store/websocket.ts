@@ -12,7 +12,6 @@ export class Websocket {
 
   protected onOpen = (...args: any) => {
     this.ready = true;
-    console.log(args[0]);
     this.socket.send(JSON.stringify({ test: 1 }));
   };
 
