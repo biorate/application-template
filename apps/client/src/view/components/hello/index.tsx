@@ -10,7 +10,9 @@ export const Hello: FC<{ onClick: () => void; buttonTitle: string; title: string
   return (
     <>
       <div className={styles.hello}>{title}</div>
-      <button onClick={onClick}>{buttonTitle}</button>
+      <button data-testid="button" onClick={onClick}>
+        {buttonTitle}
+      </button>
     </>
   );
 };

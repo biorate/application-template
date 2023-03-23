@@ -3,7 +3,7 @@ export class Feature {
 }
 
 export class Story {
-  public static FirstStory = 'First story';
+  public static FirstStory = 'Первая история';
 }
 
 export class Epic {
