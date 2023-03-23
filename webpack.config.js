@@ -5,7 +5,8 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const lerna = require('./lerna.json');
 const argv = require('minimist')(process.argv.slice(2));
 const production = argv.mode === 'production';
-const apiUrl = 'http://localhost:3000';
+const baseURL = 'http://localhost:3000';
+const host = 'localhost:3000';
 
 module.exports = {
   output: {
@@ -118,7 +119,8 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_DEBUG': JSON.stringify(process.env.NODE_DEBUG),
-      'process.env.API_URL': JSON.stringify(production ? null : apiUrl),
+      'process.env.baseURL': JSON.stringify(production ? null : baseURL),
+      'process.env.host': JSON.stringify(production ? null : host),
       'process.env.VERSION': JSON.stringify(lerna.version),
     }),
     new MiniCssExtractPlugin({ filename: 'style.css' }),

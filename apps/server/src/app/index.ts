@@ -7,6 +7,7 @@ import {
   RequestCountMiddleware,
   RolesGuardProvider,
 } from '@biorate/nestjs-tools';
+import { WebsocketGateway } from './websocket';
 import * as controllers from './controllers';
 import { DebugController } from './controllers/debug';
 
@@ -15,6 +16,7 @@ import { DebugController } from './controllers/debug';
     ServeStaticModule.forRoot({
       rootPath: join(process.cwd(), '../client/dist'),
     }),
+    WebsocketGateway,
   ],
   controllers: [
     ...Object.values(controllers),

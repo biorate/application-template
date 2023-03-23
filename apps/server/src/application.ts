@@ -3,6 +3,7 @@ import * as cookieParser from 'cookie-parser';
 import { urlencoded, json, Request, Response } from 'express';
 import { init, injectable, inject, Types } from '@biorate/inversion';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
+import { WsAdapter } from '@nestjs/platform-ws';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder, OpenAPIObject } from '@nestjs/swagger';
 import { IConfig } from '@biorate/config';
@@ -30,6 +31,7 @@ export class Application implements IApplication {
     const host = this.config.get<string>('app.host', '0.0.0.0');
     const port = this.config.get<number>('app.port', 3000);
     this.app = await NestFactory.create(AppModule, { logger: new Logger() });
+    this.app.useWebSocketAdapter(new WsAdapter(this.app));
     this.app.setGlobalPrefix(this.config.get<string>('app.globalPrefix', ''));
     this.app.useGlobalFilters(new AllExceptionsFilter());
     this.app.useGlobalInterceptors(new RoutesInterceptor());
