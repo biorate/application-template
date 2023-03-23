@@ -1,9 +1,10 @@
-import { container, inject, Core, Types, kill } from '@biorate/inversion';
+import { container, inject, Core, Types } from '@biorate/inversion';
 import { Store, Hello, Router } from './store';
 import { View } from './view';
 
 export class Root extends Core() {
   @inject(Types.Store) protected store: Store;
+
   @inject(Types.View) protected view: View;
 }
 

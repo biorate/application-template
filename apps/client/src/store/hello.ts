@@ -1,17 +1,19 @@
 import { injectable, init } from '@biorate/inversion';
-import { observable, makeObservable } from 'mobx';
+import { observable, action, makeObservable } from 'mobx';
 
 @injectable()
 export class Hello {
-  @observable public blast = 1;
-  @observable public world = 0;
+  @observable public counter = 1;
 
   public constructor() {
     makeObservable(this);
   }
 
+  @action protected tick() {
+    ++this.counter;
+  }
+
   @init() protected initialize() {
-    setInterval(() => ++this.world, 1000);
-    setInterval(() => ++this.blast, 1000);
+    setInterval(() => this.tick(), 1000);
   }
 }

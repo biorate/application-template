@@ -10,19 +10,11 @@ import { Store } from '../store';
 export class View {
   @inject(Types.Store) protected store: Store;
 
-  protected cloneStore() {
-    const store = {};
-    for (const field in this.store) store[field] = this.store[field];
-    return store;
-  }
-
   @init() protected initialize() {
     render(
-      <Provider {...this.cloneStore()}>
-        <Router history={this.store.router.history}>
-          <App />
-        </Router>
-      </Provider>,
+      <Router history={this.store.router.history}>
+        <App />
+      </Router>,
       document.getElementById('root'),
     );
   }

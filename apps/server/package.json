@@ -6,30 +6,37 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./dist/index.js",
     "build": "npx tsc -p ./tsconfig.build.json --outDir ./dist",
-    "start:debug": "cross-env NODE_ENV=debug nodemon --watch 'src/**/*.ts' --exec 'ts-node-dev' src/index.ts",
+    "start:debug": "cross-env ts-node-dev --respawn --transpile-only src/index.ts",
     "test": "npx nyc --reporter=lcov --reporter=text-summary -- npx mocha --exit -r ts-node/register tests/**/*.spec.ts"
   },
   "keywords": [],
   "author": "llevkin",
   "license": "UNLICENSED",
   "dependencies": {
-    "@biorate/file-config": "^0.26.0",
-    "@biorate/prometheus": "^0.26.0",
-    "@nestjs/common": "^8.4.4",
-    "@nestjs/core": "^8.4.4",
-    "@nestjs/platform-express": "^8.4.4",
-    "@nestjs/serve-static": "^2.2.2",
-    "@nestjs/swagger": "^5.2.1",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.13.2",
-    "cookie-parser": "^1.4.6",
-    "helmet": "^5.0.2",
+    "@biorate/axios-prometheus": "^1.24.10",
+    "@biorate/config-loader": "^1.24.0",
+    "@biorate/config-loader-env": "^1.24.0",
+    "@biorate/config-loader-fs": "^1.24.0",
+    "@biorate/config-loader-vault": "^1.24.0",
+    "@biorate/nestjs-tools": "^1.24.7",
+    "@biorate/prometheus": "^1.24.0",
+    "@biorate/vault": "^1.24.0",
+    "@nestjs/common": "^9.0.11",
+    "@nestjs/core": "^9.0.11",
+    "@nestjs/platform-express": "^9.0.11",
+    "@nestjs/serve-static": "^3.0.0",
+    "@nestjs/swagger": "^6.1.2",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "cookie-parser": "^1.4.5",
+    "helmet": "^4.6.0",
+    "http-proxy-middleware": "^2.0.6",
     "on-headers": "^1.0.2",
+    "serve-favicon": "^2.5.0",
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.3",
-    "@types/express": "^4.17.13",
-    "nodemon": "^2.0.16"
+    "@types/express": "^4.17.13"
   }
 }

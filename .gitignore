@@ -44,3 +44,9 @@ coverage
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# CyPress artifacts
+/apps/client/cypress/videos/*
+/apps/client/cypress/screenshots/*
+/apps/client/allure-results/*
+/apps/client/allure-report/*

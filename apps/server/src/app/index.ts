@@ -2,11 +2,13 @@ import { join } from 'path';
 import { Module, MiddlewareConsumer } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { APP_GUARD } from '@nestjs/core';
-import { RolesGuard } from './providers';
-import { ResponseTime } from './middlewares/response-time';
-import { RequestCount } from './middlewares/request-count';
-import { ProbeController } from './controllers/probe';
-import { MetricsController } from './controllers/metrics';
+import {
+  ResponseTimeMiddleware,
+  RequestCountMiddleware,
+  RolesGuardProvider,
+} from '@biorate/nestjs-tools';
+import * as controllers from './controllers';
+import { DebugController } from './controllers/debug';
 
 @Module({
   imports: [
@@ -14,17 +16,20 @@ import { MetricsController } from './controllers/metrics';
       rootPath: join(process.cwd(), '../client/dist'),
     }),
   ],
-  controllers: [ProbeController, MetricsController],
+  controllers: [
+    ...Object.values(controllers),
+    ...(process.env.NODE_ENV === 'production' ? [] : [DebugController]),
+  ],
   providers: [
     {
       provide: APP_GUARD,
-      useClass: RolesGuard,
+      useClass: RolesGuardProvider,
     },
   ],
 })
 export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ResponseTime).forRoutes('*');
-    consumer.apply(RequestCount).forRoutes('*');
+  public configure(consumer: MiddlewareConsumer) {
+    consumer.apply(ResponseTimeMiddleware).forRoutes('*');
+    consumer.apply(RequestCountMiddleware).forRoutes('*');
   }
 }
