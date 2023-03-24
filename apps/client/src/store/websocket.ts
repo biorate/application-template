@@ -12,7 +12,6 @@ export class Websocket {
 
   protected onOpen = (...args: any) => {
     this.ready = true;
-    this.socket.send(JSON.stringify({ test: 1 }));
   };
 
   protected onClose = async () => {
@@ -54,7 +53,6 @@ export class Websocket {
   }
 
   public send(data: unknown) {
-    console.log(data);
     this.socket.send(JSON.stringify(data));
   }
 }
