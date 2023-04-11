@@ -1,6 +1,6 @@
 import { Controller, Get, Header } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { GETGoogle } from '../../api';
+import { GETGoogle } from '../../../api';
 
 @ApiTags('Debug')
 @Controller('debug')
