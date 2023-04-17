@@ -1,8 +1,9 @@
 import { createContext, useContext } from 'react';
-import { init, injectable, inject, Types } from '@biorate/inversion';
+import { init, kill, injectable, inject, Types } from '@biorate/inversion';
 import { Config } from './config';
 import { Hello } from './hello';
 import { Router } from './router';
+import { Preloader } from './preloader';
 import { Websocket } from './websocket';
 
 @injectable()
@@ -17,15 +18,22 @@ export class Store {
 
   @inject(Types.Hello) public hello: Hello;
 
+  @inject(Types.Preloader) public preloader: Preloader;
+
   @inject(Types.Websocket) public websocket: Websocket;
 
-  @init() protected initialize() {
+  protected constructor() {
     Store.StoreContext = createContext<Store>(this);
     Store.useStore = () => useContext(Store.StoreContext);
   }
+
+  @init() protected async initialize() {}
+
+  @kill() protected destruct() {}
 }
 
 export { Config } from './config';
 export { Hello } from './hello';
 export { Router } from './router';
+export { Preloader } from './preloader';
 export { Websocket } from './websocket';

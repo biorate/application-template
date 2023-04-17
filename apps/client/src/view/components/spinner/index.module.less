@@ -1,0 +1,18 @@
+.spinner {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.25);
+  left: 0;
+  top: 0;
+  z-index: 9990;
+  &__spin {
+    z-index: 9991;
+  }
+  .ant-spin-dot-item {
+    background-color: var(--primary-color);
+  }
+}

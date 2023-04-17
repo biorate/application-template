@@ -1,8 +1,5 @@
 {
-  "packages": [
-    "apps/*/**",
-    "packages/*/**"
-  ],
+  "packages": ["apps/*/**", "packages/*/**"],
   "command": {
     "version": {
       "allowBranch": "master",
@@ -11,5 +8,6 @@
       "message": "chore(release): %s"
     }
   },
+  "useNx": true,
   "version": "0.0.0"
 }

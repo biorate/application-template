@@ -13,14 +13,14 @@
   "author": "llevkin",
   "license": "UNLICENSED",
   "dependencies": {
-    "@biorate/axios-prometheus": "^1.24.10",
-    "@biorate/config-loader": "^1.24.0",
-    "@biorate/config-loader-env": "^1.24.0",
-    "@biorate/config-loader-fs": "^1.24.0",
-    "@biorate/config-loader-vault": "^1.24.0",
-    "@biorate/nestjs-tools": "^1.25.5",
-    "@biorate/prometheus": "^1.24.0",
-    "@biorate/vault": "^1.24.0",
+    "@biorate/axios-prometheus": "^1.27.1",
+    "@biorate/config-loader": "^1.27.1",
+    "@biorate/config-loader-env": "^1.27.1",
+    "@biorate/config-loader-fs": "^1.27.1",
+    "@biorate/config-loader-vault": "^1.27.1",
+    "@biorate/nestjs-tools": "^1.27.1",
+    "@biorate/prometheus": "^1.27.1",
+    "@biorate/vault": "^1.27.1",
     "@nestjs/common": "^9.3.12",
     "@nestjs/core": "^9.3.12",
     "@nestjs/platform-express": "^9.3.12",
@@ -34,7 +34,7 @@
     "http-proxy-middleware": "^2.0.6",
     "on-headers": "^1.0.2",
     "serve-favicon": "^2.5.0",
-    "swagger-ui-express": "^4.3.0"
+    "swagger-ui-express": "^4.6.2"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.3",

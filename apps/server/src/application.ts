@@ -1,7 +1,8 @@
 import * as helmet from 'helmet';
 import * as cookieParser from 'cookie-parser';
+import { promisify } from 'util';
 import { urlencoded, json, Request, Response } from 'express';
-import { init, injectable, inject, Types } from '@biorate/inversion';
+import { init, kill, injectable, inject, Types } from '@biorate/inversion';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { WsAdapter } from '@nestjs/platform-ws';
 import { NestFactory } from '@nestjs/core';
@@ -26,6 +27,11 @@ export class Application implements IApplication {
   public app: INestApplication;
 
   public document: OpenAPIObject;
+
+  @kill() protected async kill() {
+    const server = this.app.getHttpServer();
+    await promisify(server.close.bind(server))();
+  }
 
   @init() protected async initialize() {
     const host = this.config.get<string>('app.host', '0.0.0.0');
