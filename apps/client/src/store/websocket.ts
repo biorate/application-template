@@ -49,7 +49,7 @@ export class Websocket {
   }
 
   @init() protected async initialize() {
-    await this.connect();
+    this.connect();
   }
 
   public send(data: unknown) {

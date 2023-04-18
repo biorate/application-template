@@ -1,5 +1,6 @@
 import { injectable, init } from '@biorate/inversion';
 import { observable, action, makeObservable } from 'mobx';
+import { router } from '../view/router';
 
 @injectable()
 export class Hello {
@@ -11,6 +12,10 @@ export class Hello {
 
   @action protected tick() {
     ++this.counter;
+  }
+
+  @action public toCart() {
+    router.navigate('/cart');
   }
 
   @init() protected initialize() {

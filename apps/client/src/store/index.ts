@@ -2,7 +2,6 @@ import { createContext, useContext } from 'react';
 import { init, kill, injectable, inject, Types } from '@biorate/inversion';
 import { Config } from './config';
 import { Hello } from './hello';
-import { Router } from './router';
 import { Preloader } from './preloader';
 import { Websocket } from './websocket';
 
@@ -13,8 +12,6 @@ export class Store {
   static useStore: () => Store;
 
   @inject(Types.Config) public config: Config;
-
-  @inject(Types.Router) public router: Router;
 
   @inject(Types.Hello) public hello: Hello;
 
@@ -34,6 +31,5 @@ export class Store {
 
 export { Config } from './config';
 export { Hello } from './hello';
-export { Router } from './router';
 export { Preloader } from './preloader';
 export { Websocket } from './websocket';

@@ -6,10 +6,10 @@ import { Store } from '../../../store';
 import './index.less';
 
 export const Main: FC = observer(() => {
-  const { router, hello } = Store.useStore();
+  const { hello } = Store.useStore();
   return (
     <Hello
-      onClick={() => void router.push('/cart')}
+      onClick={() => void hello.toCart()}
       title={`Main ${hello.counter}`}
       buttonTitle="to cart =>"
     />
