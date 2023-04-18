@@ -1,7 +1,7 @@
-import { join } from 'path';
 import { Module, MiddlewareConsumer } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { APP_GUARD } from '@nestjs/core';
+import { path } from '@biorate/tools';
 import {
   ResponseTimeMiddleware,
   RequestCountMiddleware,
@@ -13,7 +13,7 @@ import { DebugController } from './controllers/debug';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), '../client/dist'),
+      rootPath: path.create(process.cwd(), '../client/dist'),
     }),
   ],
   controllers: [
