@@ -68,11 +68,11 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
-    "@biorate/axios": "^1.27.1",
-    "@biorate/config": "^1.27.1",
-    "@biorate/errors": "^1.2.2",
-    "@biorate/inversion": "^1.27.1",
-    "@biorate/symbolic": "^1.0.0",
+    "@biorate/axios": "^1.28.0",
+    "@biorate/config": "^1.28.0",
+    "@biorate/errors": "^1.28.0",
+    "@biorate/inversion": "^1.28.0",
+    "@biorate/symbolic": "^1.28.0",
     "lodash": "^4.17.21",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
