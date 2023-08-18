@@ -14,8 +14,8 @@ export class Hello {
     ++this.counter;
   }
 
-  @action public toCart() {
-    router.navigate('/cart');
+  @action public async toCart() {
+    await router.navigate('/cart');
   }
 
   @init() protected initialize() {
