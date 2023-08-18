@@ -8,7 +8,7 @@ import { router } from '../../router';
 import './index.less';
 
 @observer
-export class App extends React.Component {
+export class App extends React.Component<unknown, unknown> {
   @inject(Types.Preloader) protected preloader: Preloader;
 
   public render() {
