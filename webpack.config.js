@@ -2,8 +2,9 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const lerna = require('./lerna.json');
 const argv = require('minimist')(process.argv.slice(2));
+const lerna = require('./lerna.json');
+
 const production = argv.mode === 'production';
 const baseURL = 'http://localhost:3000';
 const host = 'localhost:3000';

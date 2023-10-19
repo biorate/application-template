@@ -8,11 +8,11 @@ describe('Example', function () {
     await container.get(Root).$run();
   });
 
-  it('/api/probe/readiness (GET)', (done) => {
-    Root.supertest.get('/api/probe/readiness').expect(200, done);
+  it('/probe/readiness (GET)', (done) => {
+    Root.supertest.get('/probe/readiness').expect(200, done);
   });
 
-  it('/api/probe/healthz (GET)', (done) => {
-    Root.supertest.get('/api/probe/healthz').expect(200, done);
+  it('/probe/healthz (GET)', (done) => {
+    Root.supertest.get('/probe/healthz').expect(200, done);
   });
 });

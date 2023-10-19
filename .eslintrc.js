@@ -45,6 +45,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
     'import/namespace': 'off',
     'no-underscore-dangle': 0,
     'no-nested-ternary': 1,

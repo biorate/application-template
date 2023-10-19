@@ -11,11 +11,17 @@ import { IApplication } from './interfaces';
 
 export class Root extends Core() {
   @inject(Types.Config) public config: IConfig;
+
   @inject(Types.ConfigLoaderEnv) public configLoaderEnv: ConfigLoader;
+
   @inject(Types.ConfigLoaderFs) public configLoaderFs: ConfigLoader;
+
   @inject(Types.ConfigLoaderVault) public configLoaderVault: ConfigLoader;
+
   @inject(Types.Vault) public vault: IVaultConnector;
+
   @inject(Types.Prometheus) public prometheus: IPrometheus;
+
   @inject(Types.Application) public application: IApplication;
 }
 

@@ -16,7 +16,6 @@ import {
   AllExceptionsFilter,
 } from '@biorate/nestjs-tools';
 import { IApplication } from './interfaces';
-import { ResponseInterceptor } from './interceptors';
 import { Logger } from './logger';
 import { AppModule } from './app';
 
@@ -29,6 +28,7 @@ export class Application implements IApplication {
   public document: OpenAPIObject;
 
   @kill() protected async kill() {
+    if (!this.app?.getHttpServer) return;
     const server = this.app.getHttpServer();
     await promisify(server.close.bind(server))();
   }
@@ -41,7 +41,6 @@ export class Application implements IApplication {
     this.app.setGlobalPrefix(this.config.get<string>('app.globalPrefix', ''));
     this.app.useGlobalFilters(new AllExceptionsFilter());
     this.app.useGlobalInterceptors(new RoutesInterceptor());
-    this.app.useGlobalInterceptors(new ResponseInterceptor());
     this.app.useGlobalPipes(new ValidationPipe());
     this.app.use(
       helmet(

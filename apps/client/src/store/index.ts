@@ -3,6 +3,7 @@ import { init, kill, injectable, inject, Types } from '@biorate/inversion';
 import { Config } from './config';
 import { Hello } from './hello';
 import { Preloader } from './preloader';
+import { Spinner } from './spinner';
 import { Websocket } from './websocket';
 
 @injectable()
@@ -16,6 +17,8 @@ export class Store {
   @inject(Types.Hello) public hello: Hello;
 
   @inject(Types.Preloader) public preloader: Preloader;
+
+  @inject(Types.Spinner) public spinner: Spinner;
 
   @inject(Types.Websocket) public websocket: Websocket;
 
@@ -32,4 +35,5 @@ export class Store {
 export { Config } from './config';
 export { Hello } from './hello';
 export { Preloader } from './preloader';
+export { Spinner } from './spinner';
 export { Websocket } from './websocket';
