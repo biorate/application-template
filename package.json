@@ -13,10 +13,7 @@
     "version": "npx lerna version",
     "postinstall": "npm run bootstrap",
     "lint": "npx lerna run lint --stream --no-prefix --scope client",
-    "cleanup:node_modules": "rm -rf $(find -type d -name 'node_modules')",
-    "cy:open": "npx lerna run cy:open --stream --no-prefix --scope client",
-    "cy:run": "npx lerna run cy:run --stream --no-prefix --scope client",
-    "allure:report": "npx lerna run allure:report --stream --no-prefix --scope client"
+    "cleanup:node_modules": "rm -rf $(find -type d -name 'node_modules')"
   },
   "keywords": [],
   "author": "llevkin",
