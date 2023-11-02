@@ -16,7 +16,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm i -g pnpm@8.9.0
+RUN npm i -g npm@8.3 pnpm@8.10.2
 RUN pnpm i
 RUN pnpm run build
 
