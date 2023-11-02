@@ -12,7 +12,6 @@
     "build:debug": "npx lerna run build:debug --stream --no-prefix --scope client",
     "start:debug": "npx lerna run start:debug --stream --no-prefix --scope server",
     "test": "npx lerna run test --stream --no-prefix",
-    "bootstrap": "npx lerna bootstrap",
     "version": "npx lerna version",
     "lint": "npx lerna run lint --stream --no-prefix --scope client",
     "cleanup:node_modules": "rm -rf $(find -type d -name 'node_modules')"
