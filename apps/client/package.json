@@ -6,13 +6,9 @@
   "scripts": {
     "build": "npx webpack --config=../../webpack.config.js --mode=production --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
     "build:debug": "npx webpack serve --history-api-fallback --config=../../webpack.config.js --mode=development --hot --open --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
-    "lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint:ls",
-    "lint:fix": "npm run lint:eslint -- --fix && npm run lint:stylelint -- --fix && npm run lint:ls",
-    "lint:stylelint": "stylelint \"src/**/*.{ts,tsx,pcss}\"",
-    "lint:stylelint:report": "stylelint \"src/**/*.{ts,tsx,pcss}\" --output-file reports/stylelint-report.txt",
-    "lint:eslint": "eslint ./src --ext .ts,.tsx",
-    "lint:eslint:report": "eslint ./src --ext .ts,.tsx --output-file reports/eslint-report.json --format json",
-    "lint:ls": "ls-lint"
+    "prettier:fix": "npx prettier --write ./src",
+    "lint:fix": "npx eslint --fix ./src",
+    "hooks:pre-commit": "pnpm run prettier:fix && pnpm run lint:fix"
   },
   "keywords": [],
   "author": "llevkin",

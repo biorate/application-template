@@ -124,6 +124,9 @@ importers:
       file-loader:
         specifier: ^6.2.0
         version: 6.2.0(webpack@5.89.0)
+      husky:
+        specifier: ^8.0.3
+        version: 8.0.3
       lerna:
         specifier: ^6.6.2
         version: 6.6.2
@@ -289,6 +292,9 @@ importers:
       cookie-parser:
         specifier: ^1.4.5
         version: 1.4.6
+      express:
+        specifier: 4.18.2
+        version: 4.18.2
       helmet:
         specifier: ^4.6.0
         version: 4.6.0
@@ -301,6 +307,9 @@ importers:
       serve-favicon:
         specifier: ^2.5.0
         version: 2.5.0
+      source-map-support:
+        specifier: ^0.5.21
+        version: 0.5.21
       swagger-ui-express:
         specifier: ^4.6.2
         version: 4.6.3(express@4.18.2)
@@ -5776,6 +5785,12 @@ packages:
       ms: 2.1.3
     dev: true
 
+  /husky@8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
   /i18next-browser-languagedetector@7.1.0:
     resolution: {integrity: sha512-cr2k7u1XJJ4HTOjM9GyOMtbOA47RtUoWRAtt52z43r3AoMs2StYKyjS3URPhzHaf+mn10hY9dZWamga5WPQjhA==}
     dependencies:
@@ -9758,12 +9773,10 @@ packages:
     dependencies:
       buffer-from: 1.1.2
       source-map: 0.6.1
-    dev: true
 
   /source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /source-map@0.7.4:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
