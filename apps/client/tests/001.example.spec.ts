@@ -10,6 +10,7 @@ import {
   owner,
   tag,
   Page,
+  description,
   expect,
 } from '@biorate/playwright';
 import { Spec } from './spec';
@@ -21,6 +22,7 @@ class Test extends Spec {
   @epic('Epic allure test1')
   @feature('Feature allure test1')
   @story('Story allure test1')
+  @description('Playwright page test')
   @owner('60000000')
   @tag('tag1')
   @test('test1')
@@ -34,11 +36,12 @@ class Test extends Spec {
   @epic('Epic allure test2')
   @feature('Feature allure test2')
   @story('Story allure test2')
+  @description('Google page test')
   @owner('60000000')
   @tag('tag2')
   @test('test2')
   protected async test2({ page }: { page: Page }) {
-    await page.goto('https://playwright.dev/');
-    await expect(page).toHaveTitle(/Playwright/);
+    await page.goto('https://google.com/');
+    await expect(page).toHaveTitle(/Google/);
   }
 }

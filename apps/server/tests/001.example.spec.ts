@@ -10,6 +10,7 @@ import {
   story,
   tag,
   testCaseId,
+  attachment,
 } from 'allure-decorators';
 import { ContentType, Severity } from 'allure-js-commons';
 import { allure } from 'allure-mocha/runtime';
@@ -32,6 +33,7 @@ class Example extends Spec {
   @owner('60000000')
   @tag('api')
   @description('Readiness probe test.')
+  @attachment('test attachment content', ContentType.TEXT)
   @test('/probe/readiness (GET)')
   protected async probeReadiness() {
     await this.validate({
