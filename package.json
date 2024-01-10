@@ -18,6 +18,7 @@
     "lint": "npx lerna run lint --stream --no-prefix --scope client",
     "cleanup:node_modules": "rm -rf $(find -type d -name 'node_modules')",
     "prepare": "npx husky install",
+    "allure:report": "npx lerna run allure:report --scope server --scope client",
     "hooks:pre-commit": "npx lerna run hooks:pre-commit --scope server --scope client"
   },
   "engines": {
