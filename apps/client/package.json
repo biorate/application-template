@@ -16,7 +16,7 @@
   "author": "llevkin",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@biorate/playwright": "^1.53.1",
+    "@biorate/playwright": "^1.53.2",
     "@playwright/test": "^1.40.1",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",

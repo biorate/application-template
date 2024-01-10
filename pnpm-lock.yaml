@@ -209,8 +209,8 @@ importers:
   apps/client:
     devDependencies:
       '@biorate/playwright':
-        specifier: ^1.53.1
-        version: 1.53.1
+        specifier: ^1.53.2
+        version: 1.53.2
       '@playwright/test':
         specifier: ^1.40.1
         version: 1.40.1
@@ -856,8 +856,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@biorate/playwright@1.53.1:
-    resolution: {integrity: sha512-lTaicCDbuEU3Mc26zomKSy6O5SmrIZCC/Ps61f/+byYOI17EMG8ShuKMcaDhXwPEZx0FORwhdQ2rUDOgyBta0Q==}
+  /@biorate/playwright@1.53.2:
+    resolution: {integrity: sha512-PFRorgDYnBN47VvYyuekF5QvYdbg1RZskNqgl8v4m8UQdvaSMhybsWjUzxe/SfsvnumIC/hMtsGgUrLrTZTj7Q==}
     dependencies:
       '@biorate/symbolic': 1.28.0
       '@biorate/tools': 1.28.0

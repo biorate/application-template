@@ -1,4 +1,4 @@
-import { Severity } from 'allure-js-commons';
+import { Severity, ContentType } from 'allure-js-commons';
 import {
   suite,
   test,
@@ -12,11 +12,16 @@ import {
   Page,
   description,
   expect,
+  allure,
 } from '@biorate/playwright';
 import { Spec } from './spec';
 
 @suite('Test')
 class Test extends Spec {
+  protected static async after() {
+    allure.attachment('Test attachment', 'test attachment content', ContentType.TEXT);
+  }
+
   @issue('1')
   @severity(Severity.MINOR)
   @epic('Epic allure test1')
@@ -28,6 +33,7 @@ class Test extends Spec {
   @test('test1')
   protected async test1({ page }: { page: Page }) {
     await page.goto('https://playwright.dev/');
+    allure.attachment('Playwright test', 'Playwright test content', ContentType.TEXT);
     await expect(page).toHaveTitle(/Playwright/);
   }
 
@@ -42,6 +48,7 @@ class Test extends Spec {
   @test('test2')
   protected async test2({ page }: { page: Page }) {
     await page.goto('https://google.com/');
+    allure.attachment('Google test', 'Google test content', ContentType.TEXT);
     await expect(page).toHaveTitle(/Google/);
   }
 }
