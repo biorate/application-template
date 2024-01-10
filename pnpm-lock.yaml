@@ -88,6 +88,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^5.22.0
         version: 5.62.0(eslint@8.52.0)(typescript@5.2.2)
+      allure-commandline:
+        specifier: ^2.25.0
+        version: 2.25.0
       allure-js-commons:
         specifier: ^2.10.0
         version: 2.10.0
@@ -206,8 +209,8 @@ importers:
   apps/client:
     devDependencies:
       '@biorate/playwright':
-        specifier: ^1.51.0
-        version: 1.51.0
+        specifier: ^1.53.1
+        version: 1.53.1
       '@playwright/test':
         specifier: ^1.40.1
         version: 1.40.1
@@ -853,8 +856,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@biorate/playwright@1.51.0:
-    resolution: {integrity: sha512-KNa+fO4bTh60FP624yPyXItxffwsp/Uy5zU7oBamvxuDEvd3zNF2jGGMShtUSIu7blz3cPVXKJg4WSvYsmVq/Q==}
+  /@biorate/playwright@1.53.1:
+    resolution: {integrity: sha512-lTaicCDbuEU3Mc26zomKSy6O5SmrIZCC/Ps61f/+byYOI17EMG8ShuKMcaDhXwPEZx0FORwhdQ2rUDOgyBta0Q==}
     dependencies:
       '@biorate/symbolic': 1.28.0
       '@biorate/tools': 1.28.0
@@ -2743,6 +2746,11 @@ packages:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
       uri-js: 4.4.1
+    dev: true
+
+  /allure-commandline@2.25.0:
+    resolution: {integrity: sha512-HYMQwuX/8ySTrXqgr6ZY830c6xgRbSusxVwZIBbDyNTCDb3mqK2b1ENjsD8yhl/7/8S02NZCDAwJFxt3f8qL9Q==}
+    hasBin: true
     dev: true
 
   /allure-decorators@2.10.0:

@@ -10,6 +10,7 @@
     "test": "npx nyc -- npx mocha",
     "lint:fix": "npx eslint --fix ./src",
     "prettier:fix": "npx prettier --write ./src",
+    "allure:report": "npx allure serve allure-results --clean -o allure-report",
     "hooks:pre-commit": "pnpm run prettier:fix && pnpm run lint:fix"
   },
   "keywords": [],
