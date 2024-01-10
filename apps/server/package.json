@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=production node ./dist/index.js",
     "build": "npx tsc -p ./tsconfig.build.json --outDir ./dist",
     "start:debug": "cross-env ts-node-dev --respawn --transpile-only src/index.ts",
-    "test": "npx nyc --reporter=lcov --reporter=text-summary -- npx mocha --exit -r ts-node/register tests/**/*.spec.ts",
+    "test": "npx nyc -- npx mocha",
     "lint:fix": "npx eslint --fix ./src",
     "prettier:fix": "npx prettier --write ./src",
     "hooks:pre-commit": "pnpm run prettier:fix && pnpm run lint:fix"
@@ -16,12 +16,12 @@
   "author": "llevkin",
   "license": "UNLICENSED",
   "dependencies": {
-    "@biorate/axios-prometheus": "^1.42.2",
+    "@biorate/axios-prometheus": "^1.44.1",
     "@biorate/config-loader": "^1.42.2",
     "@biorate/config-loader-env": "^1.42.2",
     "@biorate/config-loader-fs": "^1.42.2",
     "@biorate/config-loader-vault": "^1.43.0",
-    "@biorate/nestjs-tools": "^1.42.6",
+    "@biorate/nestjs-tools": "^1.51.1",
     "@biorate/prometheus": "^1.42.2",
     "@biorate/vault": "^1.43.0",
     "@nestjs/common": "^9.3.12",
@@ -34,18 +34,20 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "cookie-parser": "^1.4.5",
-    "express": "4.18.2",
+    "express": "^4.18.2",
     "helmet": "^4.6.0",
     "http-proxy-middleware": "^2.0.6",
-    "on-headers": "^1.0.2",
     "serve-favicon": "^2.5.0",
     "source-map-support": "^0.5.21",
     "swagger-ui-express": "^4.6.2",
     "ws": "^8.14.2"
   },
   "devDependencies": {
+    "@biorate/mocha-spec": "^1.53.0",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.17",
-    "@types/ws": "^8.5.6"
+    "@types/ws": "^8.5.8",
+    "allure-decorators": "^2.10.0",
+    "allure-mocha": "^2.10.0"
   }
 }

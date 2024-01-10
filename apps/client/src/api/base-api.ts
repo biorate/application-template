@@ -21,12 +21,12 @@ export class BaseApi extends Axios {
 
   protected async before(params: IAxiosFetchOptions) {
     await super.before(params);
-    this.spinner.show();
+    this.spinner.show(this.constructor.name);
   }
 
   protected async finally(startTime: [number, number]) {
     await super.finally(startTime);
-    this.spinner.hide();
+    this.spinner.hide(this.constructor.name);
   }
 
   protected async catch(e: IError, startTime: [number, number]) {

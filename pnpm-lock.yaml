@@ -19,8 +19,8 @@ importers:
   .:
     dependencies:
       '@biorate/axios':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.44.1
+        version: 1.44.1
       '@biorate/config':
         specifier: ^1.42.2
         version: 1.42.2
@@ -28,8 +28,8 @@ importers:
         specifier: ^1.28.0
         version: 1.28.0
       '@biorate/i18n':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.45.0
+        version: 1.45.0
       '@biorate/inversion':
         specifier: ^1.42.2
         version: 1.42.2
@@ -56,8 +56,11 @@ importers:
         version: github.com/browserify/node-util/e37ce41f4063bcd7bc27e01470d6654053bdcd14
     devDependencies:
       '@biorate/mocha':
-        specifier: ^1.45.1
-        version: 1.45.1
+        specifier: ^1.53.0
+        version: 1.53.0
+      '@istanbuljs/nyc-config-typescript':
+        specifier: ^1.0.2
+        version: 1.0.2(nyc@15.1.0)
       '@types/chai':
         specifier: ^4.3.1
         version: 4.3.9
@@ -76,9 +79,6 @@ importers:
       '@types/node':
         specifier: ^17.0.31
         version: 17.0.45
-      '@types/supertest':
-        specifier: ^2.0.12
-        version: 2.0.15
       '@types/traverse':
         specifier: ^0.6.32
         version: 0.6.34
@@ -88,6 +88,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^5.22.0
         version: 5.62.0(eslint@8.52.0)(typescript@5.2.2)
+      allure-js-commons:
+        specifier: ^2.10.0
+        version: 2.10.0
       chai:
         specifier: ^4.3.6
         version: 4.3.10
@@ -148,6 +151,9 @@ importers:
       mocha-chai-jest-snapshot:
         specifier: ^1.1.3
         version: 1.1.4(chai@4.3.10)
+      mocha-multi-reporters:
+        specifier: ^1.5.1
+        version: 1.5.1(mocha@10.2.0)
       npx:
         specifier: ^3.0.0
         version: 3.0.0
@@ -158,14 +164,14 @@ importers:
         specifier: ^15.1.0
         version: 15.1.0
       prettier:
-        specifier: ^2.6.2
+        specifier: ^2.8.8
         version: 2.8.8
       pug-html-loader:
         specifier: ^1.1.5
         version: 1.1.5
-      supertest:
-        specifier: ^6.2.3
-        version: 6.3.3
+      style-loader:
+        specifier: ^3.3.1
+        version: 3.3.4(webpack@5.89.0)
       terser-webpack-plugin:
         specifier: ^5.3.1
         version: 5.3.9(webpack@5.89.0)
@@ -199,6 +205,12 @@ importers:
 
   apps/client:
     devDependencies:
+      '@biorate/playwright':
+        specifier: ^1.51.0
+        version: 1.51.0
+      '@playwright/test':
+        specifier: ^1.40.1
+        version: 1.40.1
       '@types/react':
         specifier: ^18.0.37
         version: 18.2.34
@@ -223,6 +235,9 @@ importers:
       mobx-react:
         specifier: ^7.3.0
         version: 7.6.0(mobx@6.10.2)(react-dom@18.2.0)(react@18.2.0)
+      playwright:
+        specifier: ^1.35.1
+        version: 1.40.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -239,8 +254,8 @@ importers:
   apps/server:
     dependencies:
       '@biorate/axios-prometheus':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.44.1
+        version: 1.44.1
       '@biorate/config-loader':
         specifier: ^1.42.2
         version: 1.42.2
@@ -254,8 +269,8 @@ importers:
         specifier: ^1.43.0
         version: 1.43.0
       '@biorate/nestjs-tools':
-        specifier: ^1.42.6
-        version: 1.42.6(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(@types/express@4.17.20)(class-transformer@0.5.1)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        specifier: ^1.51.1
+        version: 1.51.1(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(@types/express@4.17.20)(class-transformer@0.5.1)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@biorate/prometheus':
         specifier: ^1.42.2
         version: 1.42.2
@@ -293,7 +308,7 @@ importers:
         specifier: ^1.4.5
         version: 1.4.6
       express:
-        specifier: 4.18.2
+        specifier: ^4.18.2
         version: 4.18.2
       helmet:
         specifier: ^4.6.0
@@ -301,9 +316,6 @@ importers:
       http-proxy-middleware:
         specifier: ^2.0.6
         version: 2.0.6(@types/express@4.17.20)
-      on-headers:
-        specifier: ^1.0.2
-        version: 1.0.2
       serve-favicon:
         specifier: ^2.5.0
         version: 2.5.0
@@ -317,6 +329,9 @@ importers:
         specifier: ^8.14.2
         version: 8.14.2
     devDependencies:
+      '@biorate/mocha-spec':
+        specifier: ^1.53.0
+        version: 1.53.0(chai@4.3.10)(mocha-chai-jest-snapshot@1.1.4)
       '@types/cookie-parser':
         specifier: ^1.4.3
         version: 1.4.5
@@ -324,8 +339,14 @@ importers:
         specifier: ^4.17.17
         version: 4.17.20
       '@types/ws':
-        specifier: ^8.5.6
+        specifier: ^8.5.8
         version: 8.5.8
+      allure-decorators:
+        specifier: ^2.10.0
+        version: 2.10.0
+      allure-mocha:
+        specifier: ^2.10.0
+        version: 2.10.0(mocha@10.2.0)
 
 packages:
 
@@ -663,10 +684,10 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@biorate/axios-prometheus@1.42.2:
-    resolution: {integrity: sha512-p0lxT5OZk3FxJlfjK0UJGtBz2afd6fKARH1AuCsDs7Y4xvQ51asIB8BOOjcG1qy3kqrvDVi/F1OPtOv/iPSm9A==}
+  /@biorate/axios-prometheus@1.44.1:
+    resolution: {integrity: sha512-A+JbALRLz9OPaoCCA2EZrsD/euN4Z/JdBEgtW82208KprEPUVrIuvbP7aThwCWvqDBI9laYD2mm9ItMvGfKrXA==}
     dependencies:
-      '@biorate/axios': 1.42.2
+      '@biorate/axios': 1.44.1
       '@biorate/config': 1.42.2
       '@biorate/inversion': 1.42.2
       '@biorate/prometheus': 1.42.2
@@ -675,8 +696,8 @@ packages:
       - debug
     dev: false
 
-  /@biorate/axios@1.42.2:
-    resolution: {integrity: sha512-OEMhdWSNsLEJfR/0DXyCPeNsXCGDob6Tv38H6NwAj17eh4HyZLQf0icy2FsYrw89onY2vn8qRCTqwz8yAzVRxg==}
+  /@biorate/axios@1.44.1:
+    resolution: {integrity: sha512-tChpFcLmUKN46nGE6mTZxM4kh6JPneyRYbBwHive2rI9VVsw3GDe1psM/J6N7JZq7JztCSDv6EdTQTptmsVmDg==}
     dependencies:
       axios: 0.27.2
       axios-retry: 3.8.1
@@ -745,14 +766,13 @@ packages:
 
   /@biorate/errors@1.28.0:
     resolution: {integrity: sha512-pvLqsKCwMZHhWGUY8LQdlkxzI0W0oLJjvDMvxv7Z4+7AmpJHJ6PzPUThR3Ty9QiRmfLbUlfsy417dB/Qj1HJfA==}
-    dev: false
 
-  /@biorate/i18n@1.42.2:
-    resolution: {integrity: sha512-HSnGy2/2Fj87q2oEj1z69YzzgKr392A2sAQICpBkhLrs/6IVcVuXf9KAOznmJJ374c0dlPj6T1EvNpxTt2y3XQ==}
+  /@biorate/i18n@1.45.0:
+    resolution: {integrity: sha512-xl+UeURrFKB7if6mmqtMamB7hSnbk3vvHMjlPoSRdymrcQfXG8G03ch41uaTuNObNUlKGeqwrez0KEBTqhebaw==}
     dependencies:
       '@biorate/config': 1.42.2
       '@biorate/inversion': 1.42.2
-      i18next: 23.6.0
+      i18next: 23.4.2
     dev: false
 
   /@biorate/inversion@1.42.2:
@@ -775,15 +795,31 @@ packages:
       async-exit-hook: 2.0.1
     dev: false
 
-  /@biorate/mocha@1.45.1:
-    resolution: {integrity: sha512-R95fuo/J5vEiy7hz/G6JJYGceV9Sesw1KfKAleglV9eKE/jjcGstpftMz1+y0iYF51I0ySk9l9Gj5UvO+5pWvQ==}
+  /@biorate/mocha-spec@1.53.0(chai@4.3.10)(mocha-chai-jest-snapshot@1.1.4):
+    resolution: {integrity: sha512-a6u50xuUUP28AwkgsikH57JIxjyP7clOKo43R0LS4ltbjWrM3npgxQZ6J23Z/owQJ8v29Uuawq80eCgSV6/7JQ==}
+    peerDependencies:
+      chai: ^4.3.4
+      mocha-chai-jest-snapshot: ^1.1.4
     dependencies:
-      '@testdeck/core': 0.3.3
-      mocha: 10.2.0
+      '@biorate/errors': 1.28.0
+      '@biorate/tools': 1.28.0
+      chai: 4.3.10
+      class-validator: 0.14.0
+      mocha-chai-jest-snapshot: 1.1.4(chai@4.3.10)
+      supertest: 6.3.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
-  /@biorate/nestjs-tools@1.42.6(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(@types/express@4.17.20)(class-transformer@0.5.1)(reflect-metadata@0.1.13)(rxjs@7.8.1):
-    resolution: {integrity: sha512-lC4ToTwhOMiZOxGUjV5cZ4tKphziIWpNwdk4d/6UIUuoFRmjYDPL0WkQhRwJzgKwxir8cQP37l71k9w4bdDwsA==}
+  /@biorate/mocha@1.53.0:
+    resolution: {integrity: sha512-xPkoSgAw6xEjZeO2vqlJurcMYaeERHkBTW0iq3SFJacFcffNDSe484Ql030NWb/5Ua2Ac+AFdVmry8YXUZJ7Ag==}
+    dependencies:
+      mocha: 10.2.0
+      mocha.parallel: 0.15.6(mocha@10.2.0)
+    dev: true
+
+  /@biorate/nestjs-tools@1.51.1(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(@types/express@4.17.20)(class-transformer@0.5.1)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+    resolution: {integrity: sha512-GSpHEa+R8jkDbDtBrAYxnid9CXzudG86onvtOkR6Tr9RGvKiIy90i3iur4dMHv78p6GDcJnXnvxp1mcaqB+S+g==}
     dependencies:
       '@biorate/config': 1.42.2
       '@biorate/errors': 1.28.0
@@ -817,6 +853,16 @@ packages:
       - utf-8-validate
     dev: false
 
+  /@biorate/playwright@1.51.0:
+    resolution: {integrity: sha512-KNa+fO4bTh60FP624yPyXItxffwsp/Uy5zU7oBamvxuDEvd3zNF2jGGMShtUSIu7blz3cPVXKJg4WSvYsmVq/Q==}
+    dependencies:
+      '@biorate/symbolic': 1.28.0
+      '@biorate/tools': 1.28.0
+      '@playwright/test': 1.40.1
+      allure-playwright: 2.10.0
+      playwright: 1.40.1
+    dev: true
+
   /@biorate/prometheus@1.42.2:
     resolution: {integrity: sha512-Az6jAlI/MjTwhL8Y5Q1LmftlcC/jW9H3ohR4jlnT0+WO+4+vzAaVt/eJqOKi6epdnQBt1l6edIwiH6peZh+Npg==}
     dependencies:
@@ -833,13 +879,11 @@ packages:
 
   /@biorate/symbolic@1.28.0:
     resolution: {integrity: sha512-VUiMy1JQW1yyRrsQyahNPmbrIh+Ydpvmz8+tpffLtXo8cOD68JYqlhNGssd3BI/Gab9fKvR0EK7CBQa0wZrlhw==}
-    dev: false
 
   /@biorate/tools@1.28.0:
     resolution: {integrity: sha512-tI1s6YJLpXhQwKY6ns7kgmroiZ92u5oRCQBZ6++yBjn0pSNhmwePNYGWgrjYkIeiViayhyfmXp5ERFu0jgUHAQ==}
     dependencies:
       '@biorate/errors': 1.28.0
-    dev: false
 
   /@biorate/vault@1.43.0:
     resolution: {integrity: sha512-lLgL8hqmNG6v4AcM5PJQsbCX5lQEp6mxy5nkJ3vLYU4eThdMkt3XbpenhvXJ9+c2G+udUksxgvVZAmFwwQBEEA==}
@@ -956,6 +1000,16 @@ packages:
       get-package-type: 0.1.0
       js-yaml: 3.14.1
       resolve-from: 5.0.0
+    dev: true
+
+  /@istanbuljs/nyc-config-typescript@1.0.2(nyc@15.1.0):
+    resolution: {integrity: sha512-iKGIyMoyJuFnJRSVTZ78POIRvNnwZaWIf8vG4ZS3rQq58MMDrqEX2nnzx0R28V2X8JvmKYiqY9FP2hlJsm8A0w==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      nyc: '>=15'
+    dependencies:
+      '@istanbuljs/schema': 0.1.3
+      nyc: 15.1.0
     dev: true
 
   /@istanbuljs/schema@0.1.3:
@@ -1876,6 +1930,14 @@ packages:
     dev: true
     optional: true
 
+  /@playwright/test@1.40.1:
+    resolution: {integrity: sha512-EaaawMTOeEItCRvfmkI9v6rBkF1svM8wjl/YPRrg2N2Wmp+4qJYkWtJsbew1szfKKDm6fPLy4YAanBhIlf9dWw==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      playwright: 1.40.1
+    dev: true
+
   /@postman/form-data@3.1.1:
     resolution: {integrity: sha512-vjh8Q2a8S6UCm/KKs31XFJqEEgmbjBmpPNVV2eVav6905wyFAwaUOBGA1NPBI4ERH9MMZc6w0umFgM6WbEPMdg==}
     engines: {node: '>= 6'}
@@ -1945,10 +2007,6 @@ packages:
 
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
-    dev: true
-
-  /@testdeck/core@0.3.3:
-    resolution: {integrity: sha512-yu1yh7yluqnNDLe6Z18/y7kcmxBBEdfZAg3msG8covKkYPRbsCVr1+HmxReqJMKgeoh/UoEW1pi9Sz0fb/GYVQ==}
     dev: true
 
   /@tootallnate/once@2.0.0:
@@ -2028,10 +2086,6 @@ packages:
     resolution: {integrity: sha512-cbpH1NldYslPt7WRHXZFm+G7DTfUg57dQSCf1qrHwT8wtGX41JHLYf3Cieiqg7waPWjorVgcSSllZov+A1PJbg==}
     dependencies:
       '@types/express': 4.17.20
-    dev: true
-
-  /@types/cookiejar@2.1.3:
-    resolution: {integrity: sha512-LZ8SD3LpNmLMDLkG2oCBjZg+ETnx6XdCjydUE0HwojDmnDfDUnhMKKbtth1TZh+hzcqb03azrYWoXLS8sMXdqg==}
     dev: true
 
   /@types/eslint-scope@3.7.6:
@@ -2232,26 +2286,12 @@ packages:
     resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
     dev: true
 
-  /@types/superagent@4.1.20:
-    resolution: {integrity: sha512-GfpwJgYSr3yO+nArFkmyqv3i0vZavyEG5xPd/o95RwpKYpsOKJYI5XLdxLpdRbZI3YiGKKdIOFIf/jlP7A0Jxg==}
-    dependencies:
-      '@types/cookiejar': 2.1.3
-      '@types/node': 17.0.45
-    dev: true
-
-  /@types/supertest@2.0.15:
-    resolution: {integrity: sha512-jUCZZ/TMcpGzoSaed9Gjr8HCf3HehExdibyw3OHHEL1als1KmyzcOZZH4MjbObI8TkWsEr7bc7gsW0WTDni+qQ==}
-    dependencies:
-      '@types/superagent': 4.1.20
-    dev: true
-
   /@types/traverse@0.6.34:
     resolution: {integrity: sha512-bTvEo1/mx4ERGCcZfcvI8hBIUulNhqMcgyX/JzZ+p0WGdiU+oVjIJJJUs5zrkeWpfrTj98UvUm0qVHUk5lnkUg==}
     dev: true
 
   /@types/validator@13.11.5:
     resolution: {integrity: sha512-xW4qsT4UIYILu+7ZrBnfQdBYniZrMLYYK3wN9M/NdeIHgBN5pZI2/8Q7UfdWIcr5RLJv/OGENsx91JIpUUoC7Q==}
-    dev: false
 
   /@types/ws@8.5.8:
     resolution: {integrity: sha512-flUksGIQCnJd6sZ1l5dqCEG/ksaoAg/eUwiLAGTJQcfgvZJKF++Ta4bJA6A5aPSJmsr+xlseHn4KLgVlNnvPTg==}
@@ -2705,6 +2745,33 @@ packages:
       uri-js: 4.4.1
     dev: true
 
+  /allure-decorators@2.10.0:
+    resolution: {integrity: sha512-6t2Z5mcIycZzME4bS8Iz4zeiMhf4AFgDwvwAsXP+thbcNpD4gf1PGICA2gNbP8SNt9bPSVX6+m3c97rRcjPXVQ==}
+    dependencies:
+      allure-js-commons: 2.10.0
+    dev: true
+
+  /allure-js-commons@2.10.0:
+    resolution: {integrity: sha512-DgACWBU2dchQD8tQOo5Y0MXx08SSzdgCnKBdwrOu29vITYBXih+0r8SbmrFYQhjAbn8eKMM+mXq+rKtjZRa2oA==}
+    dependencies:
+      properties: 1.2.1
+    dev: true
+
+  /allure-mocha@2.10.0(mocha@10.2.0):
+    resolution: {integrity: sha512-crlVTbjvv7SkukWaGsNjc/dkw6mqe4MRTlmk5BbPBllrSqnNoolDOzDqnhC9SF7QN3OKqZOA/PzD6NgTDmB3WQ==}
+    peerDependencies:
+      mocha: '>=6.2.x'
+    dependencies:
+      allure-js-commons: 2.10.0
+      mocha: 10.2.0
+    dev: true
+
+  /allure-playwright@2.10.0:
+    resolution: {integrity: sha512-zDljPJ/Fnyd2fn7msChtZebwkSVmAGLe/oWK7okGi0Ed+iHZ0E5Vwe5Z5MtUdfLjnT/OkOduwmS7R/DHeTXFSA==}
+    dependencies:
+      allure-js-commons: 2.10.0
+    dev: true
+
   /ansi-colors@4.1.1:
     resolution: {integrity: sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==}
     engines: {node: '>=6'}
@@ -3102,7 +3169,6 @@ packages:
 
   /bluebird@2.11.0:
     resolution: {integrity: sha512-UfFSr22dmHPQqPP9XWHRhq+gWnHCYguQGkXQlbyPtW5qTnhFWA8/iXg765tH0cAjy7l/zPJ1aBTO0g5XgA7kvQ==}
-    dev: false
 
   /body-parser@1.20.1:
     resolution: {integrity: sha512-jWi7abTbYwajOytWCQc37VulmWiRae5RyTpaCyDcS5/lMdtwSz5lOpDE67srw/HYe35f1z3fDQw+3txg7gNtWw==}
@@ -3449,7 +3515,6 @@ packages:
       '@types/validator': 13.11.5
       libphonenumber-js: 1.10.49
       validator: 13.11.0
-    dev: false
 
   /classnames@2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
@@ -5228,6 +5293,14 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
 
+  /fsevents@2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -5804,6 +5877,12 @@ packages:
     transitivePeerDependencies:
       - encoding
     dev: true
+
+  /i18next@23.4.2:
+    resolution: {integrity: sha512-hkVPHKFLtn9iewdqHDiU+MGVIBk+bVFn5usw7CIeCn/SBcVKGTItGdjNPm2B8Lnz42CeHUlnSOTgsr5vbITjhA==}
+    dependencies:
+      '@babel/runtime': 7.23.2
+    dev: false
 
   /i18next@23.6.0:
     resolution: {integrity: sha512-z0Cxr0MGkt+kli306WS4nNNM++9cgt2b2VCMprY92j+AIab/oclgPxdwtTZVLP1zn5t5uo8M6uLsZmYrcjr3HA==}
@@ -6876,7 +6955,6 @@ packages:
 
   /libphonenumber-js@1.10.49:
     resolution: {integrity: sha512-gvLtyC3tIuqfPzjvYLH9BmVdqzGDiSi4VjtWe2fAgSdBf0yt8yPmbNnRIHNbR5IdtVkm0ayGuzwQKTWmU0hdjQ==}
-    dev: false
 
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
@@ -7439,6 +7517,29 @@ packages:
       yargs: 17.7.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /mocha-multi-reporters@1.5.1(mocha@10.2.0):
+    resolution: {integrity: sha512-Yb4QJOaGLIcmB0VY7Wif5AjvLMUFAdV57D2TWEva1Y0kU/3LjKpeRVmlMIfuO1SVbauve459kgtIizADqxMWPg==}
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      mocha: '>=3.1.2'
+    dependencies:
+      debug: 4.3.4(supports-color@8.1.1)
+      lodash: 4.17.21
+      mocha: 10.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /mocha.parallel@0.15.6(mocha@10.2.0):
+    resolution: {integrity: sha512-pWph+QieKGjk7cHY2hB78wyKJDOQLyOMDuBLQLrFL7riJb8qbQBlCY3XztFHv0D1d4I1gCpiwFNjd4LhVOXPew==}
+    peerDependencies:
+      mocha: '>=2.2.5'
+    dependencies:
+      bluebird: 2.11.0
+      mocha: 10.2.0
+      semaphore: 1.1.0
     dev: true
 
   /mocha@10.2.0:
@@ -8458,6 +8559,22 @@ packages:
       find-up: 4.1.0
     dev: true
 
+  /playwright-core@1.40.1:
+    resolution: {integrity: sha512-+hkOycxPiV534c4HhpfX6yrlawqVUzITRKwHAmYfmsVreltEl6fAZJ3DPfLMOODw0H3s1Itd6MDCWmP1fl/QvQ==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dev: true
+
+  /playwright@1.40.1:
+    resolution: {integrity: sha512-2eHI7IioIpQ0bS1Ovg/HszsN/XKNwEG1kbzSDDmADpclKc7CyqkHw7Mg2JCz/bbCxg25QUPcjksoMW7JcIFQmw==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      playwright-core: 1.40.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /postcss-calc@8.2.4(postcss@8.4.31):
     resolution: {integrity: sha512-SmWMSJmB8MRnnULldx0lQIyhSNvuDl9HfrZkaqqE/WHAhToYsAvDq+yAsA/kIyINDszOp3Rh0GFoNuH5Ypsm3Q==}
     peerDependencies:
@@ -8941,6 +9058,11 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
+    dev: true
+
+  /properties@1.2.1:
+    resolution: {integrity: sha512-qYNxyMj1JeW54i/EWEFsM1cVwxJbtgPp8+0Wg9XjNaK6VE/c4oRi6PNu5p7w1mNXEIQIjV5Wwn8v8Gz82/QzdQ==}
+    engines: {node: '>=0.10'}
     dev: true
 
   /proto-list@1.2.4:
@@ -9551,6 +9673,11 @@ packages:
       node-forge: 1.3.1
     dev: true
 
+  /semaphore@1.1.0:
+    resolution: {integrity: sha512-O4OZEaNtkMd/K0i6js9SL+gqy0ZCBMgUvlSqHKi4IBdjhe7wB8pwztUk1BbZ1fmrvpwFrPbHzqd2w5pTcJH6LA==}
+    engines: {node: '>=0.8.0'}
+    dev: true
+
   /semver@7.5.2:
     resolution: {integrity: sha512-SoftuTROv/cRjCze/scjGyiDtcUyxw1rgYQSZY7XTmtR5hX+dm76iDbTH8TkLPHCQmlbQVSSbNZCPM2hb0knnQ==}
     engines: {node: '>=10'}
@@ -10043,6 +10170,15 @@ packages:
       duplexer: 0.1.2
       minimist: 1.2.8
       through: 2.3.8
+    dev: true
+
+  /style-loader@3.3.4(webpack@5.89.0):
+    resolution: {integrity: sha512-0WqXzrsMTyb8yjZJHDqwmnwRJvhALK9LfRtRc6B4UTWe8AijYLZYZ9thuJTZc2VfQWINADW/j+LiJnfy2RoC1w==}
+    engines: {node: '>= 12.13.0'}
+    peerDependencies:
+      webpack: ^5.0.0
+    dependencies:
+      webpack: 5.89.0(webpack-cli@4.10.0)
     dev: true
 
   /stylehacks@5.1.1(postcss@8.4.31):
@@ -10756,7 +10892,6 @@ packages:
   /validator@13.11.0:
     resolution: {integrity: sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ==}
     engines: {node: '>= 0.10'}
-    dev: false
 
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}

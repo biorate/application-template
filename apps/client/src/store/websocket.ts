@@ -2,6 +2,8 @@ import { injectable, init, inject, Types } from '@biorate/inversion';
 import { IConfig } from '@biorate/config';
 import { timer } from '@biorate/tools';
 
+// TODO: create complete "@biorate/websocket" module
+
 @injectable()
 export class Websocket {
   @inject(Types.Config) protected config: IConfig;

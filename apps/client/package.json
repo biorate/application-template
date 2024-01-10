@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npx webpack --config=../../webpack.config.js --mode=production --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
     "build:debug": "npx webpack serve --history-api-fallback --config=../../webpack.config.js --mode=development --hot --open --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
+    "test": "npx playwright test",
     "prettier:fix": "npx prettier --write ./src",
     "lint:fix": "npx eslint --fix ./src",
     "hooks:pre-commit": "pnpm run prettier:fix && pnpm run lint:fix"
@@ -14,12 +15,15 @@
   "author": "llevkin",
   "license": "UNLICENSED",
   "devDependencies": {
+    "@biorate/playwright": "^1.51.0",
+    "@playwright/test": "^1.40.1",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "classnames": "^2.3.1",
     "history": "^5.3.0",
     "mobx": "^6.5.0",
     "mobx-react": "^7.3.0",
+    "playwright": "^1.35.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.15.0",

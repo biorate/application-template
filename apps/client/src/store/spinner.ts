@@ -1,19 +1,23 @@
 import { injectable } from '@biorate/inversion';
-import { observable, action, makeObservable } from 'mobx';
+import { observable, action, computed, makeObservable } from 'mobx';
 
 @injectable()
 export class Spinner {
-  @observable public visible = false;
+  @observable public tags = new Set<string>();
+
+  @computed public get visible() {
+    return !!this.tags.size;
+  }
 
   public constructor() {
     makeObservable(this);
   }
 
-  @action show() {
-    this.visible = true;
+  @action public show(tag: string) {
+    this.tags.add(tag);
   }
 
-  @action hide() {
-    this.visible = false;
+  @action public hide(tag: string) {
+    this.tags.delete(tag);
   }
 }
