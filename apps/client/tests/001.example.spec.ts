@@ -14,7 +14,7 @@ import {
   expect,
   allure,
 } from '@biorate/playwright';
-import { Spec } from './spec';
+import { Spec } from './common/spec';
 
 @suite('Test')
 class Test extends Spec {
@@ -32,9 +32,13 @@ class Test extends Spec {
   @tag('tag1')
   @test('test1')
   protected async test1({ page }: { page: Page }) {
+    allure.logStep('test1 starts');
     await page.goto('https://playwright.dev/');
     allure.attachment('Playwright test', 'Playwright test content', ContentType.TEXT);
+    const screenshot = await page.screenshot();
+    allure.attachment('Screenshot', screenshot, ContentType.PNG);
     await expect(page).toHaveTitle(/Playwright/);
+    allure.logStep('test1 finished');
   }
 
   @issue('2')
