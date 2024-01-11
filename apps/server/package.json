@@ -44,10 +44,12 @@
     "ws": "^8.14.2"
   },
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@biorate/mocha": "^1.57.0",
     "@biorate/mocha-spec": "^1.53.0",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.17",
+    "@types/mocha": "^9.1.1",
     "@types/ws": "^8.5.8",
     "mocha": "^10.2.0",
     "mocha-chai-jest-snapshot": "^1.1.3",
