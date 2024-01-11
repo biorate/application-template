@@ -19,20 +19,20 @@ importers:
   .:
     dependencies:
       '@biorate/axios':
-        specifier: ^1.44.1
-        version: 1.44.1
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/config':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/errors':
         specifier: ^1.28.0
         version: 1.28.0
       '@biorate/i18n':
-        specifier: ^1.45.0
-        version: 1.45.0
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/inversion':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/symbolic':
         specifier: ^1.28.0
         version: 1.28.0
@@ -209,8 +209,8 @@ importers:
   apps/client:
     devDependencies:
       '@biorate/playwright':
-        specifier: ^1.53.2
-        version: 1.53.2
+        specifier: ^1.55.0
+        version: 1.55.0(reflect-metadata@0.1.13)
       '@playwright/test':
         specifier: ^1.40.1
         version: 1.40.1
@@ -239,7 +239,7 @@ importers:
         specifier: ^7.3.0
         version: 7.6.0(mobx@6.10.2)(react-dom@18.2.0)(react@18.2.0)
       playwright:
-        specifier: ^1.35.1
+        specifier: ^1.40.1
         version: 1.40.1
       react:
         specifier: ^18.2.0
@@ -257,29 +257,29 @@ importers:
   apps/server:
     dependencies:
       '@biorate/axios-prometheus':
-        specifier: ^1.44.1
-        version: 1.44.1
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/config-loader':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/config-loader-env':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/config-loader-fs':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/config-loader-vault':
-        specifier: ^1.43.0
-        version: 1.43.0
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/nestjs-tools':
-        specifier: ^1.51.1
-        version: 1.51.1(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(@types/express@4.17.20)(class-transformer@0.5.1)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        specifier: ^1.54.0
+        version: 1.54.0(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(@types/express@4.17.20)(class-transformer@0.5.1)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@biorate/prometheus':
-        specifier: ^1.42.2
-        version: 1.42.2
+        specifier: ^1.54.0
+        version: 1.54.0
       '@biorate/vault':
-        specifier: ^1.43.0
-        version: 1.43.0
+        specifier: ^1.54.0
+        version: 1.54.0
       '@nestjs/common':
         specifier: ^9.3.12
         version: 9.4.3(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
@@ -687,20 +687,20 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@biorate/axios-prometheus@1.44.1:
-    resolution: {integrity: sha512-A+JbALRLz9OPaoCCA2EZrsD/euN4Z/JdBEgtW82208KprEPUVrIuvbP7aThwCWvqDBI9laYD2mm9ItMvGfKrXA==}
+  /@biorate/axios-prometheus@1.54.0:
+    resolution: {integrity: sha512-CmQBikL0O9tQrVmxlueF5TW4jB9mypaaiXJe9OqDef+nFl9/APTi7JR3vXs+3OHTB24ePkzEmg93MzeGYsocDw==}
     dependencies:
-      '@biorate/axios': 1.44.1
-      '@biorate/config': 1.42.2
-      '@biorate/inversion': 1.42.2
-      '@biorate/prometheus': 1.42.2
+      '@biorate/axios': 1.54.0
+      '@biorate/config': 1.54.0
+      '@biorate/inversion': 1.54.0
+      '@biorate/prometheus': 1.54.0
       '@biorate/tools': 1.28.0
     transitivePeerDependencies:
       - debug
     dev: false
 
-  /@biorate/axios@1.44.1:
-    resolution: {integrity: sha512-tChpFcLmUKN46nGE6mTZxM4kh6JPneyRYbBwHive2rI9VVsw3GDe1psM/J6N7JZq7JztCSDv6EdTQTptmsVmDg==}
+  /@biorate/axios@1.54.0:
+    resolution: {integrity: sha512-OnznhtCIL4aWzD0PR/oUCxrPhYce+3v0859MQhpqkvL4WpwwTBdREgTOJGFEalsfo7RdnmcGCpvlRg/+uGLgUg==}
     dependencies:
       axios: 0.27.2
       axios-retry: 3.8.1
@@ -710,78 +710,78 @@ packages:
       - debug
     dev: false
 
-  /@biorate/config-loader-env@1.42.2:
-    resolution: {integrity: sha512-RtDc6vtBUFis6KZCHQeto9n/dnosE6hWAR0taiFMrT5E2YyMgYbOC13kZJuo0JZX4f+0S5vjBccu+pNXSAuu4w==}
+  /@biorate/config-loader-env@1.54.0:
+    resolution: {integrity: sha512-ko7/AuSVzvkUwAn1+dop3+NpY//OZCstrbuNBHOnEVxB8fiTAL7Up/XKuqb8Xh+Wt7/RbKakL5C1ys3ENam1CA==}
     dependencies:
-      '@biorate/config': 1.42.2
-      '@biorate/config-loader': 1.42.2
+      '@biorate/config': 1.54.0
+      '@biorate/config-loader': 1.54.0
       '@biorate/errors': 1.28.0
-      '@biorate/inversion': 1.42.2
+      '@biorate/inversion': 1.54.0
     dev: false
 
-  /@biorate/config-loader-fs@1.42.2:
-    resolution: {integrity: sha512-y3zVIHiRRz0RLsOJ20FomJ7j+grdbkRMQe40ezDFGXBQthKKxuT4bMQzTCM4zpiDlk0sJNX+WkwIfbpvUVJ5HA==}
+  /@biorate/config-loader-fs@1.54.0:
+    resolution: {integrity: sha512-db2B1JNpnA3M65AOMlQXUpM08rdFyfcstFxILfGJZYcnEoL0xpr9kyTr3RPHOnLjdMQqhNaTrryGQSbu9tGGJA==}
     dependencies:
-      '@biorate/config': 1.42.2
-      '@biorate/config-loader': 1.42.2
+      '@biorate/config': 1.54.0
+      '@biorate/config-loader': 1.54.0
       '@biorate/errors': 1.28.0
-      '@biorate/inversion': 1.42.2
+      '@biorate/inversion': 1.54.0
       '@biorate/tools': 1.28.0
     dev: false
 
-  /@biorate/config-loader-vault@1.43.0:
-    resolution: {integrity: sha512-S5bAofgJzm685Vc34EepNaDjG6tBigmiDTUxNXMePFVYoPEFOFHZzOKFBaOlGUDBj+mGqqRfM2LwvycDIcS0PQ==}
+  /@biorate/config-loader-vault@1.54.0:
+    resolution: {integrity: sha512-t2uwRy0NbwTql+n+vQqC00qLEKTIcTkXN6e+BSGv00alfLpUPoTG37im7CsB5G6SGp5jYgYJq5FVi7i1vnu5ew==}
     dependencies:
-      '@biorate/config': 1.42.2
-      '@biorate/config-loader': 1.42.2
+      '@biorate/config': 1.54.0
+      '@biorate/config-loader': 1.54.0
       '@biorate/errors': 1.28.0
-      '@biorate/inversion': 1.42.2
+      '@biorate/inversion': 1.54.0
       '@biorate/tools': 1.28.0
-      '@biorate/vault': 1.43.0
+      '@biorate/vault': 1.54.0
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@biorate/config-loader@1.42.2:
-    resolution: {integrity: sha512-nBLO0A5vJ26UbuciZUcKEgimePg9g/E4znLxr7Rd/ndKDGO0gmcUqn2sjZDAW2svFb3cyIcxYnECyL3ToCGhCQ==}
+  /@biorate/config-loader@1.54.0:
+    resolution: {integrity: sha512-IFzQXgFVgu9qwRII1sQpGqCp69DpMQ1DtbIcuKvfd5Mt+2OG4M/UX6Iou/ia+47BLNjK7OFQLggXkPRxbpkLww==}
     dependencies:
-      '@biorate/config': 1.42.2
+      '@biorate/config': 1.54.0
       '@biorate/errors': 1.28.0
-      '@biorate/inversion': 1.42.2
+      '@biorate/inversion': 1.54.0
     dev: false
 
-  /@biorate/config@1.42.2:
-    resolution: {integrity: sha512-0wYqtvD0A7pTojzr76lD+jgagDB7z5QKnmuma+xDMPAuPExkcUvr+UrkEp3vcIPA9hhW46tNeMVYQKxRu6MByQ==}
+  /@biorate/config@1.54.0:
+    resolution: {integrity: sha512-B5PdZ6+otsWhrWT8uNjNrgf6+5ru22+vboQbXEB9bmTqmrbqM30E+IT7cgxjRnuht3ccX8hpEFa0tI272gxN2g==}
     dependencies:
       '@biorate/errors': 1.28.0
-      '@biorate/inversion': 1.42.2
+      '@biorate/inversion': 1.54.0
       lodash: 4.17.21
       traverse: 0.6.7
     dev: false
 
-  /@biorate/connector@1.42.2:
-    resolution: {integrity: sha512-LrwgWZkCB2pIPJzA/eg7bacYeRdJ0WjGlJymG6cZTb/1ahVYQ5ai0XvSVif0vKOqXvAHi44BkUIRSUiNQ49oPA==}
+  /@biorate/connector@1.54.0:
+    resolution: {integrity: sha512-wNeFdHdnLT4/nIU5wXLmMT6RR7tP9Y6m61zhWa+MJq+pJYDS0Qju6aaiY2cZ39t6UauRi84PmEK67HGiPyxw0g==}
     dependencies:
-      '@biorate/config': 1.42.2
+      '@biorate/config': 1.54.0
       '@biorate/errors': 1.28.0
-      '@biorate/inversion': 1.42.2
+      '@biorate/inversion': 1.54.0
     dev: false
 
   /@biorate/errors@1.28.0:
     resolution: {integrity: sha512-pvLqsKCwMZHhWGUY8LQdlkxzI0W0oLJjvDMvxv7Z4+7AmpJHJ6PzPUThR3Ty9QiRmfLbUlfsy417dB/Qj1HJfA==}
 
-  /@biorate/i18n@1.45.0:
-    resolution: {integrity: sha512-xl+UeURrFKB7if6mmqtMamB7hSnbk3vvHMjlPoSRdymrcQfXG8G03ch41uaTuNObNUlKGeqwrez0KEBTqhebaw==}
+  /@biorate/i18n@1.54.0:
+    resolution: {integrity: sha512-B15vUAAnqiI2uIWRg2XaszPFCGpUijp/krA7m/HXMP/dLGfhrb7R2eJiObYmONu65OqlOQpKDaaD9ZJXipqTcA==}
     dependencies:
-      '@biorate/config': 1.42.2
-      '@biorate/inversion': 1.42.2
+      '@biorate/config': 1.54.0
+      '@biorate/inversion': 1.54.0
       i18next: 23.4.2
     dev: false
 
-  /@biorate/inversion@1.42.2:
-    resolution: {integrity: sha512-u36M+NM1AHNQ8rlZkFA73gXh5fIFEWIcAk4MZAA37DFVCPdr0FdkQI/6SN241CKtWQytJN1EG/3Ffdd7TEqkhQ==}
+  /@biorate/inversion@1.54.0:
+    resolution: {integrity: sha512-gjHznlw0ZjPMag9gAN/GwNDKU0yq/C3kwESXJrPhr2mlD9usSsnOgXEAKa6kybeDBnMU6na4UJMwDsjCzhaVkw==}
     dependencies:
-      '@biorate/lifecycled': 1.42.2
+      '@biorate/lifecycled': 1.54.0(reflect-metadata@0.1.13)
       '@biorate/symbolic': 1.28.0
       '@biorate/tools': 1.28.0
       async-exit-hook: 2.0.1
@@ -790,12 +790,15 @@ packages:
       reflect-metadata: 0.1.13
     dev: false
 
-  /@biorate/lifecycled@1.42.2:
-    resolution: {integrity: sha512-PZisIupRZQ0QzCAEOnzoTdk9oL5PK71u7i1pcEq8uJkOTx9eJJiKRjUylgySun1rXR7IzwkhbzVpmbvZkfF6Lw==}
+  /@biorate/lifecycled@1.54.0(reflect-metadata@0.1.13):
+    resolution: {integrity: sha512-3sTf9S0nsR2iqxzjhJ33d1VM5GRlQqHz0ZCcykPc0ZUQOJiUorn69t+D/wqwZ0y+uk64DjmlgrO1GDFRzHdsiA==}
+    peerDependencies:
+      reflect-metadata: ^0.1.13
     dependencies:
       '@biorate/shutdown-hook': 1.42.1
       '@biorate/tools': 1.28.0
       async-exit-hook: 2.0.1
+      reflect-metadata: 0.1.13
     dev: false
 
   /@biorate/mocha-spec@1.53.0(chai@4.3.10)(mocha-chai-jest-snapshot@1.1.4):
@@ -821,13 +824,13 @@ packages:
       mocha.parallel: 0.15.6(mocha@10.2.0)
     dev: true
 
-  /@biorate/nestjs-tools@1.51.1(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(@types/express@4.17.20)(class-transformer@0.5.1)(reflect-metadata@0.1.13)(rxjs@7.8.1):
-    resolution: {integrity: sha512-GSpHEa+R8jkDbDtBrAYxnid9CXzudG86onvtOkR6Tr9RGvKiIy90i3iur4dMHv78p6GDcJnXnvxp1mcaqB+S+g==}
+  /@biorate/nestjs-tools@1.54.0(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(@types/express@4.17.20)(class-transformer@0.5.1)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+    resolution: {integrity: sha512-BUIdByFVNaE4fSYiz/HAuU9GBcjEJkdOZuuQmivXh/LgZvp3usUhOc7jMoEnNYwqTeEpswxEufEeHrfnWBxCog==}
     dependencies:
-      '@biorate/config': 1.42.2
+      '@biorate/config': 1.54.0
       '@biorate/errors': 1.28.0
-      '@biorate/inversion': 1.42.2
-      '@biorate/prometheus': 1.42.2
+      '@biorate/inversion': 1.54.0
+      '@biorate/prometheus': 1.54.0
       '@biorate/tools': 1.28.0
       '@nestjs/common': 9.4.3(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/core': 9.4.3(@nestjs/common@9.4.3)(@nestjs/platform-express@9.4.3)(@nestjs/websockets@9.4.3)(reflect-metadata@0.1.13)(rxjs@7.8.1)
@@ -856,23 +859,37 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@biorate/playwright@1.53.2:
-    resolution: {integrity: sha512-PFRorgDYnBN47VvYyuekF5QvYdbg1RZskNqgl8v4m8UQdvaSMhybsWjUzxe/SfsvnumIC/hMtsGgUrLrTZTj7Q==}
+  /@biorate/playwright@1.55.0(reflect-metadata@0.1.13):
+    resolution: {integrity: sha512-058YqM4L4LS/YKYhA19Y4NYpA1K60TOkUuHBv1FysRbpila4CUUjGAZmBXdwxgdQJ6iGzM4Y67PcpPn/OWPC4g==}
+    peerDependencies:
+      reflect-metadata: ^0.1.13
     dependencies:
+      '@biorate/run-context': 1.55.0(reflect-metadata@0.1.13)
       '@biorate/symbolic': 1.28.0
       '@biorate/tools': 1.28.0
       '@playwright/test': 1.40.1
       allure-playwright: 2.10.0
       playwright: 1.40.1
+      reflect-metadata: 0.1.13
     dev: true
 
-  /@biorate/prometheus@1.42.2:
-    resolution: {integrity: sha512-Az6jAlI/MjTwhL8Y5Q1LmftlcC/jW9H3ohR4jlnT0+WO+4+vzAaVt/eJqOKi6epdnQBt1l6edIwiH6peZh+Npg==}
+  /@biorate/prometheus@1.54.0:
+    resolution: {integrity: sha512-AUnwC7LL+nz+RitYWvbOpy3Ik+TC+jGFGLyR1OGHNRzxSMqwZyx/dr5d7n9LmCc1EksP+B43k4HCleJiX2OQXA==}
     dependencies:
-      '@biorate/config': 1.42.2
-      '@biorate/inversion': 1.42.2
+      '@biorate/config': 1.54.0
+      '@biorate/inversion': 1.54.0
       prom-client: 14.2.0
     dev: false
+
+  /@biorate/run-context@1.55.0(reflect-metadata@0.1.13):
+    resolution: {integrity: sha512-9q2YkE3QO8fMQAmBXLiiINXCYZlNYuRK6JzJrGLza+ufTVLHZJWeQTm1D2fbRIEBTLeMeBALua8hBxGUE+UImQ==}
+    peerDependencies:
+      reflect-metadata: ^0.1.13
+    dependencies:
+      '@biorate/symbolic': 1.28.0
+      '@biorate/tools': 1.28.0
+      reflect-metadata: 0.1.13
+    dev: true
 
   /@biorate/shutdown-hook@1.42.1:
     resolution: {integrity: sha512-Ral8uXHqvbPJrhkI8Ppy8Tul+1Nn1dVtu4FFdQ+VTrQl7qskPc7DmRAsTEz2dS89u5M/Mmhj1VeJ0YdxUEx4aQ==}
@@ -888,13 +905,13 @@ packages:
     dependencies:
       '@biorate/errors': 1.28.0
 
-  /@biorate/vault@1.43.0:
-    resolution: {integrity: sha512-lLgL8hqmNG6v4AcM5PJQsbCX5lQEp6mxy5nkJ3vLYU4eThdMkt3XbpenhvXJ9+c2G+udUksxgvVZAmFwwQBEEA==}
+  /@biorate/vault@1.54.0:
+    resolution: {integrity: sha512-z0G6Spmrmi5uCzxi9IsFPg6nADWTc22wX9PDK075pX+WwpUEbAex8B8oTs9QWDrUZid0IEeaZQnEeSd5X9hH2g==}
     dependencies:
-      '@biorate/config': 1.42.2
-      '@biorate/connector': 1.42.2
+      '@biorate/config': 1.54.0
+      '@biorate/connector': 1.54.0
       '@biorate/errors': 1.28.0
-      '@biorate/inversion': 1.42.2
+      '@biorate/inversion': 1.54.0
       node-vault: 0.10.2
     transitivePeerDependencies:
       - supports-color
@@ -9461,7 +9478,6 @@ packages:
 
   /reflect-metadata@0.1.13:
     resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
-    dev: false
 
   /reflect.getprototypeof@1.0.4:
     resolution: {integrity: sha512-ECkTw8TmJwW60lOTR+ZkODISW6RQ8+2CL3COqtiJKLd6MmB45hN51HprHFziKLGkAuTGQhBb91V8cy+KHlaCjw==}

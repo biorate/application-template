@@ -13,8 +13,10 @@ import {
   description,
   expect,
   allure,
+  Context,
 } from '@biorate/playwright';
 import { Spec } from './common/spec';
+import { Scenario1, Scenario2 } from './scenarios';
 
 @suite('Test')
 class Test extends Spec {
@@ -54,5 +56,18 @@ class Test extends Spec {
     await page.goto('https://google.com/');
     allure.attachment('Google test', 'Google test content', ContentType.TEXT);
     await expect(page).toHaveTitle(/Google/);
+  }
+
+  @issue('3')
+  @severity(Severity.MINOR)
+  @epic('Epic allure test3')
+  @feature('Feature allure test3')
+  @story('Story allure test3')
+  @description('Context scenario test')
+  @owner('60000000')
+  @tag('tag3')
+  @test('test3')
+  protected async test3({ page }: { page: Page }) {
+    await Context.run([Scenario1, Scenario2], { page });
   }
 }
