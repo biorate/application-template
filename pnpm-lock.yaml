@@ -209,8 +209,8 @@ importers:
   apps/client:
     devDependencies:
       '@biorate/playwright':
-        specifier: ^1.55.0
-        version: 1.55.0(reflect-metadata@0.1.13)
+        specifier: ^1.56.3
+        version: 1.56.3(reflect-metadata@0.1.13)
       '@playwright/test':
         specifier: ^1.40.1
         version: 1.40.1
@@ -859,12 +859,12 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@biorate/playwright@1.55.0(reflect-metadata@0.1.13):
-    resolution: {integrity: sha512-058YqM4L4LS/YKYhA19Y4NYpA1K60TOkUuHBv1FysRbpila4CUUjGAZmBXdwxgdQJ6iGzM4Y67PcpPn/OWPC4g==}
+  /@biorate/playwright@1.56.3(reflect-metadata@0.1.13):
+    resolution: {integrity: sha512-OG42x4x2UwHCvg3lWo/zPCA69yfTJAff5cH9wxztMChlzKCOEE16L3j22PhCxrVp0IsoYXYEVvJky9UpwE/3iw==}
     peerDependencies:
       reflect-metadata: ^0.1.13
     dependencies:
-      '@biorate/run-context': 1.55.0(reflect-metadata@0.1.13)
+      '@biorate/run-context': 1.56.3(reflect-metadata@0.1.13)
       '@biorate/symbolic': 1.28.0
       '@biorate/tools': 1.28.0
       '@playwright/test': 1.40.1
@@ -881,8 +881,8 @@ packages:
       prom-client: 14.2.0
     dev: false
 
-  /@biorate/run-context@1.55.0(reflect-metadata@0.1.13):
-    resolution: {integrity: sha512-9q2YkE3QO8fMQAmBXLiiINXCYZlNYuRK6JzJrGLza+ufTVLHZJWeQTm1D2fbRIEBTLeMeBALua8hBxGUE+UImQ==}
+  /@biorate/run-context@1.56.3(reflect-metadata@0.1.13):
+    resolution: {integrity: sha512-X7sW1m591IOggO8OMeHVHYtsQYeZP1Bd7ja23mO329wKNJWjOagSU1ROBreI2+c+fRadFPxnBxjsUPWxR0F3tw==}
     peerDependencies:
       reflect-metadata: ^0.1.13
     dependencies:
