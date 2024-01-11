@@ -1,6 +1,11 @@
-import { suite, test, parallel } from '@biorate/mocha';
 import { expect } from 'chai';
 import {
+  suite,
+  test,
+  parallel,
+  ContentType,
+  Severity,
+  allure,
   description,
   epic,
   feature,
@@ -10,11 +15,11 @@ import {
   story,
   tag,
   testCaseId,
-} from 'allure-decorators';
-import { ContentType, Severity } from 'allure-js-commons';
-import { allure } from 'allure-mocha/runtime';
+  Context,
+} from '@biorate/mocha';
 import { Spec } from './common/spec';
-import { TestSchema, isString, isBoolean, isTupl } from './__schemas__';
+import { Scenario1, Scenario2 } from './scenarios';
+import { TestSchema, ScenariosSchema, isString, isBoolean, isTupl } from './schemas';
 
 @suite('Example')
 @parallel(false)
@@ -250,6 +255,23 @@ class Example extends Spec {
       schema: isBoolean,
       data: 'test',
       catch: (e: Error) => true,
+    });
+  }
+
+  @issue('13')
+  @testCaseId('13')
+  @severity(Severity.MINOR)
+  @epic('Context scenario test 1')
+  @feature('Context scenario 1')
+  @story('Tests 13')
+  @owner('60000000')
+  @tag('unit')
+  @description('Context scenario test')
+  @test('Context scenario test')
+  protected async scenario1() {
+    await this.validate({
+      schema: ScenariosSchema,
+      data: (await Context.run([Scenario1, Scenario2])).get(),
     });
   }
 }

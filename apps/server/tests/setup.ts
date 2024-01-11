@@ -1,8 +1,13 @@
 import { container } from '@biorate/inversion';
-import { assignPmsUrl, assignTmsUrl, decorate } from 'allure-decorators';
-import { allure, MochaAllure } from 'allure-mocha/runtime';
-import { jestSnapshotPlugin } from 'mocha-chai-jest-snapshot';
 import { use } from 'chai';
+import {
+  assignPmsUrl,
+  assignTmsUrl,
+  decorate,
+  allure,
+  MochaAllure,
+} from '@biorate/mocha';
+import { jestSnapshotPlugin } from 'mocha-chai-jest-snapshot';
 import { Root } from '../src/config';
 import './__mocks__';
 
