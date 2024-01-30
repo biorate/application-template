@@ -7,8 +7,8 @@
   "author": "llevkin",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "npx lerna run build --stream --no-prefix --scope client --scope server",
     "start": "pnpm --prefix apps/server start",
+    "build": "npx lerna run build --stream --no-prefix --scope client --scope server",
     "build:debug": "npx lerna run build:debug --stream --no-prefix --scope client",
     "start:debug": "npx lerna run start:debug --stream --no-prefix --scope server",
     "test": "npx lerna run test --stream --no-prefix --scope server --scope client",
