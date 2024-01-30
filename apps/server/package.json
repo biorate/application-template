@@ -5,7 +5,7 @@
   "main": "dist",
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./dist/index.js",
-    "build": "npx tsc -p ./tsconfig.build.json --outDir ./dist",
+    "build": "cross-env NODE_ENV=production npx tsc -p ./tsconfig.build.json --outDir ./dist",
     "start:debug": "cross-env ts-node-dev --respawn --transpile-only src/index.ts",
     "test": "npx nyc -- npx mocha",
     "lint:fix": "npx eslint --fix ./src",
