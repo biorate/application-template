@@ -11,7 +11,7 @@ RUN npm i -g pnpm@8.10.2 && \
     pnpm i --frozen-lockfile && \
     pnpm run build && \
     pnpm run cleanup:node_modules && \
-    pnpm i --frozen-lockfile --production && \
+    pnpm i --frozen-lockfile --production --ignore-scripts && \
     pnpm store prune
 
 FROM node:16-alpine as run
