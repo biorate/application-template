@@ -25,7 +25,7 @@
     "yarn": ">=1.22.0",
     "pnpm": ">=8.10.0",
     "npm": ">=8.3.0",
-    "node": ">16.0.0"
+    "node": ">=16.0.0"
   },
   "workspaces": [
     "apps/*/**",
@@ -80,9 +80,14 @@
     "npx": "^3.0.0",
     "nx": "^15.9.2",
     "nyc": "^15.1.0",
+    "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.9",
     "prettier": "^2.8.8",
     "pug-html-loader": "^1.1.5",
     "style-loader": "^3.3.1",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-csstree-validator": "^3.0.0",
     "terser-webpack-plugin": "^5.3.1",
     "traverse": "^0.6.6",
     "ts-loader": "^9.5.0",

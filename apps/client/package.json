@@ -10,8 +10,9 @@
     "test:ui": "npx playwright test --ui",
     "prettier:fix": "npx prettier --write ./src",
     "lint:fix": "npx eslint --fix ./src",
+    "stylelint:fix": "npx stylelint './src/**/*.{less,css,scss,sass}' --fix",
     "allure:report": "npx allure serve allure-results --clean -o allure-report",
-    "hooks:pre-commit": "pnpm run prettier:fix && pnpm run lint:fix"
+    "hooks:pre-commit": "pnpm run prettier:fix && pnpm run lint:fix && pnpm run stylelint:fix"
   },
   "keywords": [],
   "author": "llevkin",
