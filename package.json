@@ -40,7 +40,7 @@
     "pug": "3.0.1",
     "loader-utils": "1.4.2",
     "semver": "7.5.2",
-    "styled-components": "^5"
+    "styled-components": "^6"
   },
   "overrides": {
     "mem": "4.0.0",
@@ -51,7 +51,7 @@
     "pug": "3.0.1",
     "loader-utils": "1.4.2",
     "semver": "7.5.2",
-    "styled-components": "^5"
+    "styled-components": "^6"
   },
   "devDependencies": {
     "@types/chai": "^4.3.1",

@@ -13,6 +13,7 @@ overrides:
   pug: 3.0.1
   loader-utils: 1.4.2
   semver: 7.5.2
+  styled-components: ^6
 
 importers:
 
@@ -257,7 +258,7 @@ importers:
         specifier: ^6.15.0
         version: 6.18.0(react-dom@18.2.0)(react@18.2.0)
       styled-components:
-        specifier: ^6.1.8
+        specifier: ^6
         version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
 
   apps/server:
