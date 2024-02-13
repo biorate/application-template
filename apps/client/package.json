@@ -17,12 +17,6 @@
   "keywords": [],
   "author": "llevkin",
   "license": "UNLICENSED",
-  "resolutions": {
-    "styled-components": "^5"
-  },
-  "overrides": {
-    "styled-components": "^5"
-  },
   "devDependencies": {
     "@biorate/playwright": "^1.56.3",
     "@playwright/test": "^1.40.1",
