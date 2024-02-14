@@ -89,6 +89,9 @@ importers:
       allure-commandline:
         specifier: ^2.25.0
         version: 2.25.0
+      allure-js-commons:
+        specifier: ^2.12.0
+        version: 2.12.0
       chai:
         specifier: ^4.3.6
         version: 4.3.10
@@ -2853,6 +2856,13 @@ packages:
       properties: 1.2.1
     dev: true
 
+  /allure-js-commons@2.12.0:
+    resolution: {integrity: sha512-uVMKT2LBRJQ9nPTrfE61zwryF3WhaUGIaj0PrVP7AoUpAexzGx0nOUjsJxUes1BwomcTIH1ORZo6r3kmIs7N9g==}
+    dependencies:
+      properties: 1.2.1
+      strip-ansi: 5.2.0
+    dev: true
+
   /allure-mocha@2.10.0(mocha@10.2.0):
     resolution: {integrity: sha512-crlVTbjvv7SkukWaGsNjc/dkw6mqe4MRTlmk5BbPBllrSqnNoolDOzDqnhC9SF7QN3OKqZOA/PzD6NgTDmB3WQ==}
     peerDependencies:
@@ -2889,6 +2899,11 @@ packages:
     resolution: {integrity: sha512-1APHAyr3+PCamwNw3bXCPp4HFLONZt/yIH0sZp0/469KWNTEy+qN5jQ3GVX6DMZ1UXAi34yVwtTeaG/HpBuuzw==}
     engines: {'0': node >= 0.8.0}
     hasBin: true
+    dev: true
+
+  /ansi-regex@4.1.1:
+    resolution: {integrity: sha512-ILlv4k/3f6vfQ4OoP2AGvirOktlQ98ZEL1k9FaQjxa3L1abBgbuTDAdPOpvbGncC0BTVQrl+OM8xZGK6tWXt7g==}
+    engines: {node: '>=6'}
     dev: true
 
   /ansi-regex@5.0.1:
@@ -10477,6 +10492,13 @@ packages:
     resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
     dependencies:
       safe-buffer: 5.2.1
+    dev: true
+
+  /strip-ansi@5.2.0:
+    resolution: {integrity: sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==}
+    engines: {node: '>=6'}
+    dependencies:
+      ansi-regex: 4.1.1
     dev: true
 
   /strip-ansi@6.0.1:
