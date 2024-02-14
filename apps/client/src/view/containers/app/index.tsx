@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { inject, Types } from '@biorate/inversion';
 import { observer } from 'mobx-react';

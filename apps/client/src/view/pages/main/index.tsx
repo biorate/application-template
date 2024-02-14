@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { observer } from 'mobx-react';
 import { Hello } from '../../components';
 import { Store } from '../../../store';

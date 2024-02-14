@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import styles from './index.module.less';
 
 export const Spinner: FC<{ visible: boolean }> = ({ visible }) => {

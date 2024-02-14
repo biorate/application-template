@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { HelloWorld } from './hello';
 
 export const Hello: FC<{ onClick: () => void; buttonTitle: string; title: string }> = ({

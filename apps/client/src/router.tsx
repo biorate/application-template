@@ -1,5 +1,5 @@
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import * as React from 'react';
 import * as Pages from './view/pages';
 
 export const routes = {
