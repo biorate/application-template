@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./dist/index.js",
     "build": "cross-env NODE_ENV=production npx tsc -p ./tsconfig.build.json --outDir ./dist",
-    "start:debug": "cross-env ts-node-dev --respawn --transpile-only src/index.ts",
+    "start:debug": "cross-env npx nodemon --exec ts-node index.ts",
     "test": "npx nyc -- npx mocha",
     "lint:fix": "npx eslint --fix ./src",
     "prettier:fix": "npx prettier --write ./src",
@@ -44,15 +44,16 @@
     "ws": "^8.14.2"
   },
   "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@biorate/mocha": "^1.57.0",
     "@biorate/mocha-spec": "^1.53.0",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.17",
     "@types/mocha": "^9.1.1",
     "@types/ws": "^8.5.8",
     "mocha": "^10.2.0",
     "mocha-chai-jest-snapshot": "^1.1.4",
-    "mocha-multi-reporters": "^1.5.1"
+    "mocha-multi-reporters": "^1.5.1",
+    "nodemon": "^3.1.0"
   }
 }

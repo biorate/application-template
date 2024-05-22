@@ -26,5 +26,8 @@
     "incremental": true,
     "jsx": "react",
     "paths": {}
+  },
+  "ts-node": {
+    "transpileOnly": true
   }
 }
