@@ -1,3 +1,7 @@
+---
+to: <%= h.root(`${ROOT}/.gitignore`) %>
+unless_exists: true
+---
 # compiled output
 dist
 node_modules

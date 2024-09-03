@@ -1,7 +1,11 @@
+---
+to: <%= h.client(`${ROOT}/apps/${CLIENT_NAME}/.gitignore`) %>
+unless_exists: true
+---
 # compiled output
 dist
 node_modules
-tmp
+tests-results
 
 # Logs
 logs
@@ -45,3 +49,7 @@ coverage
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Allure
+allure-results/*
+allure-report/*

@@ -1,7 +1,12 @@
+---
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/.gitignore`) %>
+unless_exists: true
+---
 # compiled output
 dist
+certs
 node_modules
-tmp
+allure-results
 
 # Logs
 logs
@@ -19,6 +24,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Coverage directory used by tools like istanbul
 coverage
+.coverage
 *.lcov
 
 # nyc test coverage
@@ -45,3 +51,12 @@ coverage
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Config
+/config*.json
+!/config.json
+!/config.debug.json
+
+# Allure
+allure-results/*
+allure-report/*
