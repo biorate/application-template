@@ -4,7 +4,7 @@
 
 - `pnpm i`
 - `npx hygen app help`
-- `npx hygen app create --client --server --hygen --product-id=PXXXX --product=pof --channel-ids=9fti5gw46jfw5e8i8rbbp8sjhc --namespace-prefix=payment-pof --service-account=lm-sa-payment --stage-clusters=sirius-a-stage --prod-clusters=payment,sirius-a --namespace=payment --approle-credentials-id=approle-repository-factory --project-name=payment --service-name=name-of-the-app --service-description='My app name' --credentials-id=ghe-svc-lmru-payment-jenkins-integration --add-web-socket`
+- `npx hygen app create --client --server --hygen --service-name=name-of-the-app --service-description='My app name' --add-web-socket`
 
 ## Запуск приложения:
 
