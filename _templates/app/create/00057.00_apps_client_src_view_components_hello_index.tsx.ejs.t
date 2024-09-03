@@ -3,7 +3,6 @@ to: <%= h.client(`${ROOT}/apps/${CLIENT_NAME}/src/view/components/hello/index.ts
 unless_exists: true
 ---
 import React, { FC } from 'react';
-import { RegularButton } from 'fronton-react';
 import { HelloWorld } from './hello';
 
 export const Hello: FC<{ onClick: () => void; buttonTitle: string; title: string }> = ({
@@ -14,7 +13,7 @@ export const Hello: FC<{ onClick: () => void; buttonTitle: string; title: string
   return (
     <>
       <HelloWorld size={20}>{title}</HelloWorld>
-      <RegularButton onClick={onClick}>{buttonTitle}</RegularButton>
+      <Button onClick={onClick}>{buttonTitle}</Button>
     </>
   );
 };
