@@ -8,7 +8,7 @@ import { inject, Types } from '@biorate/inversion';
 import { observer } from 'mobx-react';
 import { Preloader, Spinner as SpinnerStore } from '../../../store';
 import { Spinner } from '../../components';
-import { router } from '../../router';
+import { router } from '../../../router';
 import './index.less';
 
 @observer

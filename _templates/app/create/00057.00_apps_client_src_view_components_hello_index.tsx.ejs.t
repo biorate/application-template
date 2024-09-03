@@ -13,7 +13,7 @@ export const Hello: FC<{ onClick: () => void; buttonTitle: string; title: string
   return (
     <>
       <HelloWorld size={20}>{title}</HelloWorld>
-      <Button onClick={onClick}>{buttonTitle}</Button>
+      <button onClick={onClick}>{buttonTitle}</button>
     </>
   );
 };

@@ -23,13 +23,13 @@ export const Main: FC = observer(() => {
       />
       <div style={{ marginTop: 5 }}>
         {i18n.languages.map((lang) => (
-          <Button
+          <button
             style={{ marginRight: 5 }}
             key={lang}
             onClick={() => i18n.changeLanguage(lang)}
           >
             {lang}
-          </Button>
+          </button>
         ))}
       </div>
     </>
