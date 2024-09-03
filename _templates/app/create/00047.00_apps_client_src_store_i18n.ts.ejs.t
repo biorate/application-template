@@ -18,7 +18,7 @@ export class I18n extends I18nCommon {
     return {
       load: 'languageOnly',
       fallbackLng: 'ru',
-      supportedLngs: ['ru', 'kz'],
+      supportedLngs: ['ru', 'en'],
       debug: this.baseURL.includes('localhost'),
       saveMissing: this.baseURL.includes('localhost'),
       backend: {
