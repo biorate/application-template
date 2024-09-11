@@ -22,8 +22,8 @@
 
 ```json
 "scripts": {
-    "build:debug": "cross-env CLIENT_PORT=10001 npx webpack serve --history-api-fallback --config=../../webpack.config.js --mode=development --hot --open --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
-  },
+  "build:debug": "cross-env CLIENT_PORT=10001 npx webpack serve --history-api-fallback --config=../../webpack.config.js --mode=development --hot --open --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
+},
 ```
 
 > Команда `cross-env` нужна для запуска скрипта независимо от операционной системы.
@@ -34,8 +34,8 @@
 
 ```ts
 @init() protected async initialize() {
-    const host = this.config.get<string>('app.host', '0.0.0.0');
-    const port = this.config.get<number>('app.port', 3000);
+  const host = this.config.get<string>('app.host', '0.0.0.0');
+  const port = this.config.get<number>('app.port', 3000);
 ```
 
 Для того, чтобы сервер запустился на другом порту, нужно

@@ -25,7 +25,7 @@ Vault загрузчик может работать в 2-х режимах - о
     {
       name: 'connection-name', // Имя коннектора
       options: {
-        /* Конфигурация для node-value пакета */
+        /* Конфигурация для node-vault пакета */
         apiVersion: 'v1',
         endpoint: 'http://localhost:8200',
         namespace: 'some-team-namespace',

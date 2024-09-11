@@ -1,8 +1,8 @@
-# Коннектор minio (S3)
+# Коннектор vault
 
-Коннектор [@biorate/minio](https://www.npmjs.com/package/@biorate/minio) предоставляет API 
-для работы с хранилищем S3 (или аналогов с совместимым с S3 API).
-В основе данного коннектора используется пакет [minio](https://www.npmjs.com/package/minio), 
+Коннектор [vault](https://www.npmjs.com/package/@biorate/vault) 
+предоставляет API для работы с vault.
+В основе данного коннектора используется пакет [node-vault](https://www.npmjs.com/package/node-vault), 
 документация по работе с соединением совпадает с API пакета.
 
 ### Пример подключения коннектора:
@@ -12,24 +12,24 @@
 ```ts
 import { inject, container, Types, Core } from '@biorate/inversion';
 import { IConfig, Config } from '@biorate/config';
-import { IMinioConnector, MinioConnector } from '@biorate/minio';
+import { VaultConnector, IVaultConnector } from '@biorate/vault';
 ```
 
 #### Создаём root-конфиг и разрешаем зависимости:
 
 ```ts
-class Root extends Core() {
+export class Root extends Core() {
   @inject(Types.Config) public config: IConfig;
     
-  @inject(Types.MinioConnector) public connector: IMinioConnector;
+  @inject(Types.VaultConnector) public connector: IVaultConnector;
 }
 
 container.bind<IConfig>(Types.Config).to(Config).inSingletonScope();
-container.bind<IMinioConnector>(Types.MinioConnector).to(MinioConnector).inSingletonScope();
+container.bind<IVaultConnector>(Types.VaultConnector).to(VaultConnector).inSingletonScope();
 container.bind<Root>(Root).toSelf().inSingletonScope();
 ```
 
-#### Описываем настройки для подключения к minio в конфиге:
+#### Описываем настройки для подключения к vault в конфиге:
 
 Используем для этого Loader-ы, смотри:
   - [Конфигурирование переменными окружения](./doc/ENV_LOADER.md)
@@ -42,15 +42,13 @@ container.bind<Root>(Root).toSelf().inSingletonScope();
 
 ```ts
 container.get<IConfig>(Types.Config).merge({
-  Minio: [
+  Vault: [
     {
       name: 'my-connection',
       options: {
-        endPoint: 'localhost',
-        port: 9000,
-        accessKey: 'admin',
-        secretKey: 'minioadmin',
-        useSSL: false,
+        apiVersion: 'v1',
+        endpoint: 'http://localhost:8200',
+        token: 'admin',
       },
     },
   ],
@@ -70,25 +68,17 @@ container.get<IConfig>(Types.Config).merge({
   const connection = root.connector.get('my-connection');
 ```
 
-#### Работаем с базой данных при помощи API [minio](https://www.npmjs.com/package/minio):
+#### Работаем с базой данных при помощи API [node-vault](https://www.npmjs.com/package/node-vault):
 
 ```ts
-  await connection.makeBucket('test', 'test'); // Создаем бакет
+  await connection.write('secret/data/test.json', {
+    data: { hello: 'world' },
+  });
 
-  await connection.putObject(
-    'test',
-    'test.file',
-    Buffer.from('Hello world!'),
-  )); // Кладём объект в бакет
-
-  connection.getObject('test', 'test.file', (e, stream) => {
-    let data = '';
-    stream
-      .on('data', (chunk) => (data += chunk.toString('utf8')))
-      .on('end', () => console.log(data)); // 'Hello world!'
-   }); // Достаём объект из бакета
-})();
+  const result = await connection.read('secret/data/test.json');
+  
+  console.log(result.data.data); // { hello: 'world' }
 ```
 
 Так же пример подключения можно посмотреть тут -
-[@biorate/minio](https://www.npmjs.com/package/@biorate/minio).
+[@biorate/vault](https://www.npmjs.com/package/@biorate/vault).

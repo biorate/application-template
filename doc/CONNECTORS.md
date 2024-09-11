@@ -5,19 +5,19 @@
 
 ### Коннекторы:
 
-- [sequelize](https://www.npmjs.com/package/@biorate/sequelize)
-- [vault](https://www.npmjs.com/package/@biorate/vault)
-- [kafkajs](https://www.npmjs.com/package/@biorate/kafkajs)
-- [rdkafka](https://www.npmjs.com/package/@biorate/rdkafka)
-- [mongodb](https://www.npmjs.com/package/@biorate/mongodb)
-- [clickhouse](https://www.npmjs.com/package/@biorate/clickhouse)
 - [minio](https://www.npmjs.com/package/@biorate/minio)
+- [sequelize](https://www.npmjs.com/package/@biorate/sequelize)
+- [mongodb](https://www.npmjs.com/package/@biorate/mongodb)
+- [vault](https://www.npmjs.com/package/@biorate/vault)
+- [amqp](https://www.npmjs.com/package/@biorate/amqp)
 - [pg](https://www.npmjs.com/package/@biorate/pg)
 - [mssql](https://www.npmjs.com/package/@biorate/mssql)
+- [clickhouse](https://www.npmjs.com/package/@biorate/clickhouse)
 - [redis](https://www.npmjs.com/package/@biorate/redis)
-- [schema-registry](https://www.npmjs.com/package/@biorate/schema-registry)
-- [amqp](https://www.npmjs.com/package/@biorate/amqp)
+- [rdkafka](https://www.npmjs.com/package/@biorate/rdkafka)
+- [kafkajs](https://www.npmjs.com/package/@biorate/kafkajs)
 - [proxy](https://www.npmjs.com/package/@biorate/proxy)
+- [schema-registry](https://www.npmjs.com/package/@biorate/schema-registry)
 
 Все коннекторы реализуют общий интерфейс [@biorate/connector](https://www.npmjs.com/package/@biorate/connector).
 

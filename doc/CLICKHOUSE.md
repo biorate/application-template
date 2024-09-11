@@ -1,8 +1,8 @@
-# Коннектор minio (S3)
+# Коннектор clickhouse
 
-Коннектор [@biorate/minio](https://www.npmjs.com/package/@biorate/minio) предоставляет API 
-для работы с хранилищем S3 (или аналогов с совместимым с S3 API).
-В основе данного коннектора используется пакет [minio](https://www.npmjs.com/package/minio), 
+Коннектор [@biorate/clickhouse](https://www.npmjs.com/package/@biorate/clickhouse) предоставляет API 
+для работы с базой данных clickhouse.
+В основе данного коннектора используется пакет [@clickhouse/client](https://www.npmjs.com/package/@clickhouse/client), 
 документация по работе с соединением совпадает с API пакета.
 
 ### Пример подключения коннектора:
@@ -12,7 +12,7 @@
 ```ts
 import { inject, container, Types, Core } from '@biorate/inversion';
 import { IConfig, Config } from '@biorate/config';
-import { IMinioConnector, MinioConnector } from '@biorate/minio';
+import { IClickhouseConnector, ClickhouseConnector } from '@biorate/clickhouse';
 ```
 
 #### Создаём root-конфиг и разрешаем зависимости:
@@ -21,15 +21,15 @@ import { IMinioConnector, MinioConnector } from '@biorate/minio';
 class Root extends Core() {
   @inject(Types.Config) public config: IConfig;
     
-  @inject(Types.MinioConnector) public connector: IMinioConnector;
+  @inject(Types.ClickhouseConnector) public connector: IClickhouseConnector;
 }
 
 container.bind<IConfig>(Types.Config).to(Config).inSingletonScope();
-container.bind<IMinioConnector>(Types.MinioConnector).to(MinioConnector).inSingletonScope();
+container.bind<IClickhouseConnector>(Types.ClickhouseConnector).to(ClickhouseConnector).inSingletonScope();
 container.bind<Root>(Root).toSelf().inSingletonScope();
 ```
 
-#### Описываем настройки для подключения к minio в конфиге:
+#### Описываем настройки для подключения к clickhouse в конфиге:
 
 Используем для этого Loader-ы, смотри:
   - [Конфигурирование переменными окружения](./doc/ENV_LOADER.md)
@@ -42,16 +42,10 @@ container.bind<Root>(Root).toSelf().inSingletonScope();
 
 ```ts
 container.get<IConfig>(Types.Config).merge({
-  Minio: [
+  Clickhouse: [
     {
       name: 'my-connection',
-      options: {
-        endPoint: 'localhost',
-        port: 9000,
-        accessKey: 'admin',
-        secretKey: 'minioadmin',
-        useSSL: false,
-      },
+      options: {},
     },
   ],
 });
@@ -70,25 +64,15 @@ container.get<IConfig>(Types.Config).merge({
   const connection = root.connector.get('my-connection');
 ```
 
-#### Работаем с базой данных при помощи API [minio](https://www.npmjs.com/package/minio):
+#### Работаем с базой данных при помощи API [@clickhouse/client](https://www.npmjs.com/package/@clickhouse/client):
 
 ```ts
-  await connection.makeBucket('test', 'test'); // Создаем бакет
+  const cursor = await connection.query({ query: 'SELECT 1 AS result;', format: 'JSON' });
 
-  await connection.putObject(
-    'test',
-    'test.file',
-    Buffer.from('Hello world!'),
-  )); // Кладём объект в бакет
-
-  connection.getObject('test', 'test.file', (e, stream) => {
-    let data = '';
-    stream
-      .on('data', (chunk) => (data += chunk.toString('utf8')))
-      .on('end', () => console.log(data)); // 'Hello world!'
-   }); // Достаём объект из бакета
-})();
+  const { data } = await cursor.json<{ result: number }>();
+  
+  console.log(data); // [{ result: 1 }]
 ```
 
 Так же пример подключения можно посмотреть тут -
-[@biorate/minio](https://www.npmjs.com/package/@biorate/minio).
+[@biorate/clickhouse](https://www.npmjs.com/package/@biorate/clickhouse).
