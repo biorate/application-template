@@ -53,3 +53,6 @@
   - [KafkaJS](./doc/KAFKAJS.md)
   - [Proxy](./doc/PROXY.md) 
   - [SchemaRegistry](./doc/SCHEMA_REGISTRY.md) 
+- [Работа с ошибками](./doc/ERRORS.md)   
+- [HTTP клиент](./doc/AXIOS.md)
+- [Миграции](./doc/MIGRATIONS.md)
