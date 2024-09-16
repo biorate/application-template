@@ -20,8 +20,12 @@ export class Hello {
     ++this.counter;
   }
 
-  @action public async toCart() {
-    await router.navigate(routes.cart(this.id++));
+  @action public async toBar() {
+    await router.navigate(routes.bar(this.id++));
+  }
+
+  @action public async toFoo() {
+    await router.navigate(routes.foo);
   }
 
   @init() protected initialize() {

@@ -9,3 +9,14 @@ body,
   padding: 0;
   margin: 0;
 }
+
+.center {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

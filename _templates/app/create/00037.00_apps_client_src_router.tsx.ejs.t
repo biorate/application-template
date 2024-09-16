@@ -8,21 +8,22 @@ import * as Pages from './view/pages';
 
 export const routes = {
   root: '/',
-  main: '/main',
-  cart: (id: string | number) => `/cart/${id}`,
+  foo: '/foo',
+  bar: (id: string | number) => `/bar/${id}`,
 };
 
 export const router = createBrowserRouter([
   {
     path: routes.root,
-    element: <Pages.Main />,
+    element: <Pages.Foo />,
   },
   {
-    path: routes.main,
-    element: <Pages.Main />,
+    path: routes.foo,
+    element: <Pages.Foo />,
   },
   {
-    path: routes.cart(':id'),
-    element: <Pages.Cart />,
+    path: routes.bar(':id'),
+    element: <Pages.Bar />,
   },
 ]);
+

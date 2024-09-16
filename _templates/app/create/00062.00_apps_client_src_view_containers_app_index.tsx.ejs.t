@@ -9,6 +9,7 @@ import { observer } from 'mobx-react';
 import { Preloader, Spinner as SpinnerStore } from '../../../store';
 import { Spinner } from '../../components';
 import { router } from '../../../router';
+import { Layout } from './layout';
 import './index.less';
 
 @observer
@@ -21,7 +22,11 @@ export class App extends React.Component<unknown, unknown> {
     return (
       <>
         <Spinner visible={this.spinner.visible || !this.preloader.loaded} />
-        {this.preloader.loaded ? <RouterProvider router={router} /> : null}
+        {this.preloader.loaded ? (
+          <Layout>
+            <RouterProvider router={router} />
+          </Layout>
+        ) : null}
       </>
     );
   }
