@@ -92,3 +92,23 @@ module.exports = async (channel, connection, config, globalConfig) => {
   await channel.assertExchange('test-exchange', 'topic');
 };
 ```
+
+### Запуск миграций:
+
+Запуск скрипта миграции осуществляется через команду:
+
+```sh
+node -r @biorate/migrations
+```
+
+Добавьте в package.json серверного приложения скрипт:
+
+```json
+{
+  "scripts": {
+    "migrations": "node -r @biorate/migrations"
+  }
+}
+```
+
+Теперь через команду ```pnpm run migrations``` можно выполнять миграции.
