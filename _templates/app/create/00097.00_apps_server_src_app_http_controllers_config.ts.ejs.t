@@ -17,6 +17,7 @@ export class ConfigController {
   protected get() {
     return {
       ENV: this.config.get<string>('ENV', 'debug'),
+      version: this.config.get<string>('package.version'),
     };
   }
 }

@@ -17,7 +17,7 @@ export const Bar: FC = observer(() => {
       <Hello
         i18n={i18n}
         onClick={() => hello.toFoo()}
-        title={`${t`Привет мир`} (${i18n.language}) Bar-${hello.counter}-${hello.id}`}
+        title={`${t`Привет мир`} (${i18n.language} bar-${hello.counter}-${hello.id})`}
         buttonTitle="foo"
       />
     </div>
