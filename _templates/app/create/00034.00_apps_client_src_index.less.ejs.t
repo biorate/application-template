@@ -4,6 +4,8 @@ unless_exists: true
 ---
 body,
 #root {
+  background-color: #282C34;
+  color: white;
   width: 100%;
   height: 100%;
   padding: 0;
