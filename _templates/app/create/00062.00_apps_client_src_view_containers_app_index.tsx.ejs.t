@@ -7,9 +7,10 @@ import { RouterProvider } from 'react-router-dom';
 import { inject, Types } from '@biorate/inversion';
 import { observer } from 'mobx-react';
 import { Preloader, Spinner as SpinnerStore } from '../../../store';
-import { Spinner } from '../../components';
+import { Spinner, Slot } from '../../components';
+import { Layout } from '../../containers';
+import { SLOTS } from '../../consts';
 import { router } from '../../../router';
-import { Layout } from './layout';
 import './index.less';
 
 @observer
@@ -24,7 +25,11 @@ export class App extends React.Component<unknown, unknown> {
         <Spinner visible={this.spinner.visible || !this.preloader.loaded} />
         {this.preloader.loaded ? (
           <Layout>
-            <RouterProvider router={router} />
+            <Slot name={SLOTS.HEADER}></Slot>
+            <Slot name={SLOTS.CONTENT}>
+              <RouterProvider router={router} />
+            </Slot>
+            <Slot name={SLOTS.FOOTER}></Slot>
           </Layout>
         ) : null}
       </>
