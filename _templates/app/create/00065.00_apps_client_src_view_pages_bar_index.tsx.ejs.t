@@ -14,7 +14,6 @@ export const Bar: FC = observer(() => {
   const { hello, i18n } = Store.useStore();
   return (
     <div className="center">
-      <div className="react" />
       <Hello
         i18n={i18n}
         onClick={() => hello.toFoo()}
