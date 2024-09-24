@@ -23,7 +23,8 @@ force: true
     "cleanup:node_modules": "rm -rf $(find -type d -name 'node_modules')",
     "prepare": "npx husky install",
     "allure:report": "npx lerna run allure:report --scope <%= SERVER_NAME %> --scope <%= CLIENT_NAME %>",
-    "hooks:pre-commit": "npx lerna run hooks:pre-commit --scope <%= SERVER_NAME %> --scope <%= CLIENT_NAME %>"
+    "hooks:pre-commit": "npx lerna run hooks:pre-commit --scope <%= SERVER_NAME %> --scope <%= CLIENT_NAME %>",
+    "ls-lint": "npx ls-lint"
   },
   "engines": {
     "yarn": ">=1.22.22",
@@ -59,6 +60,7 @@ force: true
   },
   "devDependencies": {
     "@atao60/fse-cli": "0.1.9",
+    "@ls-lint/ls-lint": "2.2.3",
     "@types/chai": "4.2.18",
     "@types/flat": "5.0.2",
     "@types/lodash": "4.14.170",
