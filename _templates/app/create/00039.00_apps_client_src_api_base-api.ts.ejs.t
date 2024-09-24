@@ -5,8 +5,8 @@ unless_exists: true
 import { Axios, IAxiosFetchOptions } from '@biorate/axios';
 import { container, Types } from '@biorate/inversion';
 import { Spinner, Config } from '../store';
-import { IError } from '../types';
-import * as errors from '../errors';
+import { IError } from '../interfaces';
+import * as errors from './errors';
 
 export class BaseApi extends Axios {
   public withCredentials = false;

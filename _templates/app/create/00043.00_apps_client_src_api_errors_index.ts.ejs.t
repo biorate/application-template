@@ -1,5 +1,5 @@
 ---
-to: <%= h.client(`${ROOT}/apps/${CLIENT_NAME}/src/errors/index.ts`) %>
+to: <%= h.client(`${ROOT}/apps/${CLIENT_NAME}/src/api/errors/index.ts`) %>
 unless_exists: true
 ---
 export * from './base-error';

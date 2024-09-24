@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/interfaces.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/interfaces/application.ts`) %>
 unless_exists: true
 ---
 import { INestApplication } from '@nestjs/common';

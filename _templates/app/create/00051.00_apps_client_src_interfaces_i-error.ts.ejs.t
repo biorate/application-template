@@ -1,5 +1,5 @@
 ---
-to: <%= h.client(`${ROOT}/apps/${CLIENT_NAME}/src/types/i-error.ts`) %>
+to: <%= h.client(`${ROOT}/apps/${CLIENT_NAME}/src/interfaces/i-error.ts`) %>
 unless_exists: true
 ---
 export type IError<H = unknown> = Error & {

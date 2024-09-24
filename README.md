@@ -56,3 +56,4 @@
 - [Работа с ошибками](./doc/ERRORS.md)   
 - [HTTP клиент](./doc/AXIOS.md)
 - [Миграции](./doc/MIGRATIONS.md)
+- [Структура приложения](./doc/APP_STRUCTURE.md)
