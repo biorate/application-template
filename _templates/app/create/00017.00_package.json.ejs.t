@@ -112,7 +112,7 @@ force: true
     <%- CLIENT ? '"ts-loader": "9.5.1",' : '' %>
     "ts-node": "10.9.1",
     "typedoc": "0.24.8",
-    "typescript": "4.9.5"<%- CLIENT ? ',' : '' %>
+    "typescript": "5.0.4"<%- CLIENT ? ',' : '' %>
     <%- CLIENT ? '"util-browserify": "browserify/node-util#v0.12.4",' : '' %>
     <%- CLIENT ? '"webpack": "5.91.0",' : '' %>
     <%- CLIENT ? '"webpack-cli": "4.10.0",' : '' %>
