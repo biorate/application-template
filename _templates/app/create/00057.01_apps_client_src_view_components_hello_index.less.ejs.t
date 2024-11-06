@@ -14,7 +14,7 @@ unless_exists: true
   background-image: radial-gradient(
     circle at 130px 50px,
     #00dfde 0,
-    #00dfde 21.666666666666668px,
+    #00dfde 21.6667px,
     transparent 30px
   );
   width: 260px;
