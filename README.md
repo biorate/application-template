@@ -49,6 +49,7 @@
   - [Mssql](./doc/MSSQL.md)
   - [Clickhouse](./doc/CLICKHOUSE.md)
   - [Redis](./doc/REDIS.md)
+  - [IORedis](./doc/IOREDIS.md)
   - [RDkafka](./doc/RDKAFKA.md)
   - [KafkaJS](./doc/KAFKAJS.md)
   - [Proxy](./doc/PROXY.md) 
