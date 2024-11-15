@@ -9,3 +9,4 @@ node_modules
 <%= SERVER ? 'apps/${SERVER_NAME}/node_modules' : '' %>
 .dockerignore
 Dockerfile
+docker-compose.yml
