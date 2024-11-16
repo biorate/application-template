@@ -5,7 +5,7 @@ unless_exists: true
 doctype html
 html(lang='en')
     head
-        title <%= SERVICE_NAME %>
+        title <%= APP_NAME %>
         base(href='/')
         meta(charset='utf-8')
         meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')

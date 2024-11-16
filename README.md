@@ -4,7 +4,7 @@
 
 - `pnpm i`
 - `npx hygen app help`
-- `npx hygen app create --client --server --hygen --service-name=name-of-the-app --service-description='My app name' --add-web-socket`
+- `npx hygen app create --client --server --hygen --app-name=name-of-the-app --app-description='My app name' --add-web-socket`
 
 ## Запуск приложения:
 

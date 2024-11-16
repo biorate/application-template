@@ -3,9 +3,9 @@ to: <%= h.root(`${ROOT}/README.md`) %>
 unless_exists: false
 force: true
 ---
-# <%= SERVICE_NAME %>
+# <%= APP_NAME %>
 
-## <%= SERVICE_DESCRIPTION %>
+## <%= APP_DESCRIPTION %>
 
 ## Запуск приложения:
 

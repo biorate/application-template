@@ -3,10 +3,10 @@ to: <%= h.root(`${ROOT}/package.json`) %>
 force: true
 ---
 {
-  "name": "<%= SERVICE_NAME %>",
+  "name": "<%= APP_NAME %>",
   "private": true,
   "version": "0.0.0",
-  "description": "<%= SERVICE_DESCRIPTION %>",
+  "description": "<%= APP_DESCRIPTION %>",
   "keywords": [],
   "author": "llevkin",
   "license": "UNLICENSED",

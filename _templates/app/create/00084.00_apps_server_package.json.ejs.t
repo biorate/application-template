@@ -5,7 +5,7 @@ unless_exists: true
 {
   "name": "<%= SERVER_NAME %>",
   "version": "0.0.0",
-  "description": "<%= SERVICE_DESCRIPTION %> (server application)",
+  "description": "<%= APP_DESCRIPTION %> (server application)",
   "main": "dist",
   "scripts": {
     "start": "cross-env LOG_ENABLED=1 LOG_LEVEL=info,error,warn NODE_ENV=production node ./dist/index.js",

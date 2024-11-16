@@ -5,7 +5,7 @@ unless_exists: true
 {
   "name": "<%= CLIENT_NAME %>",
   "version": "0.0.0",
-  "description": "<%= SERVICE_DESCRIPTION %> (client application)",
+  "description": "<%= APP_DESCRIPTION %> (client application)",
   "main": "dist",
   "scripts": {
     "build": "cross-env NODE_ENV=production npx webpack --config=../../webpack.config.js --mode=production --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",

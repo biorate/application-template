@@ -2,6 +2,6 @@
 to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/README.md`) %>
 unless_exists: true
 ---
-# <%= SERVICE_NAME %> server
+# <%= APP_NAME %> server
 
-## <%= SERVICE_DESCRIPTION %>
+## <%= APP_DESCRIPTION %>
