@@ -58,3 +58,4 @@
 - [HTTP клиент](./doc/AXIOS.md)
 - [Миграции](./doc/MIGRATIONS.md)
 - [Структура приложения](./doc/APP_STRUCTURE.md)
+- [Архитектура клиентского приложения](./doc/CLIENT_APP_ARCH.md)
