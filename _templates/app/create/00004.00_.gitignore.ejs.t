@@ -49,3 +49,7 @@ coverage
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+.dbeaver
+
+.nx
