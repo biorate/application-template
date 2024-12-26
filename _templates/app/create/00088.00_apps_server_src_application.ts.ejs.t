@@ -5,6 +5,8 @@ unless_exists: true
 import * as helmet from 'helmet';
 import * as cookieParser from 'cookie-parser';
 import * as favicon from 'serve-favicon';
+import { Server } from 'http';
+import { AddressInfo } from 'net';
 import { promisify } from 'util';
 import { urlencoded, json, Request, Response } from 'express';
 import { init, kill, injectable, inject, Types } from '@biorate/inversion';
@@ -16,7 +18,9 @@ import { IConfig } from '@biorate/config';
 import { path } from '@biorate/tools';
 import {
   RoutesInterceptor,
+  <% if (!CUT_EXAMPLES) { -%>
   ProxyPrometheusMiddleware,
+  <% } -%>
   AllExceptionsFilter,
 } from '@biorate/nestjs-tools';
 import { IApplication } from './interfaces';
@@ -24,10 +28,10 @@ import { Logger } from './logger';
 import { AppModule } from './app';
 
 @injectable()
-export class Application implements IApplication {
+export class Application implements IApplication<Server> {
   @inject(Types.Config) private config: IConfig;
 
-  public app: INestApplication;
+  public app: INestApplication<Server>;
 
   public document: OpenAPIObject;
 
@@ -88,7 +92,7 @@ export class Application implements IApplication {
     });
     this.createSwagger();
     await this.app.listen(port, host, () => {
-      const { address, port } = this.app.getHttpServer().address();
+      const { address, port } = <AddressInfo>this.app.getHttpServer().address();
       console.info(`Server listen on ${address}:${port}`);
     });
   }

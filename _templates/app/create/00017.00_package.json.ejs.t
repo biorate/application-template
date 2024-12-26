@@ -114,15 +114,15 @@ force: true
     "typedoc": "0.24.8",
     "typescript": "5.0.4"<%- CLIENT ? ',' : '' %>
     <%- CLIENT ? '"util-browserify": "browserify/node-util#v0.12.4",' : '' %>
-    <%- CLIENT ? '"webpack": "5.91.0",' : '' %>
-    <%- CLIENT ? '"webpack-cli": "4.10.0",' : '' %>
-    <%- CLIENT ? '"webpack-dev-server": "4.15.2"' : '' %>
+    <%- CLIENT ? '"webpack": "5.97.1",' : '' %>
+    <%- CLIENT ? '"webpack-cli": "6.0.1",' : '' %>
+    <%- CLIENT ? '"webpack-dev-server": "5.2.0"' : '' %>
   },
   "dependencies": {
-    "@biorate/axios": "1.91.5",
-    "@biorate/config": "1.91.5",
+    "@biorate/axios": "1.93.1",
+    "@biorate/config": "1.93.1",
     "@biorate/errors": "1.28.0",
-    "@biorate/i18n": "1.91.5",
+    "@biorate/i18n": "1.93.1",
     "@biorate/inversion": "1.65.4",
     "@biorate/symbolic": "1.28.0",
     "@biorate/tools": "1.28.0",

@@ -22,21 +22,21 @@ unless_exists: true
   "author": "llevkin",
   "license": "UNLICENSED",
   "dependencies": {
-    "@biorate/axios-prometheus": "1.91.5",
-    "@biorate/config-loader": "1.91.5",
-    "@biorate/config-loader-env": "1.91.5",
-    "@biorate/config-loader-fs": "1.91.5",
-    "@biorate/config-loader-vault": "1.91.5",
-    "@biorate/nestjs-tools": "1.91.5",
-    "@biorate/prometheus": "1.91.5",
-    "@biorate/vault": "1.91.5",
-    "@nestjs/common": "9.3.12",
-    "@nestjs/core": "9.3.12",
-    "@nestjs/platform-express": "9.3.12",
-    <%- ADD_WEB_SOCKET ? '"@nestjs/platform-ws": "9.3.12",' : '' -%>
-    <%- CLIENT ? '"@nestjs/serve-static": "3.0.1",' : '' -%>
-    "@nestjs/swagger": "6.2.1",
-    <%- ADD_WEB_SOCKET ? '"@nestjs/websockets": "9.0.0",' : '' -%>
+    "@biorate/axios-prometheus": "1.93.1",
+    "@biorate/config-loader": "1.93.1",
+    "@biorate/config-loader-env": "1.93.1",
+    "@biorate/config-loader-fs": "1.93.1",
+    "@biorate/config-loader-vault": "1.93.1",
+    "@biorate/nestjs-tools": "1.94.1",
+    "@biorate/prometheus": "1.93.1",
+    "@biorate/vault": "1.93.1",
+    "@nestjs/common": "10.4.15",
+    "@nestjs/core": "10.4.15",
+    "@nestjs/platform-express": "10.4.15",
+    <%- ADD_WEB_SOCKET ? '"@nestjs/platform-ws": "10.4.15",' : '' -%>
+    <%- CLIENT ? '"@nestjs/serve-static": "4.0.2",' : '' -%>
+    "@nestjs/swagger": "8.1.0",
+    <%- ADD_WEB_SOCKET ? '"@nestjs/websockets": "10.4.15",' : '' -%>
     "class-transformer": "0.5.1",
     "class-validator": "0.14.0",
     "cookie-parser": "1.4.5",
