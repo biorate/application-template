@@ -26,7 +26,7 @@ export class Store {
 
   @inject(Types.Preloader) public preloader: Preloader;
 
-  protected constructor() {
+  public constructor() {
     Store.StoreContext = createContext<Store>(this);
     Store.useStore = () => useContext(Store.StoreContext);
   }
