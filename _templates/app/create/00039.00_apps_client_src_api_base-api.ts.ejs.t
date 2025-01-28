@@ -24,8 +24,8 @@ export class BaseApi extends Axios {
   }
 
   protected async before(params: IAxiosFetchOptions) {
-    await super.before(params);
     this.spinner.show(this.constructor.name);
+    await super.before(params);
   }
 
   protected async finally(startTime: [number, number]) {
