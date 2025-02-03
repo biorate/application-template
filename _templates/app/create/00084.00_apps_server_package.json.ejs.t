@@ -22,12 +22,12 @@ unless_exists: true
   "author": "llevkin",
   "license": "UNLICENSED",
   "dependencies": {
-    "@biorate/axios-prometheus": "1.96.0",
+    "@biorate/axios-prometheus": "1.96.2",
     "@biorate/config-loader": "1.96.0",
     "@biorate/config-loader-env": "1.96.0",
     "@biorate/config-loader-fs": "1.96.0",
     "@biorate/config-loader-vault": "1.96.0",
-    "@biorate/nestjs-tools": "1.96.0",
+    "@biorate/nestjs-tools": "1.97.0",
     "@biorate/prometheus": "1.96.0",
     "@biorate/vault": "1.96.0",
     "@nestjs/common": "10.4.15",
@@ -49,7 +49,7 @@ unless_exists: true
     <%- ADD_WEB_SOCKET ? ',"ws": "8.14.2"' : '' -%>
   },
   "devDependencies": {
-    "@biorate/migrations": "1.96.0",
+    "@biorate/migrations": "1.96.2",
     "@biorate/mocha": "1.64.0",
     "@biorate/mocha-spec": "1.64.0",
     "@istanbuljs/nyc-config-typescript": "1.0.2",
