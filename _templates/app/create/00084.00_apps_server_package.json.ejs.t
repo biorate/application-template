@@ -50,8 +50,8 @@ unless_exists: true
   },
   "devDependencies": {
     "@biorate/migrations": "1.104.0",
-    "@biorate/mocha": "1.104.0",
-    "@biorate/mocha-spec": "1.104.0",
+    "@biorate/mocha": "1.102.1",
+    "@biorate/mocha-spec": "1.102.1",
     "@istanbuljs/nyc-config-typescript": "1.0.2",
     "@types/cookie-parser": "1.4.3",
     "@types/express": "4.17.17",
