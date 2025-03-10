@@ -49,7 +49,7 @@ unless_exists: true
     <%- ADD_WEB_SOCKET ? ',"ws": "8.14.2"' : '' -%>
   },
   "devDependencies": {
-    "@biorate/migrations": "1.104.0",
+    "@biorate/migrations": "1.105.2",
     "@biorate/mocha": "1.102.1",
     "@biorate/mocha-spec": "1.102.1",
     "@istanbuljs/nyc-config-typescript": "1.0.2",
