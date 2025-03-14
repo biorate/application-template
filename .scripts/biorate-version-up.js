@@ -8,11 +8,11 @@
   const templatePath = './_templates/app/create/';
   const dir = path(process.cwd(), templatePath);
   const files = fs.readdirSync(dir).filter((item) => /package.json/.test(item));
+  const regexp = /"(@biorate\/[^"]+)":\s*"([^"]+)"/g;
 
   for (const file of files) {
     const p = path(dir, file);
     let data = fs.readFileSync(p, 'utf-8');
-    const regexp = /"(@biorate\/[^"]+)":\s*"([^"]+)"/g;
     const matches = [...data.matchAll(regexp)];
     for (const match of matches) {
       const line = match[0];
