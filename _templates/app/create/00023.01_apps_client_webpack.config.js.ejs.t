@@ -1,5 +1,5 @@
 ---
-to: <%= h.client(`${ROOT}/webpack.config.js`) %>
+to: <%= h.client(`${ROOT}/apps/${CLIENT_NAME}/webpack.config.js`) %>
 unless_exists: true
 ---
 const webpack = require('webpack');
@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const argv = require('minimist')(process.argv.slice(2));
-const lerna = require('./lerna.json');
+const pack = require('./package.json');
 
 const production = argv.mode === 'production';
 const host = 'localhost:3000';
@@ -141,7 +141,7 @@ module.exports = {
       'process.env.NODE_DEBUG': JSON.stringify(process.env.NODE_DEBUG),
       'process.env.baseURL': JSON.stringify(production ? null : baseURL),
       'process.env.host': JSON.stringify(production ? null : host),
-      'process.env.VERSION': JSON.stringify(lerna.version),
+      'process.env.VERSION': JSON.stringify(pack.version),
     }),
     new MiniCssExtractPlugin({ filename: 'style.css' }),
   ],

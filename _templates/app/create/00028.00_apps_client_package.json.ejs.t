@@ -8,8 +8,8 @@ unless_exists: true
   "description": "<%= APP_DESCRIPTION %> (client application)",
   "main": "dist",
   "scripts": {
-    "build": "cross-env NODE_ENV=production npx webpack --config=../../webpack.config.js --mode=production --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
-    "build:debug": "npx webpack serve --history-api-fallback --config=../../webpack.config.js --mode=development --hot --open --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
+    "build": "cross-env NODE_ENV=production npx webpack --config=webpack.config.js --mode=production --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
+    "build:debug": "npx webpack serve --history-api-fallback --config=webpack.config.js --mode=development --hot --open --entry=./src/index.tsx --entry=./src/index.pug --entry=./src/index.less -o ./dist",
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "prettier:fix": "npx prettier --write ./src",
