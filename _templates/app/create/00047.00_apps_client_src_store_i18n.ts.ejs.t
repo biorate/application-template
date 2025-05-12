@@ -22,8 +22,8 @@ export class I18n extends I18nCommon {
       debug: this.baseURL.includes('localhost'),
       saveMissing: this.baseURL.includes('localhost'),
       backend: {
-        loadPath: `${this.baseURL}/locales/{{lng}}/{{ns}}`,
-        addPath: `${this.baseURL}/locales/{{lng}}/{{ns}}`,
+        loadPath: `${this.baseURL}/client/locale/{{lng}}/{{ns}}`,
+        addPath: `${this.baseURL}/client/locale/{{lng}}/{{ns}}`,
       },
     };
   }

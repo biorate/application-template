@@ -5,7 +5,7 @@ unless_exists: true
 import { BaseApi } from './base-api';
 
 export class Config extends BaseApi {
-  public url = '/config';
+  public url = '/client/config';
 
   public method = 'get';
 

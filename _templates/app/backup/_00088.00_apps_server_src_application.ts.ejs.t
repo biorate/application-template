@@ -19,11 +19,11 @@ import { path } from '@biorate/tools';
 import {
   RoutesInterceptor,
   <% if (!CUT_EXAMPLES) { -%>
-  // ProxyPrometheusMiddleware,
+  ProxyPrometheusMiddleware,
   <% } -%>
   AllExceptionsFilter,
 } from '@biorate/nestjs-tools';
-import { IApplication } from './common/interfaces';
+import { IApplication } from './interfaces';
 import { Logger } from './logger';
 import { AppModule } from './app';
 
@@ -46,9 +46,7 @@ export class Application implements IApplication<Server> {
     const port = this.config.get<number>('app.port', 3000);
     this.app = await NestFactory.create(AppModule, { logger: new Logger() });
     <%- ADD_WEB_SOCKET ? "this.app.useWebSocketAdapter(new WsAdapter(this.app));" : '' -%>
-    this.app.setGlobalPrefix(this.config.get<string>('app.globalPrefix', ''), {
-      exclude: [],
-    });
+    this.app.setGlobalPrefix(this.config.get<string>('app.globalPrefix', ''));
     this.app.useGlobalFilters(new AllExceptionsFilter());
     this.app.useGlobalInterceptors(new RoutesInterceptor());
     this.app.useGlobalPipes(new ValidationPipe({ transform: true }));
