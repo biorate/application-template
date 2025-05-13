@@ -9,8 +9,10 @@ import { MiddlewareConsumer, Module } from '@nestjs/common';
 import {
   RequestCountMiddleware,
   ResponseTimeMiddleware,
+  <% if (CLIENT) { -%>
   GetLocaleUseCase,
   SetLocaleUseCase,
+  <% } -%>
   GetMetricsUseCase,
   MetricsRepositoryAdapter,
   controllers as C,
