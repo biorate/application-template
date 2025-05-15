@@ -6,11 +6,11 @@ import { merge } from 'lodash';
 import { Injectable } from '@nestjs/common';
 import { User } from '../../domain';
 import { UserNotExistsError, UserAlreadyExistsError } from '../../application/errors';
-import { UserProviderPort } from '../../application/ports';
+import { UserDrivenPort } from '../../application/ports';
 import { UserInMemoryEntity } from '../persistence/user.in-memory.entity';
 
 @Injectable()
-export class UserRepositoryAdapter implements UserProviderPort {
+export class UserRepositoryAdapter implements UserDrivenPort {
   private models: UserInMemoryEntity[] = [
     { id: 1, name: 'Bob', email: 'bob@example.com' },
     { id: 2, name: 'Alice', email: 'alice@example.com' },

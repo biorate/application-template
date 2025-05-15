@@ -5,11 +5,11 @@ unless_exists: true
 import { Injectable } from '@nestjs/common';
 import { inject, Types } from '@biorate/inversion';
 import { IConfig } from '@biorate/config';
-import { InfoProviderPort } from '../../application/ports';
+import { InfoDrivenPort } from '../../application/ports';
 import { Info } from '../../domain';
 
 @Injectable()
-export class InfoRepositoryAdapter implements InfoProviderPort {
+export class InfoRepositoryAdapter implements InfoDrivenPort {
   @inject(Types.Config) protected config: IConfig;
 
   public async getInfo() {

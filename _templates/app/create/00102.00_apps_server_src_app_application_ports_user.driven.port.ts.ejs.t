@@ -1,10 +1,10 @@
 ---
-to: <%= h.server(!CUT_EXAMPLES && `${ROOT}/apps/${SERVER_NAME}/src/app/application/ports/user.provider.port.ts`) %>
+to: <%= h.server(!CUT_EXAMPLES && `${ROOT}/apps/${SERVER_NAME}/src/app/application/ports/user.driven.port.ts`) %>
 unless_exists: true
 ---
 import { User } from '../../domain';
 
-export interface UserProviderPort {
+export interface UserDrivenPort {
   create(user: User): Promise<User>;
 
   findOne(id: number): Promise<User | undefined>;

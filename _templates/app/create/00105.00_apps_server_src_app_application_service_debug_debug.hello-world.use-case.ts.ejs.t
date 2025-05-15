@@ -4,12 +4,12 @@ unless_exists: true
 ---
 import { Inject, Injectable } from '@nestjs/common';
 import { Types } from '@biorate/inversion';
-import { DebugProviderPort } from '../../ports';
+import { DebugDrivenPort } from '../../ports';
 
 @Injectable()
 export class DebugHelloWorldUseCase {
-  @Inject(Types.DebugProviderPort)
-  protected readonly debugHttp: DebugProviderPort;
+  @Inject(Types.DebugDrivenPort)
+  protected readonly debugHttp: DebugDrivenPort;
 
   public async execute() {
     const { name, ENV, version } = await this.debugHttp.getClientConfig();

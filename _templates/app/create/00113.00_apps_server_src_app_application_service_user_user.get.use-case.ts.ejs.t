@@ -4,12 +4,12 @@ unless_exists: true
 ---
 import { Inject, Injectable } from '@nestjs/common';
 import { Types } from '@biorate/inversion';
-import { UserProviderPort } from '../../ports';
+import { UserDrivenPort } from '../../ports';
 
 @Injectable()
 export class UserGetUseCase {
-  @Inject(Types.UserProviderPort)
-  protected readonly userProvider: UserProviderPort;
+  @Inject(Types.UserDrivenPort)
+  protected readonly userProvider: UserDrivenPort;
 
   public async execute(id: number) {
     return this.userProvider.findOne(id);

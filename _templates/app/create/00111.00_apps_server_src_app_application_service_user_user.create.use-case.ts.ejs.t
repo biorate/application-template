@@ -5,12 +5,12 @@ unless_exists: true
 import { Inject, Injectable } from '@nestjs/common';
 import { Types } from '@biorate/inversion';
 import { User } from '../../../domain/';
-import { UserProviderPort } from '../../ports';
+import { UserDrivenPort } from '../../ports';
 
 @Injectable()
 export class UserCreateUseCase {
-  @Inject(Types.UserProviderPort)
-  protected readonly userProvider: UserProviderPort;
+  @Inject(Types.UserDrivenPort)
+  protected readonly userProvider: UserDrivenPort;
 
   public async execute(user: User) {
     return this.userProvider.create(user);

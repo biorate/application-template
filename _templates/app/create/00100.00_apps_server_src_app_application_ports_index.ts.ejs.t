@@ -2,9 +2,9 @@
 to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/application/ports/index.ts`) %>
 unless_exists: true
 ---
-<%- CLIENT ? "export * from './client.provider.port';" : '' -%>
+<%- CLIENT ? "export * from './client.driven.port';" : '' -%>
 <% if (!CUT_EXAMPLES) { -%>
-export * from './user.provider.port';
+export * from './user.driven.port';
 <% } -%>
-export * from './info.provider.port';
-export * from './debug.provider.port';
+export * from './info.driven.port';
+export * from './debug.driven.port';

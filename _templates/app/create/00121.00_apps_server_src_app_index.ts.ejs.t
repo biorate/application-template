@@ -50,26 +50,26 @@ import { DebugController } from './infrastructure/controllers/debug.controller';
     ...Object.values(useCases),
     <% if (!CUT_EXAMPLES) { -%>
     {
-      provide: Types.UserProviderPort,
+      provide: Types.UserDrivenPort,
       useClass: UserRepositoryAdapter,
     },
     <% } -%>
     <% if (CLIENT) { -%>
     {
-      provide: Types.ClientProviderPort,
+      provide: Types.ClientDrivenPort,
       useClass: ClientRepositoryAdapter,
     },
     <% } -%>
     {
-      provide: Types.MetricsProviderPort,
+      provide: Types.MetricsDrivenPort,
       useClass: MetricsRepositoryAdapter,
     },
     {
-      provide: Types.InfoProviderPort,
+      provide: Types.InfoDrivenPort,
       useClass: InfoRepositoryAdapter,
     },
     {
-      provide: Types.DebugProviderPort,
+      provide: Types.DebugDrivenPort,
       useClass: DebugHttpAdapter,
     },
   ],
