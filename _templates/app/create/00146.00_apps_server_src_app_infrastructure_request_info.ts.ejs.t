@@ -8,7 +8,7 @@ import { GETInfoREQ, GETInfoRES } from './dto';
 export class GETInfo extends AxiosPrometheus {
   public baseURL = 'http://localhost:3000';
 
-  public url = '/info';
+  public url = '/<%- CLIENT ? "info" : "" -%>';
 
   public method = 'get';
 
