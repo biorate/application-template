@@ -27,7 +27,7 @@ unless_exists: true
     "@biorate/config-loader-env": "1.120.0",
     "@biorate/config-loader-fs": "1.120.0",
     "@biorate/config-loader-vault": "1.120.0",
-    "@biorate/nestjs-tools": "1.125.0",
+    "@biorate/nestjs-tools": "1.125.1",
     "@biorate/prometheus": "1.120.0",
     "@biorate/vault": "1.120.0",
     "@nestjs/common": "10.4.15",
