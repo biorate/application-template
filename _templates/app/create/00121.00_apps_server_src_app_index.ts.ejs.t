@@ -38,8 +38,7 @@ import { DebugController } from './infrastructure/controllers/debug.controller';
   controllers: [
     ...Object.values(controllers),
     ...(process.env.NODE_ENV !== 'production' ? [DebugController] : []),
-    <%- CLIENT ? 'C.ClientController,' : '' -%>
-    C.MetricsController,
+    ...Object.values(C)<%- !CLIENT ? '.filter((item) => C.ClientController !== item)' : '' -%>,
   ],
   providers: [
     <% if (CLIENT) { -%>
