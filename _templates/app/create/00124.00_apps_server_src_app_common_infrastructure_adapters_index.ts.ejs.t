@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/infrastructure/adapters/index.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/adapters/index.ts`) %>
 unless_exists: true
 ---
 export * from './user.repository.adapter';

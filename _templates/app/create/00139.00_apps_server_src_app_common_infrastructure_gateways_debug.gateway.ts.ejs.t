@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/infrastructure/gateways/debug.gateway.ts`) %>
+to: <%= h.server(ADD_WEB_SOCKET && `${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/gateways/debug.gateway.ts`) %>
 unless_exists: true
 ---
 import { WebSocket } from 'ws';

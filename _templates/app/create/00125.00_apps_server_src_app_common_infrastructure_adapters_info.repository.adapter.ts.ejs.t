@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/infrastructure/adapters/info.repository.adapter.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/adapters/info.repository.adapter.ts`) %>
 unless_exists: true
 ---
 import { Injectable } from '@nestjs/common';

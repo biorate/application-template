@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/infrastructure/controllers/dto/user/create-user.dto.ts`) %>
+to: <%= h.server(!CUT_EXAMPLES && `${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/controllers/dto/user/create-user.dto.ts`) %>
 unless_exists: true
 ---
 import { IsInt, IsString, Min } from 'class-validator';

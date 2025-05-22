@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/infrastructure/persistence/user.in-memory.entity.ts`) %>
+to: <%= h.server(!CUT_EXAMPLES && `${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/persistence/user.in-memory.entity.ts`) %>
 unless_exists: true
 ---
 import { IsOptional, IsString, IsNumber } from 'class-validator';

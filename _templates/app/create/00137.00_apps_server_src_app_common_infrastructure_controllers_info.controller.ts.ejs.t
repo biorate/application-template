@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/infrastructure/controllers/info.controller.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/controllers/info.controller.ts`) %>
 unless_exists: true
 ---
 import { Controller, Get } from '@nestjs/common';
@@ -11,7 +11,7 @@ import { InfoGetUseCase } from '../../application/service';
 export class InfoController {
   public constructor(protected readonly infoGet: InfoGetUseCase) {}
 
-  @Get('info')
+  @Get(<%- CLIENT ? "'info'" : "''" -%>)
   @ApiOperation({ summary: 'Get info' })
   protected get() {
     return this.infoGet.execute();

@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/application/ports/user.driven.port.ts`) %>
+to: <%= h.server(!CUT_EXAMPLES && `${ROOT}/apps/${SERVER_NAME}/src/app/common/application/ports/user.driven.port.ts`) %>
 unless_exists: true
 ---
 import { User } from '../../domain';

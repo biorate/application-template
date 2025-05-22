@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/application/errors/user.errors.ts`) %>
+to: <%= h.server(!CUT_EXAMPLES && `${ROOT}/apps/${SERVER_NAME}/src/app/common/application/errors/user.errors.ts`) %>
 unless_exists: true
 ---
 import { BaseError } from '@biorate/errors';

@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/application/service/debug/debug.hello-world.use-case.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/common/application/service/debug/debug.hello-world.use-case.ts`) %>
 unless_exists: true
 ---
 import { Inject, Injectable } from '@nestjs/common';

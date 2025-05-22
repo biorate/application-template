@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/domain/client.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/common/domain/client.ts`) %>
 unless_exists: true
 ---
 import { IsString } from 'class-validator';

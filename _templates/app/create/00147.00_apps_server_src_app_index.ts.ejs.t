@@ -1,20 +1,18 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/index.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/index.ts`) %>
 unless_exists: true
 ---
 import { MiddlewareConsumer, Module } from '@nestjs/common';
-import { ServeStaticModule } from '@nestjs/serve-static';
+<%- CLIENT ? "import { ServeStaticModule } from '@nestjs/serve-static';" : '' %>;
+<%- CLIENT ? "import { path } from '@biorate/tools';" : '' %>;
 import { ScheduleModule } from '@nestjs/schedule';
 import { EventEmitterModule } from '@nestjs/event-emitter';
-import { path } from '@biorate/tools';
 import { RequestCountMiddleware, ResponseTimeMiddleware } from '@biorate/nestjs-tools';
 import { CommonModule } from './common';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: path.create(process.cwd(), '../name-of-the-app-client/dist'),
-    }),
+    <%- CLIENT ? `ServeStaticModule.forRoot({ rootPath: path.create(process.cwd(), '../${CLIENT_NAME}/dist'), }),` : '' -%>
     EventEmitterModule.forRoot({ verboseMemoryLeak: true }),
     ScheduleModule.forRoot(),
     CommonModule,

@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/shared/ws-common.gateway.ts`) %>
+to: <%= h.server(ADD_WEB_SOCKET && `${ROOT}/apps/${SERVER_NAME}/src/app/shared/ws-common.gateway.ts`) %>
 unless_exists: true
 ---
 import { Server } from 'ws';

@@ -1,7 +1,9 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/infrastructure/controllers/index.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/controllers/index.ts`) %>
 unless_exists: true
 ---
 export * from './info.controller';
-export * from './client.controller';
+<%- CLIENT ? "export * from './client.controller';" : '' -%>
+<% if (!CUT_EXAMPLES) { -%>
 export * from './user.controller';
+<% } -%>

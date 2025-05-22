@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/server/src/app/common/infrastructure/controllers/client.controller.ts`) %>
+to: <%= h.server(CLIENT && `${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/controllers/client.controller.ts`) %>
 unless_exists: true
 ---
 import { Controller, Get } from '@nestjs/common';
