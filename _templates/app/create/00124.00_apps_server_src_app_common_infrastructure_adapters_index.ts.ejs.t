@@ -5,6 +5,6 @@ unless_exists: true
 <% if (!CUT_EXAMPLES) { -%>
 export * from './user.repository.adapter';
 <% } -%>
-export * from './client.repository.adapter';
+<%- CLIENT ? "export * from './client.repository.adapter';" : '' -%>
 export * from './debug.http.adapter';
 export * from './info.repository.adapter';
