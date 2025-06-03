@@ -2,8 +2,9 @@
 to: <%= h.server(!CUT_EXAMPLES && `${ROOT}/apps/${SERVER_NAME}/src/app/common/domain/user.ts`) %>
 unless_exists: true
 ---
-import { AutoObject, Getter, ValueObject } from '@biorate/auto-object';
+import { AutoObject, Getter } from '@biorate/auto-object';
 import { IsInt, IsNumber, IsString, IsObject, IsOptional } from 'class-validator';
+import { Type } from 'class-transformer';
 
 class UserAddress extends AutoObject<UserAddress> {
   @IsString()
@@ -43,6 +44,6 @@ export class User extends AutoObject<User> {
 
   @IsObject()
   @IsOptional()
-  @ValueObject(UserAddress)
+  @Type(() => UserAddress)
   public address?: UserAddress;
 }
