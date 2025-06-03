@@ -45,6 +45,7 @@ unless_exists: true
     "express": "4.18.2",
     "helmet": "4.6.0",
     "http-proxy-middleware": "2.0.6",
+    <%- ADD_WEB_SOCKET ? '"nestjs-asyncapi": "1.4.0",' : '' -%>
     "serve-favicon": "2.5.0",
     "source-map-support": "0.5.21",
     "swagger-ui-express": "4.6.2"

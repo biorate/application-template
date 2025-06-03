@@ -2,13 +2,27 @@
 to: <%= h.server(ADD_WEB_SOCKET && `${ROOT}/apps/${SERVER_NAME}/src/app/common/infrastructure/gateways/debug.gateway.ts`) %>
 unless_exists: true
 ---
-import { WebSocket } from 'ws';
-import { SubscribeMessage } from '@nestjs/websockets';
+import { SubscribeMessage, MessageBody } from '@nestjs/websockets';
+import { AsyncApiPub, AsyncApiSub } from 'nestjs-asyncapi';
 import { WsCommonGateway } from '../../../shared';
+import { SUBDebugDTO, PUBDebugDTO, PUBDebugDataDTO } from './dto/debug';
+import { DebugEvents } from './events';
 
 export class DebugGateway extends WsCommonGateway {
-  @SubscribeMessage('hello')
-  private onHello(client: WebSocket, data: unknown) {
-    return { event: 'world', data: { value: 'world' } };
+  @AsyncApiPub({
+    channel: DebugEvents.DebugPub,
+    message: {
+      payload: PUBDebugDTO,
+    },
+  })
+  @AsyncApiSub({
+    channel: DebugEvents.DebugSub,
+    message: {
+      payload: SUBDebugDTO,
+    },
+  })
+  @SubscribeMessage(DebugEvents.DebugPub)
+  private onDebug(@MessageBody() data: PUBDebugDataDTO): SUBDebugDTO {
+    return { event: DebugEvents.DebugSub, data: { hello: data.value } };
   }
 }

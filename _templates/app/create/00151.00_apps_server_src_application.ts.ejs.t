@@ -13,7 +13,8 @@ import { init, kill, injectable, inject, Types } from '@biorate/inversion';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 <%- ADD_WEB_SOCKET ? "import { WsAdapter } from '@nestjs/platform-ws';" : '' -%>
 import { NestFactory } from '@nestjs/core';
-import { SwaggerModule, DocumentBuilder, OpenAPIObject } from '@nestjs/swagger';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+<%- ADD_WEB_SOCKET ? "import { AsyncApiDocumentBuilder, AsyncApiModule } from 'nestjs-asyncapi';" : '' -%>
 import { IConfig } from '@biorate/config';
 import { path } from '@biorate/tools';
 import {
@@ -33,7 +34,9 @@ export class Application implements IApplication<Server> {
 
   public app: INestApplication<Server>;
 
-  public document: OpenAPIObject;
+  protected host: string;
+
+  protected port: number;
 
   @kill() protected async kill() {
     if (!this.app?.getHttpServer) return;
@@ -42,8 +45,8 @@ export class Application implements IApplication<Server> {
   }
 
   @init() protected async initialize() {
-    const host = this.config.get<string>('app.host', '0.0.0.0');
-    const port = this.config.get<number>('app.port', 3000);
+    this.host = this.config.get<string>('app.host', '0.0.0.0');
+    this.port = this.config.get<number>('app.port', 3000);
     this.app = await NestFactory.create(AppModule, { logger: new Logger() });
     <%- ADD_WEB_SOCKET ? "this.app.useWebSocketAdapter(new WsAdapter(this.app));" : '' -%>
     this.app.setGlobalPrefix(this.config.get<string>('app.globalPrefix', ''), {
@@ -93,7 +96,8 @@ export class Application implements IApplication<Server> {
       origin: (origin, callback) => callback(null, origin),
     });
     this.createSwagger();
-    await this.app.listen(port, host, () => {
+    <%- ADD_WEB_SOCKET ? "await this.createAsyncApi();" : '' -%>
+    await this.app.listen(this.port, this.host, () => {
       const { address, port } = <AddressInfo>this.app.getHttpServer().address();
       console.info(`Server listen on ${address}:${port}`);
     });
@@ -104,24 +108,63 @@ export class Application implements IApplication<Server> {
       'app.swagger.routes.documentation',
       '/swagger/json',
     );
-    this.document = SwaggerModule.createDocument(
+    const document = SwaggerModule.createDocument(
       this.app,
       new DocumentBuilder()
         .setTitle(this.config.get<string>('package.name'))
-        .setDescription(
-          this.config.get<string>('package.description') +
-            `<br/><br/><a target="_blank" href="${route}">OpenAPI JSON config</a>`,
-        )
+        .setDescription(this.createDescription(route, 'OpenAPI JSON config'))
         .setVersion(this.config.get<string>('package.version'))
         .build(),
     );
     SwaggerModule.setup(
       this.config.get<string>('app.swagger.routes.ui', 'swagger'),
       this.app,
-      this.document,
+      document,
     );
     this.app.use(route, (req: Request, res: Response) =>
-      res.end(JSON.stringify(this.document)),
+      res.end(JSON.stringify(document)),
+    );
+  }
+
+  <% if (ADD_WEB_SOCKET) { -%>
+  private async createAsyncApi() {
+    const route = this.config.get<string>(
+      'app.swagger.routes.documentation',
+      '/asyncapi/json',
+    );
+    const servers = this.config.get<{ name: string; protocol: string; url: string }[]>(
+      'app.asyncapi.servers',
+      [
+        {
+          name: 'websocket',
+          protocol: 'websocket',
+          url: `ws://${this.host}:${this.port}`,
+        },
+      ],
+    );
+    const builder = new AsyncApiDocumentBuilder()
+      .setTitle(this.config.get<string>('package.name'))
+      .setDescription(this.createDescription(route, 'AsyncAPI JSON config'))
+      .setVersion(this.config.get<string>('package.version'))
+      .setDefaultContentType('application/json');
+    for (const server of servers)
+      builder.addServer(server.name, { url: server.url, protocol: server.protocol });
+    const document = AsyncApiModule.createDocument(this.app, builder.build());
+    await AsyncApiModule.setup(
+      this.config.get<string>('app.asyncapi.routes.ui', 'async-api'),
+      this.app,
+      document,
+    );
+    this.app.use(route, (req: Request, res: Response) =>
+      res.end(JSON.stringify(document)),
+    );
+  }
+  <% } -%>
+
+  private createDescription(route: string, description: string) {
+    return (
+      this.config.get<string>('package.description') +
+      `<br/><br/><a target="_blank" href="${route}">${description}</a>`
     );
   }
 }
