@@ -32,10 +32,10 @@ unless_exists: true
     "@biorate/vault": "1.120.0",
     "@nestjs/common": "10.4.15",
     "@nestjs/core": "10.4.15",
-    "@nestjs/event-emitter": "^3.0.1",
+    "@nestjs/event-emitter": "3.0.1",
     "@nestjs/platform-express": "10.4.15",
     <%- ADD_WEB_SOCKET ? '"@nestjs/platform-ws": "10.4.15",' : '' -%>
-    "@nestjs/schedule": "^6.0.0",
+    "@nestjs/schedule": "6.0.0",
     <%- CLIENT ? '"@nestjs/serve-static": "4.0.2",' : '' -%>
     "@nestjs/swagger": "8.1.0",
     <%- ADD_WEB_SOCKET ? '"@nestjs/websockets": "10.4.15",' : '' -%>
