@@ -119,8 +119,8 @@ force: true
     <%- CLIENT ? '"webpack-dev-server": "5.2.0"' : '' %>
   },
   "dependencies": {
-    "@biorate/auto-object": "1.138.0",
-    "@biorate/axios": "1.120.0",
+    "@biorate/auto-object": "1.138.1",
+    "@biorate/axios": "1.138.2",
     "@biorate/config": "1.120.0",
     "@biorate/errors": "1.102.0",
     "@biorate/i18n": "1.120.0",
