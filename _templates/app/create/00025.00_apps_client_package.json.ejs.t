@@ -24,8 +24,10 @@ unless_exists: true
   "devDependencies": {
     "@ant-design/icons": "4.7.0",
     "@biorate/playwright": "1.133.0",
+    "@playwright/test": "1.44.0",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
+    "@types/react-router": "5.1.18",
     "classnames": "2.3.1",
     "history": "5.3.0",
     "i18next-browser-languagedetector": "7.1.0",

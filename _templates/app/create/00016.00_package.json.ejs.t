@@ -30,7 +30,7 @@ force: true
     "yarn": ">=1.22.22",
     "pnpm": ">=9.7.1",
     "npm": ">=10.8.2",
-    "node": "=20"
+    "node": ">=20"
   },
   "workspaces": [
     "apps/*/**",
@@ -67,11 +67,12 @@ force: true
     "@types/minimist": "1.2.5",
     "@types/mocha": "8.2.2",
     "@types/node": "15.0.2",
+    "@types/qs": "6.9.18",
     "@types/traverse": "0.6.32",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.00.0",
     "allure-commandline": "2.25.0",
-    "allure-js-commons": "2.14.1",
+    "allure-js-commons": "3.2.0",
     "chai": "4.3.4",
     "cookies": "0.8.0",
     <%- CLIENT ? '"css-loader": "5.2.6",' : '' %>
@@ -130,6 +131,7 @@ force: true
     "cross-env": "7.0.3",
     "husky": "8.0.3",
     "i18next": "23.4.2",
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "qs": "6.14.0"
   }
 }
