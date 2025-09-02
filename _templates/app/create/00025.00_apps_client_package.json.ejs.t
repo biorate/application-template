@@ -24,19 +24,19 @@ unless_exists: true
   "devDependencies": {
     "@ant-design/icons": "4.7.0",
     "@biorate/playwright": "1.133.0",
-    "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
-    "classnames": "^2.3.1",
-    "history": "^5.3.0",
-    "i18next-browser-languagedetector": "^7.1.0",
-    "i18next-http-backend": "^2.2.1",
-    "mobx": "^6.5.0",
-    "mobx-react": "^7.3.0",
-    "playwright": "^1.40.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router": "^6.15.0",
-    "react-router-dom": "^6.15.0",
-    "styled-components": "^6.1.8"
+    "@types/react": "18.0.37",
+    "@types/react-dom": "18.0.11",
+    "classnames": "2.3.1",
+    "history": "5.3.0",
+    "i18next-browser-languagedetector": "7.1.0",
+    "i18next-http-backend": "2.2.1",
+    "mobx": "6.5.0",
+    "mobx-react": "7.3.0",
+    "playwright": "1.44.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router": "6.15.0",
+    "react-router-dom": "6.15.0",
+    "styled-components": "6.1.8"
   }
 }
