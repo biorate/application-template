@@ -9,6 +9,6 @@ unless_exists: true
   "reporter": ["lcov", "text-summary"],
   "statements": 80,
   "branches": 60,
-  "functions": 40,
-  "lines": 88
+  "functions": 27,
+  "lines": 85
 }

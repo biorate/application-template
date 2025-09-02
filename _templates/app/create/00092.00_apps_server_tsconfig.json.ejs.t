@@ -4,7 +4,12 @@ unless_exists: true
 ---
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": {},
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
   "include": ["index.ts", "src/**/*", "tests/**/*"],
   "exclude": ["node_modules", "dist"]
 }
