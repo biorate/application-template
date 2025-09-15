@@ -112,6 +112,7 @@ force: true
     "traverse": "0.6.6",
     <%- CLIENT ? '"ts-loader": "9.5.1",' : '' %>
     "ts-node": "10.9.1",
+    "tsc-alias": "1.8.16",
     "typedoc": "0.24.8",
     "typescript": "5.0.4"<%- CLIENT ? ',' : '' %>
     <%- CLIENT ? '"util-browserify": "browserify/node-util#v0.12.4",' : '' %>

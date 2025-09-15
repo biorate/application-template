@@ -9,7 +9,7 @@ unless_exists: true
   "main": "dist",
   "scripts": {
     "start": "cross-env LOG_ENABLED=1 LOG_LEVEL=info,error,warn NODE_ENV=production node ./dist/index.js",
-    "build": "cross-env NODE_ENV=production npx tsc -p ./tsconfig.build.json --outDir ./dist",
+    "build": "cross-env NODE_ENV=production npx tsc -p ./tsconfig.build.json --outDir ./dist && tsc-alias -p ./tsconfig.build.json --outDir ./dist",
     "start:debug": "cross-env npx nodemon --exec ts-node -r tsconfig-paths/register index.ts",
     "test": "npx nyc -- npx mocha",
     "migrations": "node -r @biorate/migrations",
