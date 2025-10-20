@@ -24,7 +24,7 @@ unless_exists: true
   "dependencies": {
     "@biorate/axios-prometheus": "1.156.2",
     "@biorate/config-loader": "1.156.2",
-    "@biorate/config-loader-env": "1.156.2",
+    "@biorate/config-loader-env": "1.158.0",
     "@biorate/config-loader-fs": "1.156.2",
     "@biorate/config-loader-vault": "1.156.2",
     "@biorate/nestjs-tools": "1.156.2",
@@ -52,7 +52,7 @@ unless_exists: true
     <%- ADD_WEB_SOCKET ? ',"ws": "8.14.2"' : '' -%>
   },
   "devDependencies": {
-    "@biorate/migrations": "1.156.2",
+    "@biorate/migrations": "1.158.0",
     "@biorate/mocha": "1.139.0",
     "@biorate/mocha-spec": "1.139.0",
     "@istanbuljs/nyc-config-typescript": "1.0.2",
