@@ -27,7 +27,7 @@ module.exports = {
     },
     alias: {
       process: 'process',
-      '~': `${process.cwd()}/src`,
+      '@': `${process.cwd()}/src`,
     },
   },
   module: {
