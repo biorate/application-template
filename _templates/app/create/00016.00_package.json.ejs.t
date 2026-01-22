@@ -62,6 +62,7 @@ force: true
   },
   "devDependencies": {
     "@atao60/fse-cli": "0.1.9",
+    "@biorate/cleanup": "1.169.1",
     "@ls-lint/ls-lint": "2.2.3",
     "@types/chai": "4.2.18",
     "@types/flat": "5.0.2",
@@ -125,7 +126,6 @@ force: true
   "dependencies": {
     "@biorate/auto-object": "1.138.1",
     "@biorate/axios": "1.156.2",
-    "@biorate/cleanup": "1.169.1",
     "@biorate/config": "1.156.2",
     "@biorate/errors": "1.102.0",
     "@biorate/i18n": "1.156.2",
