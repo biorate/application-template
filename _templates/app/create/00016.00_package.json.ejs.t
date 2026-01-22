@@ -20,6 +20,7 @@ force: true
     "test:server": "npx lerna run test --stream --no-prefix --scope <%= SERVER_NAME %>",
     "test:client": "npx lerna run test --stream --no-prefix --scope <%= CLIENT_NAME %>",
     "version": "npx lerna version",
+    "cleanup:node_modules": "rm -rf $(find -type d -name 'node_modules')",
     "cleanup": "cleanup './{packages,apps}/**/{dist,.nyc_output,coverage,allure-results,node_modules}' 'node_modules'",
     "update": "pnpm up '@biorate/*' --latest --filter '*' && pnpm run reinstall",
     "reinstall": "pnpm run cleanup './pnpm-lock.yaml' && pnpm i",
