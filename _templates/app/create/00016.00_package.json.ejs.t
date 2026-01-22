@@ -21,7 +21,7 @@ force: true
     "test:client": "npx lerna run test --stream --no-prefix --scope <%= CLIENT_NAME %>",
     "version": "npx lerna version",
     "cleanup:node_modules": "cleanup '**/node_modules'",
-    "cleanup": "cleanup './{packages,apps}/**/{dist,.nyc_output,coverage,allure-results,node_modules}' 'node_modules'",
+    "cleanup": "pnpm run cleanup:node_modules './{packages,apps}/**/{dist,.nyc_output,coverage,allure-results}'",
     "update": "pnpm up '@biorate/*' --latest --filter '*' && pnpm run reinstall",
     "reinstall": "pnpm run cleanup './pnpm-lock.yaml' && pnpm i",
     "prepare": "npx husky install",
