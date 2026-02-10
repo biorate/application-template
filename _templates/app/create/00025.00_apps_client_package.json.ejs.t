@@ -23,7 +23,7 @@ unless_exists: true
   "license": "UNLICENSED",
   "devDependencies": {
     "@ant-design/icons": "4.7.0",
-    "@biorate/playwright": "1.163.1",
+    "@biorate/playwright": "1.164.0",
     "@playwright/test": "1.44.0",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
