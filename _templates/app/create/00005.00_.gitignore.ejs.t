@@ -23,6 +23,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Coverage directory used by tools like istanbul
 coverage
+.coverage
 *.lcov
 
 # nyc test coverage
@@ -53,3 +54,8 @@ coverage
 .dbeaver
 
 .nx
+
+# Allure
+allure-results
+allure-report
+tests-results
