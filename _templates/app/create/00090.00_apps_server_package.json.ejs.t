@@ -58,11 +58,11 @@ unless_exists: true
     "@istanbuljs/nyc-config-typescript": "1.0.2",
     "@types/cookie-parser": "1.4.3",
     "@types/express": "4.17.17",
-    "@types/mocha": "9.1.1",
+    "@types/mocha": "10.0.10",
     <%- ADD_WEB_SOCKET ? '"@types/ws": "8.5.8",' : '' -%>
     "nodemon": "3.1.3",
-    "mocha": "10.2.0",
-    "mocha-chai-jest-snapshot": "1.1.4",
+    "mocha": "11.7.5",
+    "mocha-chai-jest-snapshot": "1.1.7",
     "mocha-multi-reporters": "1.5.1",
     "testcontainers": "10.9.0"
   }

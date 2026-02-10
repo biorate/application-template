@@ -36,8 +36,8 @@ force: true
     "node": ">=20"
   },
   "workspaces": [
-    "apps/*/**",
-    "packages/*/**"
+    "apps/*",
+    "packages/*"
   ],
   "resolutions": {
     "mem": "4.0.0",
@@ -70,7 +70,7 @@ force: true
     "@types/lodash": "4.14.170",
     "@types/minimist": "1.2.5",
     "@types/mocha": "8.2.2",
-    "@types/node": "15.0.2",
+    "@types/node": "24.10.12",
     "@types/qs": "6.9.18",
     "@types/traverse": "0.6.32",
     "@typescript-eslint/eslint-plugin": "5.37.0",
@@ -89,15 +89,15 @@ force: true
     <%- CLIENT ? '"eslint-plugin-react-hooks": "4.6.0",' : '' %>
     <%- CLIENT ? '"file-loader": "6.2.0",' : '' %>
     <%- HYGEN ? '"hygen": "6.2.11",' : '' %>
-    "lerna": "6.6.2",
+    "lerna": "9.0.3",
     <%- CLIENT ? '"less": "4.1.1",' : '' %>
     <%- CLIENT ? '"less-loader": "9.0.0",' : '' %>
     <%- CLIENT ? '"mini-css-extract-plugin": "1.6.0",' : '' %>
     "minimist": "1.2.6",
     "node-gyp": "8.4.1",
-    "npx": "3.0.0",
-    "nx": "15.9.7",
-    "nyc": "15.1.0",
+    "npx": "10.2.2",
+    "nx": "22.4.5",
+    "nyc": "17.1.0",
     <%- CLIENT ? '"postcss-less": "6.0.0",' : '' %>
     <%- CLIENT ? '"postcss-loader": "7.0.0",' : '' %>
     <%- CLIENT ? '"postcss-scss": "4.0.9",' : '' %>
@@ -115,14 +115,14 @@ force: true
     <%- CLIENT ? '"terser-webpack-plugin": "5.1.2",' : '' %>
     "traverse": "0.6.6",
     <%- CLIENT ? '"ts-loader": "9.5.1",' : '' %>
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "tsc-alias": "1.8.16",
     "typedoc": "0.24.8",
     "typescript": "5.0.4"<%- CLIENT ? ',' : '' %>
     <%- CLIENT ? '"util-browserify": "browserify/node-util#v0.12.4",' : '' %>
-    <%- CLIENT ? '"webpack": "5.97.1",' : '' %>
+    <%- CLIENT ? '"webpack": "5.105.0",' : '' %>
     <%- CLIENT ? '"webpack-cli": "6.0.1",' : '' %>
-    <%- CLIENT ? '"webpack-dev-server": "5.2.0"' : '' %>
+    <%- CLIENT ? '"webpack-dev-server": "5.2.3"' : '' %>
   },
   "dependencies": {
     "@biorate/auto-object": "1.139.0",
@@ -136,7 +136,7 @@ force: true
     "cross-env": "7.0.3",
     "husky": "8.0.3",
     "i18next": "23.4.2",
-    "lodash": "4.17.21",
+    "lodash": "4.17.23",
     "qs": "6.14.0"
   }
 }

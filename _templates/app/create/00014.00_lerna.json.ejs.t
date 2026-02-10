@@ -3,15 +3,35 @@ to: <%= h.root(`${ROOT}/lerna.json`) %>
 unless_exists: true
 ---
 {
-  "useWorkspaces": true,
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "independent",
   "command": {
     "version": {
-      "allowBranch": "master",
-      "exact": true,
+      "allowBranch": ["master", "release/*", "feature/*", "bugfix/*", "feat/*", "fix/*"],
       "conventionalCommits": true,
-      "message": "chore(release): %s"
+      "changelog": true,
+      "message": "chore: %s",
+      "ignoreChanges": [
+        "**/tests/**",
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "**/__snapshots__/**",
+        "**/__mocks__/**",
+        "**/*.md",
+        "**/package-lock.json",
+        "**/pnpm-lock.yaml",
+        "**/.npmrc",
+        "**/.nycrc.json",
+        "**/.mocharc.json",
+        "**/.reporters.json",
+        "**/.gitignore",
+        "**/.mocharc.json",
+        "**/jest.config.js",
+        "**/.gitignore",
+        "**/.reporters.json",
+        "**/tsconfig.tsbuildinfo"
+      ]
     }
   },
-  "useNx": true,
-  "version": "0.0.0"
+  "npmClient": "pnpm"
 }
