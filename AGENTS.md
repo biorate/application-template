@@ -57,6 +57,7 @@ npx hygen app create --client --server --hygen --app-name=name-of-the-app --app-
 | `--app-description` | Краткое описание (в т.ч. отображение во вкладке браузера) |
 | `--cut-examples` | Убрать примеры из сгенерированного кода |
 | `--add-web-socket` | Добавить WebSocket (Nest gateways + события в шаблоне) |
+| `--root` | Папка для создания проекта, можно создавать проект для теста в tmp папке в корне этого шаблона для тестов, но обязательно БЕЗ флага --cut-examples |
 
 Обязательны **`--app-name`** и **`--app-description`** (проверка в `_templates/app/create/00000.00_config.ejs.t` через `h.defined`).
 
