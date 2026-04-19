@@ -8,7 +8,7 @@ force: true
 ## 📐 Слои (строгое разделение)
 
 - `src/app/domain/` — сущности, VO, доменные события, ошибки (`domain/error/*`). **Ноль** зависимостей от фреймворков.
-- `src/app/application/` — driven-порты (`application/port/`), use-case’ы, сервисы сценариев. Зависит от `domain`, не от Nest/HTTP.
+- `src/app/application/` — driven-порты (`application/port/`), use-case’ы, сервисы сценариев. Зависит от `domain`, не от Nest/HTTP. Use-case — **обычные классы** (порты в `constructor`), без `@Injectable()` и без `@biorate/inversion`; регистрация в `AppModule` через `useFactory` / `inject`.
 - `src/app/infrastructure/` — Nest-контроллеры, репозитории, внешние клиенты, WebSocket (если включены), `shared/`, `logger.ts`, привязки Inversify; **`bootstrap/`** — контейнер и класс HTTP-приложения.
 
 ## 🔌 DI (Inversify + Nest)

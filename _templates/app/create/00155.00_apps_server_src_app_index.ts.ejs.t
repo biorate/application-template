@@ -26,7 +26,21 @@ import {
   DebugHttpAdapter,
   InfoRepositoryAdapter,
 } from './infrastructure';
-import * as useCases from './application/service';
+import {
+<% if (!CUT_EXAMPLES) { -%>
+  UserCreateUseCase,
+  UserDeleteUseCase,
+  UserGetUseCase,
+  UserListUseCase,
+  UserReplaceUseCase,
+  UserUpdateUseCase,
+<% } -%>
+<% if (CLIENT) { -%>
+  ClientGetConfigUseCase,
+<% } -%>
+  DebugHelloWorldUseCase,
+  InfoGetUseCase,
+} from './application/service';
 <%- ADD_WEB_SOCKET ? "import * as gateways from './infrastructure/websocket';" : '' -%>
 import * as controllers from './infrastructure/http/in';
 import { DebugController } from './infrastructure/http/in/debug.controller';
@@ -49,7 +63,55 @@ import { DebugController } from './infrastructure/http/in/debug.controller';
     SetLocaleUseCase,
     <% } -%>
     GetMetricsUseCase,
-    ...Object.values(useCases),
+    <% if (CLIENT) { -%>
+    {
+      provide: ClientGetConfigUseCase,
+      useFactory: (repo: ClientRepositoryAdapter) => new ClientGetConfigUseCase(repo),
+      inject: [Types.ClientDrivenPort],
+    },
+    <% } -%>
+    {
+      provide: InfoGetUseCase,
+      useFactory: (repo: InfoRepositoryAdapter) => new InfoGetUseCase(repo),
+      inject: [Types.InfoDrivenPort],
+    },
+    {
+      provide: DebugHelloWorldUseCase,
+      useFactory: (debug: DebugHttpAdapter) => new DebugHelloWorldUseCase(debug),
+      inject: [Types.DebugDrivenPort],
+    },
+    <% if (!CUT_EXAMPLES) { -%>
+    {
+      provide: UserCreateUseCase,
+      useFactory: (userPort: UserRepositoryAdapter) => new UserCreateUseCase(userPort),
+      inject: [Types.UserDrivenPort],
+    },
+    {
+      provide: UserGetUseCase,
+      useFactory: (userPort: UserRepositoryAdapter) => new UserGetUseCase(userPort),
+      inject: [Types.UserDrivenPort],
+    },
+    {
+      provide: UserListUseCase,
+      useFactory: (userPort: UserRepositoryAdapter) => new UserListUseCase(userPort),
+      inject: [Types.UserDrivenPort],
+    },
+    {
+      provide: UserUpdateUseCase,
+      useFactory: (userPort: UserRepositoryAdapter) => new UserUpdateUseCase(userPort),
+      inject: [Types.UserDrivenPort],
+    },
+    {
+      provide: UserReplaceUseCase,
+      useFactory: (userPort: UserRepositoryAdapter) => new UserReplaceUseCase(userPort),
+      inject: [Types.UserDrivenPort],
+    },
+    {
+      provide: UserDeleteUseCase,
+      useFactory: (userPort: UserRepositoryAdapter) => new UserDeleteUseCase(userPort),
+      inject: [Types.UserDrivenPort],
+    },
+    <% } -%>
     <% if (!CUT_EXAMPLES) { -%>
     {
       provide: Types.UserDrivenPort,
