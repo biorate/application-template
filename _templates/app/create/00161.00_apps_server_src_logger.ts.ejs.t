@@ -1,5 +1,5 @@
 ---
-to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/logger.ts`) %>
+to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/infrastructure/logger.ts`) %>
 unless_exists: true
 ---
 import { LoggerService } from '@nestjs/common';

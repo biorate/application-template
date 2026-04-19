@@ -25,16 +25,17 @@ import {
   <%- CLIENT ? 'ClientRepositoryAdapter,' : '' -%>
   DebugHttpAdapter,
   InfoRepositoryAdapter,
-} from './adapter';
+} from './infrastructure';
 import * as useCases from './application/service';
-<%- ADD_WEB_SOCKET ? "import * as gateways from './adapter/websocket';" : '' -%>
-import * as controllers from './adapter/http/in';
-import { DebugController } from './adapter/http/in/debug.controller';
+<%- ADD_WEB_SOCKET ? "import * as gateways from './infrastructure/websocket';" : '' -%>
+import * as controllers from './infrastructure/http/in';
+import { DebugController } from './infrastructure/http/in/debug.controller';
 
 @Module({
   imports: [
     EventEmitterModule.forRoot({ verboseMemoryLeak: true }),
-    <%- CLIENT ? `ServeStaticModule.forRoot({ rootPath: path.create(process.cwd(), '../${CLIENT_NAME}/dist'), }),` : '' -%>
+    <%- CLIENT ? `// Если добавите второй SPA (например admin), регистрируйте его ServeStatic раньше клиента (узкий serveRoot), иначе catch-all клиента перехватит префикс.
+    ServeStaticModule.forRoot({ rootPath: path.create(process.cwd(), '../${CLIENT_NAME}/dist'), }),` : '' -%>
     <%- ADD_WEB_SOCKET ? '...Object.values(gateways),' : '' -%>
   ],
   controllers: [

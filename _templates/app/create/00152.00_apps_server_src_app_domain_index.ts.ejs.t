@@ -4,6 +4,7 @@ unless_exists: true
 ---
 <% if (!CUT_EXAMPLES) { -%>
 export * from './user';
+export * from './error';
 <% } -%>
 export * from './client';
 export * from './info';
