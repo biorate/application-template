@@ -7,6 +7,8 @@ import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 <%- CLIENT ? "import { ServeStaticModule } from '@nestjs/serve-static';" : '' %>;
 <%- CLIENT ? "import { path } from '@biorate/tools';" : '' %>;
+import { Types, container } from '@biorate/inversion';
+import type { IConfig } from '@biorate/config';
 import {
   RequestCountMiddleware,
   ResponseTimeMiddleware,
@@ -63,6 +65,10 @@ import { DebugController } from './infrastructure/http/in/debug.controller';
     SetLocaleUseCase,
     <% } -%>
     GetMetricsUseCase,
+    {
+      provide: Types.Config,
+      useFactory: () => container.get<IConfig>(Types.Config),
+    },
     <% if (CLIENT) { -%>
     {
       provide: ClientGetConfigUseCase,
