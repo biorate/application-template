@@ -95,20 +95,12 @@ export class Application implements IApplication<Server> {
       credentials: true,
       origin: (origin, callback) => callback(null, origin),
     });
-    if (this.isApiDocsEnabled()) {
-      this.createSwagger();
-      <%- ADD_WEB_SOCKET ? 'await this.createAsyncApi();' : '' -%>
-    }
+    this.createSwagger();
+    <%- ADD_WEB_SOCKET ? 'await this.createAsyncApi();' : '' -%>
     await this.app.listen(this.port, this.host, () => {
       const { address, port } = <AddressInfo>this.app.getHttpServer().address();
       console.info(`Server listen on ${address}:${port}`);
     });
-  }
-
-  private isApiDocsEnabled(): boolean {
-    if (process.env.VITEST === '1') return false;
-    if (process.env.NODE_ENV === 'test') return false;
-    return this.config.get<boolean>('app.swagger.enabled', true);
   }
 
   private createSwagger() {
