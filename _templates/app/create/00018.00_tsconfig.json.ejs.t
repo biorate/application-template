@@ -15,6 +15,7 @@ unless_exists: true
       "ESNext"
       <%- CLIENT ? ',"dom"' : '' %>
     ],
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "module": "commonjs",
     "declaration": false,
