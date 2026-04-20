@@ -126,7 +126,7 @@ force: true
   },
   "dependencies": {
     "@biorate/auto-object": "1.140.0",
-    "@biorate/axios": "2.1.0",
+    "@biorate/axios": "2.1.2",
     "@biorate/config": "2.1.0",
     "@biorate/errors": "2.1.0",
     "@biorate/i18n": "1.158.0",
