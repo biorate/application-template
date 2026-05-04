@@ -125,12 +125,12 @@ force: true
     <%- CLIENT ? '"webpack-dev-server": "5.2.3"' : '' %>
   },
   "dependencies": {
-    "@biorate/auto-object": "1.141.0",
-    "@biorate/axios": "2.2.0",
-    "@biorate/config": "2.2.0",
+    "@biorate/auto-object": "1.146.0",
+    "@biorate/axios": "2.2.3",
+    "@biorate/config": "2.2.2",
     "@biorate/errors": "2.2.0",
-    "@biorate/i18n": "1.159.0",
-    "@biorate/inversion": "2.2.0",
+    "@biorate/i18n": "1.159.2",
+    "@biorate/inversion": "2.4.0",
     "@biorate/symbolic": "2.2.0",
     "@biorate/tools": "2.2.0",
     "cross-env": "7.0.3",
