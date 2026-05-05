@@ -2,7 +2,6 @@
 to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/src/app/index.ts`) %>
 unless_exists: true
 ---
-import { Types } from '@biorate/inversion';
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 <%- CLIENT ? "import { ServeStaticModule } from '@nestjs/serve-static';" : '' %>;
