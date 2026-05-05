@@ -10,8 +10,8 @@ unless_exists: true
   "scripts": {
     "start": "cross-env LOG_ENABLED=1 LOG_LEVEL=info,error,warn NODE_ENV=production node ./dist/index.js",
     "build": "cross-env NODE_ENV=production npx tsc -p ./tsconfig.build.json --outDir ./dist && tsc-alias -p ./tsconfig.build.json --outDir ./dist",
-    "start:debug": "cross-env npx nodemon --exec ts-node -r tsconfig-paths/register index.ts",
-    "test": "npx nyc -- npx mocha",
+    "start:debug": "cross-env npx nodemon --exec \"node --enable-source-maps -r @swc-node/register -r tsconfig-paths/register index.ts\"",
+    "test": "npx vitest run",
     "migrations": "node -r @biorate/migrations",
     "lint:fix": "npx eslint --fix ./src",
     "prettier:fix": "npx prettier --write ./src",
@@ -45,6 +45,7 @@ unless_exists: true
     "express": "4.18.2",
     "helmet": "4.6.0",
     "http-proxy-middleware": "2.0.6",
+    "reflect-metadata": "0.2.2",
     <%- ADD_WEB_SOCKET ? '"nestjs-asyncapi": "1.4.0",' : '' -%>
     "serve-favicon": "2.5.0",
     "source-map-support": "0.5.21",
@@ -53,17 +54,14 @@ unless_exists: true
   },
   "devDependencies": {
     "@biorate/migrations": "1.165.14",
-    "@biorate/mocha": "1.141.1",
-    "@biorate/mocha-spec": "1.142.0",
-    "@istanbuljs/nyc-config-typescript": "1.0.2",
+    "@swc-node/register": "1.10.10",
     "@types/cookie-parser": "1.4.3",
     "@types/express": "4.17.17",
-    "@types/mocha": "10.0.10",
     <%- ADD_WEB_SOCKET ? '"@types/ws": "8.5.8",' : '' -%>
+    "nock": "14.0.1",
     "nodemon": "3.1.3",
-    "mocha": "11.7.5",
-    "mocha-chai-jest-snapshot": "1.1.7",
-    "mocha-multi-reporters": "1.5.1",
-    "testcontainers": "10.9.0"
+    "supertest": "6.1.6",
+    "testcontainers": "10.9.0",
+    "unplugin-swc": "1.5.3"
   }
 }

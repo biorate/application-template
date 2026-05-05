@@ -3,26 +3,20 @@ to: <%= h.server(`${ROOT}/apps/${SERVER_NAME}/tests/setup.ts`) %>
 unless_exists: true
 ---
 import { container } from '@biorate/inversion';
-import { use } from 'chai';
 import {
   assignPmsUrl,
   assignTmsUrl,
   decorate,
   allure,
-  MochaAllure,
-} from '@biorate/mocha';
-import { jestSnapshotPlugin } from 'mocha-chai-jest-snapshot';
+} from '@biorate/vitest';
 import { Root } from '../src/app/infrastructure/bootstrap/root-config';
 import './__mocks__';
 
-use(jestSnapshotPlugin());
-
-before(async function () {
-  this.timeout(30000);
-  decorate<MochaAllure>(allure);
+beforeAll(async function () {
+  decorate(allure);
   assignTmsUrl(process.env.TMS_URL);
   assignPmsUrl(process.env.PMS_URL);
   await container.get(Root).$run();
 });
 
-after(async function () {});
+afterAll(async function () {});

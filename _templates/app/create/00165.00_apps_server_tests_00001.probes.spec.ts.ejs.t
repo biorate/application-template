@@ -8,7 +8,6 @@ import {
   test,
   parallel,
   ContentType,
-  Severity,
   allure,
   description,
   epic,
@@ -20,7 +19,7 @@ import {
   tag,
   testCaseId,
   Context,
-} from '@biorate/mocha';
+} from '@biorate/vitest';
 import { Spec } from './common/spec';
 import { isString } from './schemas';
 
@@ -33,7 +32,7 @@ class Example extends Spec {
 
   @issue('1')
   @testCaseId('1')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('HTTP API tests')
   @feature('Readiness')
   @story('Probe')
@@ -51,7 +50,7 @@ class Example extends Spec {
 
   @issue('2')
   @testCaseId('2')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('HTTP API tests')
   @feature('Healthz')
   @story('Probe')

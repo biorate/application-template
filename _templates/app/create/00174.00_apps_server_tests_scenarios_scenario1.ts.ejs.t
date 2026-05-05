@@ -2,7 +2,7 @@
 to: <%= h.server(CUT_EXAMPLES || `${ROOT}/apps/${SERVER_NAME}/tests/scenarios/scenario1.ts`) %>
 unless_exists: true
 ---
-import { step, Scenario } from '@biorate/mocha';
+import { step, Scenario } from '@biorate/vitest';
 
 export class Scenario1 extends Scenario {
   @step()

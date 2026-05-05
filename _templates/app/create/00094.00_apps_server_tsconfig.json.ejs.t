@@ -6,6 +6,7 @@ unless_exists: true
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
+    "esModuleInterop": true,
     "paths": {
       "@/*": ["src/*"]
     }

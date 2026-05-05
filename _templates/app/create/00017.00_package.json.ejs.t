@@ -64,6 +64,8 @@ force: true
   "devDependencies": {
     "@atao60/fse-cli": "0.1.9",
     "@biorate/cleanup": "1.172.0",
+    "@biorate/vitest": "1.8.0",
+    "@biorate/vitest-spec": "1.7.0",
     "@ls-lint/ls-lint": "2.2.3",
     "@types/chai": "4.2.18",
     "@types/flat": "5.0.2",
@@ -77,6 +79,7 @@ force: true
     "@typescript-eslint/parser": "5.00.0",
     "allure-commandline": "2.25.0",
     "allure-js-commons": "3.2.0",
+    "allure-vitest": "3.7.1",
     "chai": "4.3.4",
     "cookies": "0.8.0",
     <%- CLIENT ? '"css-loader": "5.2.6",' : '' %>
@@ -97,7 +100,7 @@ force: true
     "node-gyp": "8.4.1",
     "npx": "10.2.2",
     "nx": "22.4.5",
-    "nyc": "17.1.0",
+    "nyc": "15.1.0",
     <%- CLIENT ? '"postcss-less": "6.0.0",' : '' %>
     <%- CLIENT ? '"postcss-loader": "7.0.0",' : '' %>
     <%- CLIENT ? '"postcss-scss": "4.0.9",' : '' %>
@@ -117,8 +120,10 @@ force: true
     <%- CLIENT ? '"ts-loader": "9.5.1",' : '' %>
     "ts-node": "10.9.2",
     "tsc-alias": "1.8.16",
+    "vite": "6.3.5",
     "typedoc": "0.24.8",
-    "typescript": "5.0.4"<%- CLIENT ? ',' : '' %>
+    "typescript": "5.0.4",
+    "vitest": "4.1.5"<%- CLIENT ? ',' : '' %>
     <%- CLIENT ? '"util-browserify": "browserify/node-util#v0.12.4",' : '' %>
     <%- CLIENT ? '"webpack": "5.105.0",' : '' %>
     <%- CLIENT ? '"webpack-cli": "6.0.1",' : '' %>

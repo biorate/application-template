@@ -8,7 +8,6 @@ import {
   test,
   parallel,
   ContentType,
-  Severity,
   allure,
   description,
   epic,
@@ -20,7 +19,7 @@ import {
   tag,
   testCaseId,
   Context,
-} from '@biorate/mocha';
+} from '@biorate/vitest';
 import { Spec } from './common/spec';
 import { Scenario1, Scenario2 } from './scenarios';
 import { TestSchema, ScenariosSchema, isString, isBoolean, isTupl } from './schemas';
@@ -34,7 +33,7 @@ class Example extends Spec {
 
   @issue('1')
   @testCaseId('1')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('HTTP API tests')
   @feature('Readiness')
   @story('Probe')
@@ -52,7 +51,7 @@ class Example extends Spec {
 
   @issue('2')
   @testCaseId('2')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('HTTP API tests')
   @feature('Healthz')
   @story('Probe')
@@ -70,7 +69,7 @@ class Example extends Spec {
 
   @issue('3')
   @testCaseId('3')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Mock test')
   @feature('Mock')
   @story('Test')
@@ -84,7 +83,7 @@ class Example extends Spec {
 
   @issue('4')
   @testCaseId('4')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Unit tests 1')
   @feature('Unit 1')
   @story('Tests 1')
@@ -107,7 +106,7 @@ class Example extends Spec {
 
   @issue('5')
   @testCaseId('5')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Unit tests 2')
   @feature('Unit 2')
   @story('Tests 2')
@@ -130,7 +129,7 @@ class Example extends Spec {
 
   @issue('6')
   @testCaseId('6')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Unit tests 3')
   @feature('Unit 3')
   @story('Tests 3')
@@ -153,7 +152,7 @@ class Example extends Spec {
 
   @issue('7')
   @testCaseId('7')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Unit tests 4')
   @feature('Unit 4')
   @story('Tests 4')
@@ -177,7 +176,7 @@ class Example extends Spec {
 
   @issue('8')
   @testCaseId('8')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Validation test 1')
   @feature('Validation 1')
   @story('Tests 8')
@@ -194,7 +193,7 @@ class Example extends Spec {
 
   @issue('9')
   @testCaseId('9')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Validation test 2')
   @feature('Validation 2')
   @story('Tests 9')
@@ -211,7 +210,7 @@ class Example extends Spec {
 
   @issue('10')
   @testCaseId('10')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Validation test 3')
   @feature('Validation 3')
   @story('Tests 10')
@@ -229,7 +228,7 @@ class Example extends Spec {
 
   @issue('11')
   @testCaseId('11')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Validation test 4')
   @feature('Validation 4')
   @story('Tests 11')
@@ -246,7 +245,7 @@ class Example extends Spec {
 
   @issue('12')
   @testCaseId('12')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Validation test 5')
   @feature('Validation 5')
   @story('Tests 12')
@@ -264,7 +263,7 @@ class Example extends Spec {
 
   @issue('13')
   @testCaseId('13')
-  @severity(Severity.MINOR)
+  @severity(severity.MINOR)
   @epic('Context scenario test 1')
   @feature('Context scenario 1')
   @story('Tests 13')

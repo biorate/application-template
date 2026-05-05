@@ -24,6 +24,7 @@ unless_exists: true
         "**/.nycrc.json",
         "**/.mocharc.json",
         "**/.reporters.json",
+        "**/vitest.config.mjs",
         "**/.gitignore",
         "**/.mocharc.json",
         "**/jest.config.js",

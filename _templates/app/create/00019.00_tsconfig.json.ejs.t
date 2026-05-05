@@ -16,6 +16,7 @@ unless_exists: true
       <%- CLIENT ? ',"dom"' : '' %>
     ],
     "esModuleInterop": true,
+    "types": ["vitest/globals", "node"],
     "skipLibCheck": true,
     "module": "commonjs",
     "declaration": false,
@@ -24,7 +25,7 @@ unless_exists: true
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "target": "es2017",
+    "target": "es2020",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
