@@ -311,7 +311,12 @@ const root='$tests_dir';const out=[];
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
   const p=path.join(dir,e.name);
   if(e.isDirectory()) walk(p);
-  else if(e.isFile() && (p.endsWith('.spec.ts') || p.endsWith('setup.ts') || p.endsWith('/common/spec.ts'))) out.push(p);
+  else if(e.isFile() && (
+    p.endsWith('.spec.ts') ||
+    p.endsWith('setup.ts') ||
+    p.endsWith('/common/spec.ts') ||
+    p.includes('/scenarios/') && p.endsWith('.ts')
+  )) out.push(p);
 }}
 walk(root);process.stdout.write(out.join('\\n'));
 ")"
@@ -324,10 +329,14 @@ walk(root);process.stdout.write(out.join('\\n'));
 
     if [[ "$f" == */tests/setup.ts ]]; then
       replace_in_file "$f" "'import { use } from \\'chai\\';\\n'" "''"
+      replace_in_file "$f" "'import { jestSnapshotPlugin } from \\'mocha-chai-jest-snapshot\\';\\n'" "''"
+      replace_in_file "$f" "'use(jestSnapshotPlugin());\\n\\n'" "''"
       replace_in_file "$f" "'} from \\'@biorate/mocha\\';'" "'} from \\'@biorate/vitest\\';'"
       replace_in_file "$f" "'before(async function () {'" "'beforeAll(async function () {'"
       replace_in_file "$f" "'after(async function () {});'" "'afterAll(async function () {});'"
       replace_in_file "$f" "'decorate<MochaAllure>(allure);'" "'decorate(allure);'"
+      replace_in_file "$f" "'MochaAllure,\\n'" "''"
+      replace_in_file "$f" "'MochaAllure\\n'" "''"
       replace_in_file "$f" "'this.timeout(30000);\\n'" "''"
     fi
 
@@ -335,6 +344,12 @@ walk(root);process.stdout.write(out.join('\\n'));
       replace_in_file "$f" "'import { timeout } from \\'@biorate/mocha\\';\\n'" "''"
       replace_in_file "$f" "'@timeout(2000)\\n'" "''"
       replace_in_file "$f" "'import \\'../setup\\';\\n'" "''"
+    fi
+
+    if [[ "$f" == */tests/scenarios/*.ts ]]; then
+      replace_in_file "$f" "'import { step, Scenario } from \\'@biorate/vitest\\';'" "'import { Step, Scenario } from \\'@biorate/vitest\\';'"
+      replace_in_file "$f" "'import { step, Scenario } from \\'@biorate/mocha\\';'" "'import { Step, Scenario } from \\'@biorate/vitest\\';'"
+      replace_in_file "$f" "'@step()'" "'@Step()'"
     fi
   done <<<"$file_list"
 }
