@@ -64,8 +64,8 @@ force: true
   "devDependencies": {
     "@atao60/fse-cli": "0.1.9",
     "@biorate/cleanup": "1.172.0",
-    "@biorate/vitest": "1.8.0",
-    "@biorate/vitest-spec": "1.7.0",
+    "@biorate/vitest": "1.9.0",
+    "@biorate/vitest-spec": "1.7.1",
     "@ls-lint/ls-lint": "2.2.3",
     "@types/chai": "4.2.18",
     "@types/flat": "5.0.2",
