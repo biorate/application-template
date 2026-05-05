@@ -23,11 +23,12 @@ unless_exists: true
   "license": "UNLICENSED",
   "devDependencies": {
     "@ant-design/icons": "4.7.0",
-    "@biorate/playwright": "1.164.2",
+    "@biorate/playwright": "1.165.0",
     "@playwright/test": "1.44.0",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
     "@types/react-router": "5.1.18",
+    "allure-playwright": "2.10.0",
     "classnames": "2.3.1",
     "history": "5.3.0",
     "i18next-browser-languagedetector": "7.1.0",
