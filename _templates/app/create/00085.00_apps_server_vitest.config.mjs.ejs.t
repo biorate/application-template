@@ -41,7 +41,7 @@ export default defineConfig({
     globals: true,
     testTimeout: 2000,
     hookTimeout: 30000,
-    setupFiles: ['reflect-metadata', './tests/setup.ts'],
+    setupFiles: ['reflect-metadata', 'allure-vitest/setup', './tests/setup.ts'],
     reporters: [
       'default',
       ['allure-vitest/reporter', { resultsDir: 'allure-results', suiteTitle: false }],

@@ -78,7 +78,7 @@ force: true
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.00.0",
     "allure-commandline": "2.25.0",
-    "allure-js-commons": "3.2.0",
+    "allure-js-commons": "3.7.1",
     "allure-vitest": "3.7.1",
     "chai": "4.3.4",
     "cookies": "0.8.0",
