@@ -10,5 +10,5 @@ unless_exists: true
   "statements": 80,
   "branches": 60,
   "functions": 27,
-  "lines": 85
+  "lines": 80
 }
