@@ -5,7 +5,7 @@ unless_exists: true
 import { timeout } from '@biorate/mocha';
 import { Spec as CommonSpec } from '@biorate/mocha-spec';
 import { container } from '@biorate/inversion';
-import { Root } from '../../src/config';
+import { Root } from '../../src/app/infrastructure/bootstrap/root-config';
 import '../setup';
 
 @timeout(2000)

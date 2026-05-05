@@ -12,7 +12,7 @@ import {
   MochaAllure,
 } from '@biorate/mocha';
 import { jestSnapshotPlugin } from 'mocha-chai-jest-snapshot';
-import { Root } from '../src/config';
+import { Root } from '../src/app/infrastructure/bootstrap/root-config';
 import './__mocks__';
 
 use(jestSnapshotPlugin());
