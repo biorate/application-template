@@ -12,9 +12,6 @@ import { Prometheus, IPrometheus } from '@biorate/prometheus';
 import { VaultConnector, IVaultConnector } from '@biorate/vault';
 import { IApplication } from './application.interface';
 import { Application } from './application';
-<% if (!CUT_EXAMPLES) { -%>
-import { Test } from '@/test';
-<% } -%>
 
 export class Root extends Core() {
   @inject(Types.Config) public config: IConfig;
@@ -30,9 +27,6 @@ export class Root extends Core() {
   @inject(Types.Prometheus) public prometheus: IPrometheus;
 
   @inject(Types.Application) public application: IApplication;
-  <% if (!CUT_EXAMPLES) { -%>
-  @inject(Types.Test) public test: Test;
-  <% } -%>
 }
 
 container.bind<IConfig>(Types.Config).to(Config).inSingletonScope();
@@ -48,7 +42,4 @@ container
 container.bind<IVaultConnector>(Types.Vault).to(VaultConnector).inSingletonScope();
 container.bind<IPrometheus>(Types.Prometheus).to(Prometheus).inSingletonScope();
 container.bind<IApplication>(Types.Application).to(Application).inSingletonScope();
-<% if (!CUT_EXAMPLES) { -%>
-container.bind<Test>(Types.Test).to(Test).inSingletonScope();
-<% } -%>
 container.bind<Root>(Root).toSelf().inSingletonScope();

@@ -26,9 +26,6 @@ coverage
 .coverage
 *.lcov
 
-# nyc test coverage
-.nyc_output
-
 # Optional npm cache directory
 .npm
 

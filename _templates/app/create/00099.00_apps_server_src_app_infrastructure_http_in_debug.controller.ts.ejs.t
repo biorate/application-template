@@ -13,7 +13,7 @@ export class DebugController {
 
   @Get()
   @ApiOperation({ summary: 'Print debug' })
-  private get() {
+  protected get() {
     return this.helloWorld.execute();
   }
 }

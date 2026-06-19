@@ -24,9 +24,12 @@ force: true
 
 ## 🧪 Тестирование
 
-- В шаблоне по умолчанию серверные тесты — **Mocha** (`pnpm test` в этом пакете или через `lerna`/`nx` из корня).
-- Рекомендация: use-case’ы покрывать **изолированно**; инфраструктуру — интеграционно или с моками хранилища.
-- Переход на **Vitest** не меняет правил слоёв — только инструменты и скрипты.
+- Серверные тесты — **Vitest** (см. `vitest.unit.config.mjs`, `vitest.e2e.config.mjs`).
+- **unit** (`tests/unit/`): timeout 2s, параллельный запуск, setup в `tests/unit/setup.ts`. Use-case’ы покрываются изолированно с `vi.fn()`.
+- **e2e** (`tests/e2e/`): timeout 10s, последовательный, стартует `Root.$run()`, setup в `tests/e2e/setup.ts`.
+- **Unimock** (`tests/__mocks__/e2e.ts`): запись/воспроизведение HTTP-запросов к внешним сервисам. Режим задаётся через `UNIMOCK=replay` / `UNIMOCK=record`.
+- Команды: `pnpm test` (unit + e2e), `pnpm test:unit`, `pnpm test:e2e`, `pnpm test:e2e:record`.
+- Отчёты Allure генерируются автоматически через `allure-vitest`.
 
 ## 📝 Запрещено
 

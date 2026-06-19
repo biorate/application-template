@@ -21,7 +21,7 @@ force: true
     "test:client": "npx lerna run test --stream --no-prefix --scope <%= CLIENT_NAME %>",
     "version": "npx lerna version",
     "cleanup:node_modules": "cleanup '**/node_modules'",
-    "cleanup": "pnpm run cleanup:node_modules './{packages,apps}/**/{dist,.nyc_output,coverage,allure-results}'",
+    "cleanup": "pnpm run cleanup:node_modules './{packages,apps}/**/{dist,coverage,allure-results}'",
     "update": "pnpm up '@biorate/*' --latest --filter '*' && pnpm run reinstall",
     "reinstall": "pnpm run cleanup './pnpm-lock.yaml' && pnpm i",
     "prepare": "npx husky install",
@@ -65,11 +65,11 @@ force: true
     "@atao60/fse-cli": "0.1.9",
     "@biorate/cleanup": "1.172.0",
     "@ls-lint/ls-lint": "2.2.3",
-    "@types/chai": "4.2.18",
+    "@biorate/vitest": "2.4.0",
+    "@biorate/vitest-spec": "2.2.0",
     "@types/flat": "5.0.2",
     "@types/lodash": "4.14.170",
     "@types/minimist": "1.2.5",
-    "@types/mocha": "8.2.2",
     "@types/node": "24.10.12",
     "@types/qs": "6.9.18",
     "@types/traverse": "0.6.32",
@@ -77,7 +77,7 @@ force: true
     "@typescript-eslint/parser": "5.00.0",
     "allure-commandline": "2.25.0",
     "allure-js-commons": "3.2.0",
-    "chai": "4.3.4",
+    "allure-vitest": "3.7.1",
     "cookies": "0.8.0",
     <%- CLIENT ? '"css-loader": "5.2.6",' : '' %>
     <%- CLIENT ? '"css-minimizer-webpack-plugin": "3.0.0",' : '' %>
@@ -97,7 +97,8 @@ force: true
     "node-gyp": "8.4.1",
     "npx": "10.2.2",
     "nx": "22.4.5",
-    "nyc": "17.1.0",
+    "unplugin-swc": "1.5.3",
+    "vitest": "4.1.5",
     <%- CLIENT ? '"postcss-less": "6.0.0",' : '' %>
     <%- CLIENT ? '"postcss-loader": "7.0.0",' : '' %>
     <%- CLIENT ? '"postcss-scss": "4.0.9",' : '' %>

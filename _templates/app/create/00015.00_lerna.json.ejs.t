@@ -21,14 +21,8 @@ unless_exists: true
         "**/package-lock.json",
         "**/pnpm-lock.yaml",
         "**/.npmrc",
-        "**/.nycrc.json",
-        "**/.mocharc.json",
-        "**/.reporters.json",
         "**/.gitignore",
-        "**/.mocharc.json",
         "**/jest.config.js",
-        "**/.gitignore",
-        "**/.reporters.json",
         "**/tsconfig.tsbuildinfo"
       ]
     }

@@ -11,7 +11,11 @@ unless_exists: true
     "start": "cross-env LOG_ENABLED=1 LOG_LEVEL=info,error,warn NODE_ENV=production node ./dist/index.js",
     "build": "cross-env NODE_ENV=production npx tsc -p ./tsconfig.build.json --outDir ./dist && tsc-alias -p ./tsconfig.build.json --outDir ./dist",
     "start:debug": "cross-env npx nodemon --exec ts-node -r tsconfig-paths/register index.ts",
-    "test": "npx nyc -- npx mocha",
+    "test": "pnpm run test:all",
+    "test:unit": "pnpm exec vitest run -c ./vitest.unit.config.mjs",
+    "test:e2e": "cross-env UNIMOCK=replay UNIMOCK_SNAPSHOT_DIR=tests/e2e/__snapshots__ pnpm exec vitest run -c ./vitest.e2e.config.mjs",
+    "test:e2e:record": "cross-env UNIMOCK=record UNIMOCK_STRIP_REQUEST=1 UNIMOCK_SKIP_PROXY_ARGS=1 UNIMOCK_GZIP=1 UNIMOCK_SNAPSHOT_DIR=tests/e2e/__snapshots__ pnpm exec vitest run -c ./vitest.e2e.config.mjs",
+    "test:all": "pnpm run test:unit && pnpm run test:e2e",
     "migrations": "node -r @biorate/migrations",
     "lint:fix": "npx eslint --fix ./src",
     "prettier:fix": "npx prettier --write ./src",
@@ -46,6 +50,8 @@ unless_exists: true
     "helmet": "4.6.0",
     "http-proxy-middleware": "2.0.6",
     <%- ADD_WEB_SOCKET ? '"nestjs-asyncapi": "1.4.0",' : '' -%>
+    "@biorate/unimock": "1.8.0",
+    "reflect-metadata": "0.2.2",
     "serve-favicon": "2.5.0",
     "source-map-support": "0.5.21",
     "swagger-ui-express": "4.6.2"
@@ -53,17 +59,13 @@ unless_exists: true
   },
   "devDependencies": {
     "@biorate/migrations": "1.165.14",
-    "@biorate/mocha": "1.141.1",
-    "@biorate/mocha-spec": "1.142.0",
-    "@istanbuljs/nyc-config-typescript": "1.0.2",
+    "@biorate/vitest": "2.4.0",
+    "@biorate/vitest-spec": "2.2.0",
     "@types/cookie-parser": "1.4.3",
     "@types/express": "4.17.17",
-    "@types/mocha": "10.0.10",
     <%- ADD_WEB_SOCKET ? '"@types/ws": "8.5.8",' : '' -%>
     "nodemon": "3.1.3",
-    "mocha": "11.7.5",
-    "mocha-chai-jest-snapshot": "1.1.7",
-    "mocha-multi-reporters": "1.5.1",
-    "testcontainers": "10.9.0"
+    "supertest": "6.1.6",
+    "unplugin-swc": "1.5.3"
   }
 }

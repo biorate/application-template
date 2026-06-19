@@ -29,7 +29,7 @@
 | Клиент | **React**, **MobX**, **react-router**, **i18next**, стили (в т.ч. styled-components, css/less/scss), сборка **Webpack**, шаблоны **Pug** |
 | Монорепо | **pnpm** workspaces, **Lerna**, **Nx** (как в генерируемом `package.json`)                                                            |
 | Конфиг | **@biorate/config** (JSON-path, шаблоны `${…}` / `@{…}` / `#{…}`)                                                                      |
-| Тесты | Клиент: **Playwright**; сервер: **Mocha** (+ при необходимости отчёты Allure)                                                         |
+| Тесты | Клиент: **Playwright**; сервер: **Vitest** (unit + e2e, Allure-отчёты)                                                         |
 
 ## Обязательные требования окружения
 
