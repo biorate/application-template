@@ -98,6 +98,7 @@ force: true
     "npx": "10.2.2",
     "nx": "22.4.5",
     "unplugin-swc": "1.5.3",
+    "vite": "6.3.5",
     "vitest": "4.1.5",
     <%- CLIENT ? '"postcss-less": "6.0.0",' : '' %>
     <%- CLIENT ? '"postcss-loader": "7.0.0",' : '' %>
