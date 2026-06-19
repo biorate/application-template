@@ -131,7 +131,7 @@ force: true
     "@biorate/axios": "3.3.0",
     "@biorate/config": "3.2.0",
     "@biorate/errors": "3.1.0",
-    "@biorate/i18n": "2.1.0",
+    "@biorate/i18n": "2.1.1",
     "@biorate/inversion": "3.1.0",
     "@biorate/symbolic": "3.1.0",
     "@biorate/tools": "3.1.0",
