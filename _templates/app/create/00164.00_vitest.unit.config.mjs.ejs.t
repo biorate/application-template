@@ -8,8 +8,8 @@ export default defineConfig({
   ...base,
   test: {
     ...base.test,
+    testTimeout: 2_000,
     include: ['tests/unit/**/*.spec.ts'],
     setupFiles: ['reflect-metadata', 'allure-vitest/setup', './tests/unit/setup.ts'],
-    testTimeout: 2_000,
   },
 });
