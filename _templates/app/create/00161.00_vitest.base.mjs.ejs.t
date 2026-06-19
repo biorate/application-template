@@ -9,7 +9,7 @@ export default defineConfig({
   esbuild: false,
   plugins: [
     swc.vite({
-      sourceMaps: false,
+      sourceMaps: true,
       jsc: {
         parser: {
           syntax: 'typescript',
