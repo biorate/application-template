@@ -7,6 +7,13 @@ dist
 node_modules
 tmp
 
+# opencode
+.omo
+.opencode
+
+# nx
+.nx
+
 # Logs
 logs
 *.log
