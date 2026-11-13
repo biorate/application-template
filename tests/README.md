@@ -35,16 +35,17 @@ tests/
 Как в сгенерированных проектах, тесты строятся на базовых классах:
 
 - **`UnitSpec`** (`tests/common/unit-spec.ts`) — extends `Spec` из `@biorate/vitest-spec`,
-  `httpServer = null`: приложение не поднимается. Общая база всех spec'ов генератора.
+  `httpServer = null`: приложение не поднимается. База юнит-тестов (`FactorySpec`).
 - **`GeneratorSpec`** (`tests/common/generator-spec.ts`) — extends `UnitSpec`; несёт
   интеграционную обвязку: `this.runner` (CJS-вход `@biorate/hygen`), `this.tmpDir()`,
   `this.readFixture(name)`, `this.runCs()`, `this.cleanup()`; наружу также экспортирует
   `makeConfig` / `silentLogger` / `manifest` / `runFactory` / `ROOT` / `TEMPLATES`.
+  База интеграционных тестов (`RunnerSpec`).
 - Spec-файлы содержат **только классы тестов** — хелперы и обвязка живут в `tests/common/`.
 
 ## 🧪 Что тестируется
 
-### `factory.spec.ts` — фабрика `.hygen.js` (extends `GeneratorSpec`)
+### `factory.spec.ts` — фабрика `.hygen.js` (extends `UnitSpec`)
 
 - Деривация `CLIENT`/`SERVER` из списка действий (`root,client,server`, подмножества, неизвестные действия).
 - Валидация обязательных флагов (`--root`, `--app-name`, `--app-description`).

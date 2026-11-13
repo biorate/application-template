@@ -1,10 +1,11 @@
 import { suite, test } from '@biorate/vitest';
 import path from 'path';
 import fs from 'fs';
-import { GeneratorSpec, ROOT, TEMPLATES, runFactory } from './common/generator-spec';
+import { UnitSpec } from './common/unit-spec';
+import { ROOT, TEMPLATES, runFactory } from './common/generator-spec';
 
 @suite('Factory (.hygen.js helpers)')
-class FactorySpec extends GeneratorSpec {
+class FactorySpec extends UnitSpec {
   @test('derives CLIENT/SERVER from the action list')
   derivation() {
     const all = runFactory({
