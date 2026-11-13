@@ -32,4 +32,11 @@ force: true
 - Используйте camelCase для именования переменных и функций
 - Используйте PascalCase для именования классов
 
-## [Документация](https://github.com/biorate/application-template)
+## Правила архитектуры и работы
+
+- Корень репозитория: [`AGENTS.md`](./AGENTS.md) — границы монорепо, ошибки, стиль кода.
+<% if (SERVER) { -%>
+- Сервер (`<%= SERVER_NAME %>`): [`apps/<%= SERVER_NAME %>/AGENTS.md`](./apps/<%= SERVER_NAME %>/AGENTS.md) — слои, DI, тесты.
+<% } -%>
+
+## [Документация шаблона](https://github.com/biorate/application-template)

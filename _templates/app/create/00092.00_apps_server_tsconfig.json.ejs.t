@@ -5,6 +5,7 @@ unless_exists: true
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "types": ["node", "vitest/globals"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]

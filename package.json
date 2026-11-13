@@ -11,14 +11,14 @@
     "yarn": ">=1.22.22",
     "pnpm": ">=9.7.1",
     "npm": ">=10.8.2",
-    "node": "=20"
+    "node": ">=20"
   },
   "dependencies": {
     "@atao60/fse-cli": "0.1.9",
     "hygen": "6.2.11",
-    "lodash": "4.17.21",
+    "lodash": "4.17.23",
     "minimist": "1.2.8",
-    "pnpm": "9.7.1",
+    "pnpm": "10.29.2",
     "prettier": "2.8.8"
   }
 }
