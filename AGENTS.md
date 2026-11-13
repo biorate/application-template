@@ -97,6 +97,15 @@ npx hygen create root,client,server --root=tmp/my-app --app-name=name-of-the-app
 - `CLIENT_APP_ARCH.md` — клиент (MobX-store, inversion)
 - `CONNECTORS.md` и профильные файлы (Sequelize, Kafka, Redis, …) — по мере необходимости
 
+## Тестирование генератора
+
+Тесты генератора живут в `tests/` — vitest + `@biorate/vitest`/`@biorate/vitest-spec`:
+юнит-тесты фабрики `.hygen.js` (`tests/factory.spec.ts`) и интеграционные тесты
+через embedding API `runner()` из `@biorate/hygen` против golden-фикстур
+(`tests/runner.spec.ts`). Запуск — `pnpm test`; после изменения шаблонов
+обязательна регенерация фикстур (`node tests/__fixtures__/generate-manifests.mjs`).
+Подробности — [tests/README.md](./tests/README.md).
+
 ## Рекомендации для агентов при изменении шаблонов
 
 1. **Понимать два контекста:** правка **генератора** (файлы в `_templates/`) vs правка **уже сгенерированного** приложения в другом каталоге — это разные задачи.

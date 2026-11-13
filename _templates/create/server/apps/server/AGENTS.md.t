@@ -24,12 +24,20 @@ force: true
 
 ## 🧪 Тестирование
 
-- Серверные тесты — **Vitest** (см. `vitest.unit.config.mjs`, `vitest.e2e.config.mjs`).
-- **unit** (`tests/unit/`): timeout 2s, параллельный запуск, setup в `tests/unit/setup.ts`. Use-case’ы покрываются изолированно с `vi.fn()`.
-- **e2e** (`tests/e2e/`): timeout 10s, последовательный, стартует `Root.$run()`, setup в `tests/e2e/setup.ts`.
-- **Unimock** (`tests/__mocks__/e2e.ts`): запись/воспроизведение HTTP-запросов к внешним сервисам. Режим задаётся через `UNIMOCK=replay` / `UNIMOCK=record`.
-- Команды: `pnpm test` (unit + e2e), `pnpm test:unit`, `pnpm test:e2e`, `pnpm test:e2e:record`.
+- Тест-раннер: **Vitest** + OOP-стиль `@biorate/vitest-spec` (декораторы `@suite`/`@test` вместо `describe`/`it`).
+- **Unit** (`tests/unit/`): тестируем `application`/`domain` изолированно, **без** поднятия `Root`/DI-контейнера.
+  - База: `tests/common/unit-spec.ts` (`httpServer = null` — приложение не запускается)
+  - Порты мокаются вручную через `vi.fn()`; неиспользуемые методы порта — `vi.fn()` без реализации
+  - Setup: `tests/unit/setup.ts`
+  - Запуск: `pnpm test:unit`
+- **E2E** (`tests/e2e/`): приложение поднимается через `Root.$run()`, HTTP — через supertest.
+  - База: `tests/common/common-spec.ts` (`Root` из DI-контейнера, `httpServer` для supertest)
+  - Setup: `tests/e2e/setup.ts`
+  - Запуск: `pnpm test:e2e` (Unimock в режиме replay); запись — `pnpm test:e2e:record`
+- **Unimock** (`tests/__mocks__/e2e.ts`): запись/воспроизведение вызовов внешних сервисов. Режим задаётся через `UNIMOCK=replay` / `UNIMOCK=record`.
+- **Все тесты**: `pnpm test`.
 - Отчёты Allure генерируются автоматически через `allure-vitest`.
+- Подробный гайд: [tests/README.md](./tests/README.md) — архитектура тестов, паттерны по слоям, Spec-иерархия.
 
 ## 📝 Запрещено
 

@@ -11,13 +11,6 @@ import crypto from 'crypto';
 import os from 'os';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
-console.error(
-  'ROOT =',
-  ROOT,
-  'templates exists:',
-  fs.existsSync(path.join(ROOT, '_templates')),
-);
-
 const makeConfig = (tmpRoot, execCalls) => ({
   cwd: ROOT,
   templates: path.join(ROOT, '_templates'),
