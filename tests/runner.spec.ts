@@ -1,16 +1,17 @@
 import { suite, test } from '@biorate/vitest';
 import { Spec } from '@biorate/vitest-spec';
 import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import crypto from 'crypto';
 
-const require = createRequire(import.meta.url);
+const nodeRequire = createRequire(import.meta.url);
 // CJS-вход: ESM-экспорт теряет фабрику хелперов при загрузке .hygen.js
-const { runner } = require('@biorate/hygen');
+const { runner } = nodeRequire('@biorate/hygen');
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FIXTURES = path.join(ROOT, 'tests', '__fixtures__', 'manifests');
 
 type Cfg = {
@@ -18,7 +19,7 @@ type Cfg = {
   templates: string;
   logger: Record<string, (...a: unknown[]) => void>;
   exec: (cmd: string) => void;
-  createPrompter: () => { prompt: (qs: unknown[]) => Promise<Record<string, unknown>> };
+  createPrompter: () => { prompt: (qs: { name: string; type: string }[]) => Promise<Record<string, unknown>> };
   debug?: boolean;
 };
 
@@ -216,7 +217,10 @@ class RunnerSpec extends Spec {
     const added: string[] = [];
     const logger = {
       ...silentLogger(),
-      ok: (msg: string) => msg.includes('added') && added.push(msg),
+      ok: (...a: unknown[]) => {
+        const msg = String(a[0] ?? '');
+        if (msg.includes('added')) added.push(msg);
+      },
     };
     const second = await runCs(makeConfig({ logger }), [], tmp);
     this.exactly(second.success, true);

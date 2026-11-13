@@ -1,12 +1,15 @@
 import { suite, test } from '@biorate/vitest';
 import { Spec } from '@biorate/vitest-spec';
+import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const factory = require('../.hygen.js');
+// CJS-требование: фабрика в .hygen.js — CommonJS-модуль
+const nodeRequire = createRequire(import.meta.url);
+const factory = nodeRequire('../.hygen.js');
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TEMPLATES = path.join(ROOT, '_templates');
 
 const run = (locals: Record<string, unknown>) =>
@@ -92,33 +95,33 @@ class FactorySpec extends Spec {
 
   @test('throws on missing --root')
   'missing-root'() {
-    let error: Error = null;
+    let error: Error | undefined;
     try {
       run({ 'app-name': 'a', 'app-description': 'd' });
     } catch (e) {
-      error = e;
+      error = e as Error;
     }
     this.exactly(error?.message, '[--root] is not defined');
   }
 
   @test('throws on missing --app-name and --app-description')
   'missing-name'() {
-    let error: Error = null;
+    let error: Error | undefined;
     try {
       run({ root: '/tmp/x' });
     } catch (e) {
-      error = e;
+      error = e as Error;
     }
     this.exactly(error?.message, '[--app-name], [--app-description] is not defined');
   }
 
   @test('guard: exact repository root match throws')
   'guard-exact'() {
-    let error: Error = null;
+    let error: Error | undefined;
     try {
       run({ root: ROOT, 'app-name': 'a', 'app-description': 'd' });
     } catch (e) {
-      error = e;
+      error = e as Error;
     }
     this.exactly(error?.message.includes('is the template repository itself'), true);
   }
