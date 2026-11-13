@@ -61,5 +61,5 @@
 
 ## 8. Завершение
 
-- [ ] 8.1 Финальный `git status` — в репо не осталось следов старой структуры (`_templates/app/`), мусор `tmp/ref-*` не закоммичен.
-- [ ] 8.2 Коммит по Conventional Commits (`feat!:` — breaking: новая команда, обязательный `--root`, удалены `--hygen`, `--client`, `--server`).
+- [x] 8.1 Финальный `git status` — в репо не осталось следов старой структуры (`_templates/app/`), мусор `tmp/ref-*` не закоммичен.
+- [x] 8.2 Коммит по Conventional Commits (`feat!:` — breaking: новая команда, обязательный `--root`, удалены `--hygen`, `--client`, `--server`).
