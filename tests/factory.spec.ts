@@ -1,15 +1,12 @@
 import { suite, test } from '@biorate/vitest';
-import { Spec } from '@biorate/vitest-spec';
 import { createRequire } from 'module';
-import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs';
+import { GeneratorSpec, ROOT } from './common/generator-spec';
 
-// CJS-требование: фабрика в .hygen.js — CommonJS-модуль
 const nodeRequire = createRequire(import.meta.url);
-const factory = nodeRequire('../.hygen.js');
+const factory = nodeRequire(path.join(ROOT, '.hygen.js'));
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TEMPLATES = path.join(ROOT, '_templates');
 
 const run = (locals: Record<string, unknown>) =>
@@ -19,11 +16,7 @@ const run = (locals: Record<string, unknown>) =>
   );
 
 @suite('Factory (.hygen.js helpers)')
-class FactorySpec extends Spec {
-  protected get httpServer() {
-    return null;
-  }
-
+class FactorySpec extends GeneratorSpec {
   @test('derives CLIENT/SERVER from the action list')
   derivation() {
     const all = run({

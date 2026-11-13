@@ -17,18 +17,33 @@
 
 ```
 tests/
++-- common/
+|   +-- unit-spec.ts             <- UnitSpec: база без поднятия приложения
+|   +-- generator-spec.ts        <- GeneratorSpec: обвязка runner() (конфиг,
+|                                    tmp-каталоги, манифесты, фикстуры)
 +-- factory.spec.ts              <- юнит-тесты фабрики .hygen.js
 +-- runner.spec.ts               <- интеграционные тесты через runner()
 +-- __fixtures__/
-|   +-- generate-manifests.mjs   <- регенерация golden-фикстур
-|   +-- manifests/
-|       +-- {cs,cl,sv,cut,ws}.json        <- манифесты (relPath -> sha256)
-|       +-- {cs,cl,sv,cut,ws}.exec.json   <- captured shell-команды (z-after и др.)
+    +-- generate-manifests.mjs   <- регенерация golden-фикстур
+    +-- manifests/
+        +-- {cs,cl,sv,cut,ws}.json        <- манифесты (relPath -> sha256)
+        +-- {cs,cl,sv,cut,ws}.exec.json   <- captured shell-команды (z-after и др.)
 ```
+
+## 🧬 Spec-иерархия
+
+Как в сгенерированных проектах, тесты строятся на базовых классах:
+
+- **`UnitSpec`** (`tests/common/unit-spec.ts`) — extends `Spec` из `@biorate/vitest-spec`,
+  `httpServer = null`: приложение не поднимается. Общая база всех spec'ов генератора.
+- **`GeneratorSpec`** (`tests/common/generator-spec.ts`) — extends `UnitSpec`; несёт
+  интеграционную обвязку: `this.runner` (CJS-вход `@biorate/hygen`), `this.tmpDir()`,
+  `this.readFixture(name)`, `this.runCs()`, `this.cleanup()`; наружу также экспортирует
+  `makeConfig` / `silentLogger` / `manifest` / `ROOT`.
 
 ## 🧪 Что тестируется
 
-### `factory.spec.ts` — фабрика `.hygen.js`
+### `factory.spec.ts` — фабрика `.hygen.js` (extends `GeneratorSpec`)
 
 - Деривация `CLIENT`/`SERVER` из списка действий (`root,client,server`, подмножества, неизвестные действия).
 - Валидация обязательных флагов (`--root`, `--app-name`, `--app-description`).
@@ -36,7 +51,7 @@ tests/
 - Действие `help` пропускает валидацию.
 - Синхронность `.hygen.js` и `root/.hygen.js.t`.
 
-### `runner.spec.ts` — интеграция через `runner()`
+### `runner.spec.ts` — интеграция через `runner()` (extends `GeneratorSpec`)
 
 - **Golden-матрица**: 5 кейсов (`cs`=root,client,server; `cl`=root,client; `sv`=root,server; `cut`=`--cut-examples`; `ws`=`--add-web-socket`) сравниваются с фикстурами по sha256-манифестам и captured exec-командам.
 - Websocket-файлы генерируются только в server-поддереве.
