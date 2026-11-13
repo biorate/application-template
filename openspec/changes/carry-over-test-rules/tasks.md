@@ -13,7 +13,7 @@
 
 ## 3. Верификация
 
-- [ ] 3.1 Регенерировать golden-фикстуры: `node tests/__fixtures__/generate-manifests.mjs`; убедиться, что в манифестах появились `apps/ref-app-server/tests/README.md` и обновлённые AGENTS.md.
-- [ ] 3.2 Прогнать `pnpm test` — все 20 тестов зелёные (golden-матрица валидирует согласованность шаблонов и фикстур).
-- [ ] 3.3 Diff-проверка CLI: сгенерировать `root,server` и `root,client,server --cut-examples`, убедиться, что `tests/README.md` присутствует в обоих случаях и текст AGENTS.md соответствует новым правилам.
-- [ ] 3.4 Прогнать `npx tsc --noEmit -p tsconfig.json` (документация не должна сломать типизацию) и `git status` — мусор не закоммичен.
+- [x] 3.1 Регенерировать golden-фикстуры: `node tests/__fixtures__/generate-manifests.mjs`; убедиться, что в манифестах появились `apps/ref-app-server/tests/README.md` и обновлённые AGENTS.md.
+- [x] 3.2 Прогнать `pnpm test` — все 20 тестов зелёные (golden-матрица валидирует согласованность шаблонов и фикстур).
+- [x] 3.3 Diff-проверка CLI: сгенерировать `root,server` и `root,client,server --cut-examples`, убедиться, что `tests/README.md` присутствует в обоих случаях и текст AGENTS.md соответствует новым правилам.
+- [x] 3.4 Прогнать `npx tsc --noEmit -p tsconfig.json` (документация не должна сломать типизацию) и `git status` — мусор не закоммичен.
