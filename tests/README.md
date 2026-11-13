@@ -39,7 +39,8 @@ tests/
 - **`GeneratorSpec`** (`tests/common/generator-spec.ts`) — extends `UnitSpec`; несёт
   интеграционную обвязку: `this.runner` (CJS-вход `@biorate/hygen`), `this.tmpDir()`,
   `this.readFixture(name)`, `this.runCs()`, `this.cleanup()`; наружу также экспортирует
-  `makeConfig` / `silentLogger` / `manifest` / `ROOT`.
+  `makeConfig` / `silentLogger` / `manifest` / `runFactory` / `ROOT` / `TEMPLATES`.
+- Spec-файлы содержат **только классы тестов** — хелперы и обвязка живут в `tests/common/`.
 
 ## 🧪 Что тестируется
 

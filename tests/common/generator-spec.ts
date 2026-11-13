@@ -59,6 +59,25 @@ export function manifest(dir: string): Record<string, string> {
   return out;
 }
 
+export const TEMPLATES = path.join(ROOT, '_templates');
+
+/**
+ * Загружает фабрику хелперов .hygen.js репозитория.
+ */
+export function loadFactory() {
+  return nodeRequire(path.join(ROOT, '.hygen.js'));
+}
+
+/**
+ * Вызывает фабрику хелперов как это делает движок hygen для действия root.
+ */
+export function runFactory(locals: Record<string, unknown>) {
+  return loadFactory().helpers(
+    { _: ['create', 'root'], action: 'root', ...locals },
+    { templates: TEMPLATES },
+  );
+}
+
 /**
  * База для интеграционных тестов генератора: обвязка runner(),
  * tmp-каталоги, манифесты и golden-фикстуры.

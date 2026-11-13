@@ -239,6 +239,3 @@ class RunnerSpec extends GeneratorSpec {
     this.cleanup(tmp);
   }
 }
-
-// тип Cfg экспортируется для внешних потребителей обвязки
-export type { Cfg };

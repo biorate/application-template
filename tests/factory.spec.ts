@@ -1,25 +1,13 @@
 import { suite, test } from '@biorate/vitest';
-import { createRequire } from 'module';
 import path from 'path';
 import fs from 'fs';
-import { GeneratorSpec, ROOT } from './common/generator-spec';
-
-const nodeRequire = createRequire(import.meta.url);
-const factory = nodeRequire(path.join(ROOT, '.hygen.js'));
-
-const TEMPLATES = path.join(ROOT, '_templates');
-
-const run = (locals: Record<string, unknown>) =>
-  factory.helpers(
-    { _: ['create', 'root'], action: 'root', ...locals },
-    { templates: TEMPLATES },
-  );
+import { GeneratorSpec, ROOT, TEMPLATES, runFactory } from './common/generator-spec';
 
 @suite('Factory (.hygen.js helpers)')
 class FactorySpec extends GeneratorSpec {
   @test('derives CLIENT/SERVER from the action list')
   derivation() {
-    const all = run({
+    const all = runFactory({
       root: '/tmp/x',
       'app-name': 'a',
       'app-description': 'd',
@@ -27,7 +15,7 @@ class FactorySpec extends GeneratorSpec {
     });
     this.exactly([all.CLIENT, all.SERVER], [true, true]);
 
-    const clientOnly = run({
+    const clientOnly = runFactory({
       root: '/tmp/x',
       'app-name': 'a',
       'app-description': 'd',
@@ -35,7 +23,7 @@ class FactorySpec extends GeneratorSpec {
     });
     this.exactly([clientOnly.CLIENT, clientOnly.SERVER], [true, false]);
 
-    const serverOnly = run({
+    const serverOnly = runFactory({
       root: '/tmp/x',
       'app-name': 'a',
       'app-description': 'd',
@@ -46,7 +34,7 @@ class FactorySpec extends GeneratorSpec {
 
   @test('unknown actions in the list are ignored')
   'unknown-actions'() {
-    const h = run({
+    const h = runFactory({
       root: '/tmp/x',
       'app-name': 'a',
       'app-description': 'd',
@@ -57,7 +45,11 @@ class FactorySpec extends GeneratorSpec {
 
   @test('derives names from --app-name')
   names() {
-    const h = run({ root: '/tmp/x', 'app-name': 'my-app', 'app-description': 'd' });
+    const h = runFactory({
+      root: '/tmp/x',
+      'app-name': 'my-app',
+      'app-description': 'd',
+    });
     this.exactly(
       {
         ROOT: h.ROOT,
@@ -76,7 +68,7 @@ class FactorySpec extends GeneratorSpec {
 
   @test('passes flags through (CUT_EXAMPLES / ADD_WEB_SOCKET)')
   flags() {
-    const h = run({
+    const h = runFactory({
       root: '/tmp/x',
       'app-name': 'a',
       'app-description': 'd',
@@ -90,7 +82,7 @@ class FactorySpec extends GeneratorSpec {
   'missing-root'() {
     let error: Error | undefined;
     try {
-      run({ 'app-name': 'a', 'app-description': 'd' });
+      runFactory({ 'app-name': 'a', 'app-description': 'd' });
     } catch (e) {
       error = e as Error;
     }
@@ -101,7 +93,7 @@ class FactorySpec extends GeneratorSpec {
   'missing-name'() {
     let error: Error | undefined;
     try {
-      run({ root: '/tmp/x' });
+      runFactory({ root: '/tmp/x' });
     } catch (e) {
       error = e as Error;
     }
@@ -112,7 +104,7 @@ class FactorySpec extends GeneratorSpec {
   'guard-exact'() {
     let error: Error | undefined;
     try {
-      run({ root: ROOT, 'app-name': 'a', 'app-description': 'd' });
+      runFactory({ root: ROOT, 'app-name': 'a', 'app-description': 'd' });
     } catch (e) {
       error = e as Error;
     }
@@ -121,7 +113,7 @@ class FactorySpec extends GeneratorSpec {
 
   @test('guard: nested paths inside the repository are allowed')
   'guard-nested'() {
-    const h = run({
+    const h = runFactory({
       root: path.join(ROOT, 'tmp', 'some-app'),
       'app-name': 'a',
       'app-description': 'd',
@@ -131,7 +123,7 @@ class FactorySpec extends GeneratorSpec {
 
   @test('guard: non-existent root is allowed (created later)')
   'guard-missing-dir'() {
-    const h = run({
+    const h = runFactory({
       root: '/tmp/definitely-not-exists-guard',
       'app-name': 'a',
       'app-description': 'd',
@@ -141,10 +133,7 @@ class FactorySpec extends GeneratorSpec {
 
   @test('help action skips validation')
   help() {
-    const h = factory.helpers(
-      { _: ['create', 'help'], action: 'help' },
-      { templates: TEMPLATES },
-    );
+    const h = runFactory({ _: ['create', 'help'], action: 'help' });
     this.exactly('_' in h, true);
   }
 
