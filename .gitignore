@@ -49,3 +49,7 @@ coverage
 !.vscode/extensions.json
 
 .veai
+
+# test reports
+allure-results
+allure-report

@@ -1,0 +1,5 @@
+---
+to: <%= `${h.ROOT}/apps/${h.SERVER_NAME}/src/app/application/service/debug/index.ts` %>
+unless_exists: true
+---
+export * from './debug.hello-world.use-case';

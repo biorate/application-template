@@ -1,0 +1,16 @@
+---
+to: <%= `${h.ROOT}/apps/${h.SERVER_NAME}/tsconfig.json` %>
+unless_exists: true
+---
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "vitest/globals"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["index.ts", "src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

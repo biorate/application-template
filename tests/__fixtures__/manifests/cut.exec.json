@@ -1,0 +1,4 @@
+[
+  " npx prettier --write /tmp/hygen-fixture-cut-yoxnaq && chmod ug+x /tmp/hygen-fixture-cut-yoxnaq/.husky/* ",
+  "npx fse copy /www/biorate/application-template/_templates/create/server/bin/favicon.ico /tmp/hygen-fixture-cut-yoxnaq/apps/ref-app-server/favicon.ico"
+]

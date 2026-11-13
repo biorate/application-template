@@ -6,7 +6,9 @@
   "keywords": [],
   "author": "llevkin",
   "license": "UNLICENSED",
-  "scripts": {},
+  "scripts": {
+    "test": "vitest run"
+  },
   "engines": {
     "yarn": ">=1.22.22",
     "pnpm": ">=9.7.1",
@@ -20,5 +22,13 @@
     "minimist": "1.2.8",
     "pnpm": "10.29.2",
     "prettier": "2.8.8"
+  },
+  "devDependencies": {
+    "@biorate/vitest": "^2.4.5",
+    "@biorate/vitest-spec": "^2.2.5",
+    "allure-js-commons": "^3.14.0",
+    "allure-vitest": "^3.14.0",
+    "reflect-metadata": "^0.2.2",
+    "vitest": "^5.1.0"
   }
 }
