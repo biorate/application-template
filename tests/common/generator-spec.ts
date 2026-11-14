@@ -62,10 +62,11 @@ export function manifest(dir: string): Record<string, string> {
 export const TEMPLATES = path.join(ROOT, '_templates');
 
 /**
- * Загружает фабрику хелперов .hygen.js репозитория.
+ * Загружает фабрику хелперов .hygen.ts репозитория.
  */
 export function loadFactory() {
-  return nodeRequire(path.join(ROOT, '.hygen.js'));
+  nodeRequire('ts-node/register/transpile-only');
+  return nodeRequire(path.join(ROOT, '.hygen.ts'));
 }
 
 /**

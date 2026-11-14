@@ -1,15 +1,16 @@
 import { suite, test } from '@biorate/vitest';
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 import { UnitSpec } from './common/unit-spec';
 import { ROOT, TEMPLATES, runFactory } from './common/generator-spec';
 
-@suite('Factory (.hygen.js helpers)')
+@suite('Factory (.hygen.ts helpers)')
 class FactorySpec extends UnitSpec {
   @test('derives CLIENT/SERVER from the action list')
   derivation() {
     const all = runFactory({
-      root: '/tmp/x',
+      root: os.tmpdir(),
       'app-name': 'a',
       'app-description': 'd',
       _: ['create', 'root,client,server'],
@@ -17,7 +18,7 @@ class FactorySpec extends UnitSpec {
     this.exactly([all.CLIENT, all.SERVER], [true, true]);
 
     const clientOnly = runFactory({
-      root: '/tmp/x',
+      root: os.tmpdir(),
       'app-name': 'a',
       'app-description': 'd',
       _: ['create', 'root,client'],
@@ -25,7 +26,7 @@ class FactorySpec extends UnitSpec {
     this.exactly([clientOnly.CLIENT, clientOnly.SERVER], [true, false]);
 
     const serverOnly = runFactory({
-      root: '/tmp/x',
+      root: os.tmpdir(),
       'app-name': 'a',
       'app-description': 'd',
       _: ['create', 'root,server'],
@@ -36,7 +37,7 @@ class FactorySpec extends UnitSpec {
   @test('unknown actions in the list are ignored')
   'unknown-actions'() {
     const h = runFactory({
-      root: '/tmp/x',
+      root: os.tmpdir(),
       'app-name': 'a',
       'app-description': 'd',
       _: ['create', 'root,unknown,client'],
@@ -47,7 +48,7 @@ class FactorySpec extends UnitSpec {
   @test('derives names from --app-name')
   names() {
     const h = runFactory({
-      root: '/tmp/x',
+      root: os.tmpdir(),
       'app-name': 'my-app',
       'app-description': 'd',
     });
@@ -59,7 +60,7 @@ class FactorySpec extends UnitSpec {
         SERVER_NAME: h.SERVER_NAME,
       },
       {
-        ROOT: '/tmp/x',
+        ROOT: os.tmpdir(),
         APP_NAME: 'my-app',
         CLIENT_NAME: 'my-app-client',
         SERVER_NAME: 'my-app-server',
@@ -70,7 +71,7 @@ class FactorySpec extends UnitSpec {
   @test('passes flags through (CUT_EXAMPLES / ADD_WEB_SOCKET)')
   flags() {
     const h = runFactory({
-      root: '/tmp/x',
+      root: os.tmpdir(),
       'app-name': 'a',
       'app-description': 'd',
       'cut-examples': true,
@@ -94,7 +95,7 @@ class FactorySpec extends UnitSpec {
   'missing-name'() {
     let error: Error | undefined;
     try {
-      runFactory({ root: '/tmp/x' });
+      runFactory({ root: os.tmpdir() });
     } catch (e) {
       error = e as Error;
     }
@@ -138,13 +139,15 @@ class FactorySpec extends UnitSpec {
     this.exactly('_' in h, true);
   }
 
-  @test('root and repo .hygen.js.t stay in sync')
+  @test('root and repo .hygen.ts.t stay in sync')
   'sync-with-template'() {
-    const rootFactory = fs.readFileSync(path.join(ROOT, '.hygen.js'), 'utf8');
+    const rootFactory = fs.readFileSync(path.join(ROOT, '.hygen.ts'), 'utf8');
     const templateFactory = fs.readFileSync(
-      path.join(TEMPLATES, 'create', 'root', '$ROOT$', '.hygen.js.t'),
+      path.join(TEMPLATES, 'create', 'root', '$ROOT$', '.hygen.ts.t'),
       'utf8',
     );
-    this.exactly(templateFactory, rootFactory);
+    // шаблон несёт frontmatter (mirror/unless_exists) — сравниваем только тело
+    const body = templateFactory.replace(/^---\n[\s\S]*?\n---\n/, '');
+    this.exactly(body, rootFactory);
   }
 }

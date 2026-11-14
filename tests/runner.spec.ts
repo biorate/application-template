@@ -163,7 +163,7 @@ class RunnerSpec extends GeneratorSpec {
     this.cleanup(tmp);
   }
 
-  @test('prompt.js in non-TTY mode asks nothing; factory validates')
+  @test('hooks.ts (class) in non-TTY mode asks nothing; factory validates')
   async 'prompt-non-tty'() {
     const tmp = this.tmpDir();
     const questions: unknown[] = [];
@@ -179,7 +179,9 @@ class RunnerSpec extends GeneratorSpec {
     this.cleanup(tmp);
   }
 
-  @test('prompt.js in TTY mode asks only about missing params; answers reach the factory')
+  @test(
+    'hooks.ts (class) in TTY mode asks only about missing params; answers reach the factory',
+  )
   async 'prompt-tty'() {
     const tmp = this.tmpDir();
     const wasTty = (process.stdin as unknown as { isTTY?: boolean }).isTTY;
@@ -216,7 +218,7 @@ class RunnerSpec extends GeneratorSpec {
       ]);
 
       // без флагов -> вопросы о missing (root не спрашивается);
-      // prompt.js вызывается на каждое действие (root, client) — сравниваем уникальные имена
+      // hooks.ts вызывается на каждое действие (root, client) — сравниваем уникальные имена
       questions.length = 0;
       const dir2 = path.join(tmp, 'partial');
       const r2 = await this.runner(['create', 'root,client', `--root=${dir2}`], config);

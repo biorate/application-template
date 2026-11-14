@@ -17,6 +17,6 @@
     "incremental": true,
     "paths": {}
   },
-  "include": ["tests/**/*", "vitest.config.mjs"],
+  "include": ["tests/**/*", "vitest.config.mjs", ".hygen.ts", "_templates/**/*.ts"],
   "exclude": ["node_modules", "tmp", "allure-results"]
 }

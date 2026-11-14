@@ -1,4 +1,4 @@
 [
-  " npx prettier --write /tmp/hygen-fixture-cut-k1mK0R && chmod ug+x /tmp/hygen-fixture-cut-k1mK0R/.husky/* ",
-  "npx fse copy /www/biorate/application-template/_templates/create/server/bin/favicon.ico /tmp/hygen-fixture-cut-k1mK0R/apps/ref-app-server/favicon.ico"
+  " npx prettier --write /tmp/hygen-fixture-cut-h0dyvq && chmod ug+x /tmp/hygen-fixture-cut-h0dyvq/.husky/* ",
+  "npx fse copy /www/biorate/application-template/_templates/create/server/bin/favicon.ico /tmp/hygen-fixture-cut-h0dyvq/apps/ref-app-server/favicon.ico"
 ]
