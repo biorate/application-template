@@ -13,6 +13,7 @@ module.exports = {
       return { _ };
     }
 
+
     // Состав генерации определяется списком действий (2-й позиционный аргумент)
     const actions = String((locals._ && locals._[1]) || '')
       .split(',')
@@ -46,7 +47,6 @@ module.exports = {
       _,
       platform: platform(),
       stringify: (data) => JSON.stringify(data),
-      root: (p) => p,
       defined: (args) => {
         for (const field in args) {
           if (typeof args[field] === 'undefined') {

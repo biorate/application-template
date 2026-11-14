@@ -1,0 +1,18 @@
+---
+unless_exists: true
+mirror: true
+---
+ls:
+  .js: lowercase
+  .jsx: lowercase
+  .ts: lowercase
+  .tsx: lowercase
+  .css: lowercase
+ignore:
+  - node_modules
+  - .git
+  - .vscode
+  - build
+  - public
+  - dist
+  - web-components

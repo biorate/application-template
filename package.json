@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@atao60/fse-cli": "0.1.9",
-    "@biorate/hygen": "0.1.0",
+    "@biorate/hygen": "0.4.0",
     "lodash": "4.17.23",
     "minimist": "1.2.8",
     "pnpm": "10.29.2",

@@ -142,7 +142,7 @@ class FactorySpec extends UnitSpec {
   'sync-with-template'() {
     const rootFactory = fs.readFileSync(path.join(ROOT, '.hygen.js'), 'utf8');
     const templateFactory = fs.readFileSync(
-      path.join(TEMPLATES, 'create', 'root', '.hygen.js.t'),
+      path.join(TEMPLATES, 'create', 'root', '$ROOT$', '.hygen.js.t'),
       'utf8',
     );
     this.exactly(templateFactory, rootFactory);
