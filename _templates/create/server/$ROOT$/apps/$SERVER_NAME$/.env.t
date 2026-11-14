@@ -1,5 +1,4 @@
 ---
-to: <%= `${h.ROOT}/apps/${h.SERVER_NAME}/.env` %>
 unless_exists: true
 mirror: true
 ---
