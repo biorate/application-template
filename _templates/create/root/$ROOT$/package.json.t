@@ -63,10 +63,10 @@ mirror: true
   },
   "devDependencies": {
     "@atao60/fse-cli": "0.1.9",
-    "@biorate/cleanup": "2.2.4",
+    "@biorate/cleanup": "2.2.5",
     "@ls-lint/ls-lint": "2.2.3",
-    "@biorate/vitest": "2.4.5",
-    "@biorate/vitest-spec": "2.2.5",
+    "@biorate/vitest": "2.4.6",
+    "@biorate/vitest-spec": "2.2.6",
     "@types/flat": "5.0.2",
     "@types/lodash": "4.14.170",
     "@types/minimist": "1.2.5",
@@ -88,7 +88,7 @@ mirror: true
     <%- h.CLIENT ? '"eslint-plugin-react": "7.31.10",' : '' %>
     <%- h.CLIENT ? '"eslint-plugin-react-hooks": "4.6.0",' : '' %>
     <%- h.CLIENT ? '"file-loader": "6.2.0",' : '' %>
-    "@biorate/hygen": "^0.1.0",
+    "@biorate/hygen": "^0.5.2",
     "lerna": "9.0.3",
     <%- h.CLIENT ? '"less": "4.1.1",' : '' %>
     <%- h.CLIENT ? '"less-loader": "9.0.0",' : '' %>
@@ -127,14 +127,14 @@ mirror: true
     <%- h.CLIENT ? '"webpack-dev-server": "5.2.3"' : '' %>
   },
   "dependencies": {
-    "@biorate/auto-object": "2.2.3",
-    "@biorate/axios": "3.5.0",
-    "@biorate/config": "3.2.4",
-    "@biorate/errors": "3.1.2",
-    "@biorate/i18n": "2.1.6",
-    "@biorate/inversion": "3.1.4",
-    "@biorate/symbolic": "3.1.2",
-    "@biorate/tools": "3.1.3",
+    "@biorate/auto-object": "2.2.4",
+    "@biorate/axios": "3.5.1",
+    "@biorate/config": "3.2.5",
+    "@biorate/errors": "3.1.3",
+    "@biorate/i18n": "2.1.7",
+    "@biorate/inversion": "3.1.5",
+    "@biorate/symbolic": "3.1.3",
+    "@biorate/tools": "3.1.4",
     "cross-env": "7.0.3",
     "husky": "8.0.3",
     "i18next": "23.4.2",

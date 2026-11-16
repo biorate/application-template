@@ -24,7 +24,7 @@
   "apps/ref-app-server/locales/translation/en.json": "3865ccfb7ebf30cee5ae135789e204fe89ecfaed7afae5b5cfaa8a85fca6f6c4",
   "apps/ref-app-server/locales/translation/ru.json": "83400a9a08bead85f0b4129a9e27aedb90f66b3dde5db5b2f733830648ccb20d",
   "apps/ref-app-server/migrations/.keep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "apps/ref-app-server/package.json": "866f822af83206e75cfb0261424bd8a3712ad7777ebb0ab6026256869251e89f",
+  "apps/ref-app-server/package.json": "3ca1bf73d43382e6240c21712d3c21025b9d32df911d980c2c9bbf462f08d3a8",
   "apps/ref-app-server/src/app/application/port/debug.driven.port.ts": "380cd7cd4c4f09f2709646b1c5e252a4799ce61028c4672b38a2b8c6df65d14e",
   "apps/ref-app-server/src/app/application/port/index.ts": "4845238327d07e864f11f194a459d1bd88e948972ff9fe1174a5f67b3c9a999d",
   "apps/ref-app-server/src/app/application/port/info.driven.port.ts": "abaa7632f82237971f56622e6b23237c69744a95d48cdce2b6928a8cff80d2b8",
@@ -103,7 +103,7 @@
   "apps/ref-app-server/vitest.unit.config.mjs": "7a101aaf1cb823b838059b68c39b1f62b71279a57156d74e741aaf0527bd6910",
   "lerna.json": "15defbf89ddc389af0710aabacd15ceb101dab79e378c29edc507418ba9c5809",
   "nx.json": "f0b8e9a2443c8f2ef79d8b9c442a6afa787216e05fb834225a0609ef01b65d5f",
-  "package.json": "a1972b6dd2f8b4870caf2b0ff428a7be629bb99c0dadfd96c22a0bc41683cff0",
+  "package.json": "531a33541e34f40a5ca982a84ab3b4e6d50561f6ac56491714bb48aa9bbea7cd",
   "packages/.keep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "pnpm-workspace.yaml": "253208fa7c1b64372c219b9e19cef15ed70ca93b66a4d5c4c4d2297a5aff8880",
   "tsconfig.json": "041f62300611653fab31f1f9c70f510d99df03d3cb17d1f5550f440bcaa7e141"

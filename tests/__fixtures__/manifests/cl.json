@@ -17,7 +17,7 @@
   "apps/ref-app-client/.npmrc": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "apps/ref-app-client/LICENSE": "75629400bb72e5c41b97319ddcd2426bd7e7371e30f74d69af0487d819795863",
   "apps/ref-app-client/README.md": "c111fffa835be4276b02de88c2e30ebe3447afdb5f87f09c70136f4d6ca070ef",
-  "apps/ref-app-client/package.json": "07b02919a5688b4f11b75a15aa0ccaad20b2c4388165421cc07b8663c50ad463",
+  "apps/ref-app-client/package.json": "9afaf15c9f28882a38d611ba145a9aee90cd81bdb49ed8491392cc61b3d9992e",
   "apps/ref-app-client/playwright.config.ts": "7e03fa1c5bef9614162bf8111f9e7445abd38fd5a8c1363f9ece3ae142027331",
   "apps/ref-app-client/src/api/base-api.ts": "7c52113717a072fad50788acaee0848e9a4a31aaffe7a1d71c9eeab17227f5cc",
   "apps/ref-app-client/src/api/config.ts": "bddb76ec69cc756fc4b403e8d8668ce21aa5a425725b1c6d595ef89151be5111",
@@ -74,7 +74,7 @@
   "apps/ref-app-client/webpack.config.js": "222a70017f16c5ed866c15a667673f9e3ef234fafbe262e0ee0361144859b928",
   "lerna.json": "15defbf89ddc389af0710aabacd15ceb101dab79e378c29edc507418ba9c5809",
   "nx.json": "f0b8e9a2443c8f2ef79d8b9c442a6afa787216e05fb834225a0609ef01b65d5f",
-  "package.json": "b36be053b7d7a4ac5ac3f800b6bc38b6019e2f9174ef2915fed9171cf6026b01",
+  "package.json": "500449de51f7eb00cfd893d41377b2dbdb5c363b94bdb1dcdf2cce0131b02686",
   "packages/.keep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "pnpm-workspace.yaml": "253208fa7c1b64372c219b9e19cef15ed70ca93b66a4d5c4c4d2297a5aff8880",
   "tsconfig.json": "4cc2956630af91b8aefde6679e11e9262465fe5be152e3b4c0b1576a7ab563aa"
