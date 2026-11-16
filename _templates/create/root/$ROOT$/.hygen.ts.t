@@ -6,6 +6,22 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import { platform } from 'os';
+import { createRequire } from 'module';
+
+/**
+ * TTY-aware фабрика промптеров: перекрывает дефолт CLI (резолвер спредит
+ * конфиг поверх него) и применяется движком ко всем фазам промпта, включая
+ * params-фазу. В TTY возвращается класс enquirer (как дефолт CLI; промпт —
+ * статический метод), в non-TTY — stub без ответов: params-фаза завершается
+ * валидационной ошибкой, не зависая на enquirer, который в non-TTY не
+ * резолвится. enquirer требуется лениво и только в TTY-ветке.
+ */
+const nodeRequire = createRequire(path.join(process.cwd(), 'package.json'));
+
+export const createPrompter = () =>
+  process.stdin.isTTY && process.stdout.isTTY
+    ? nodeRequire('enquirer')
+    : { prompt: async () => ({}) };
 
 /**
  * Фабрика хелперов генератора (классовая конфигурация @biorate/hygen).
@@ -33,12 +49,14 @@ export const helpers = (locals: Record<string, any>, config: { templates: string
 
   // Guard: запрещаем рендер точно в корень репозитория шаблона.
   // Несуществующий --root разрешён (директория создаётся генерацией позже):
-  // ресолвим ближайшего существующего предка пути.
-  const templatesRoot = path.resolve(path.dirname(config.templates));
-  let existing = path.resolve(locals.root);
-  while (!fs.existsSync(existing)) existing = path.dirname(existing);
-  const realRoot = fs.realpathSync.native(existing);
-  if (templatesRoot === realRoot) {
+  // несуществующий путь сверяется со строкой, существующий — через realpath
+  // (symlink на корень репозитория тоже ловится).
+  const templatesRoot = fs.realpathSync.native(
+    path.resolve(path.dirname(config.templates)),
+  );
+  let rootPath = path.resolve(locals.root);
+  if (fs.existsSync(rootPath)) rootPath = fs.realpathSync.native(rootPath);
+  if (rootPath === templatesRoot) {
     throw new Error(
       `[--root] ${locals.root} is the template repository itself: generation into the template repository is forbidden`,
     );

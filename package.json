@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@atao60/fse-cli": "0.1.9",
-    "@biorate/hygen": "0.4.0",
+    "@biorate/hygen": "0.5.1",
     "lodash": "4.17.23",
     "minimist": "1.2.8",
     "pnpm": "10.29.2",
@@ -30,6 +30,7 @@
     "@types/node": "^26.6.6",
     "allure-js-commons": "^3.14.0",
     "allure-vitest": "^3.14.0",
+    "enquirer": "2.3.6",
     "reflect-metadata": "^0.2.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.0.4",

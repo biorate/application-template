@@ -1,57 +1,36 @@
 /**
- * Action hooks действия `create` (классовая форма @biorate/hygen >= 0.4.0).
- * Секция prompt запрашивает только параметры, отсутствующие в CLI-аргументах;
- * в не-интерактивном режиме (CI/скрипты) вопросов нет — валидацию выполняет
- * фабрика хелперов .hygen.ts.
+ * Action hooks действия `create` (классовая форма @biorate/hygen >= 0.5.1).
+ * Параметры объявлены декларативно: params-фаза движка приводит флаги к
+ * объявленным типам, запрашивает в TTY недостающие required-параметры и
+ * валидирует результат. Все параметры required: в non-TTY (CI) контракт —
+ * передавать флаги явно, нарушение даёт чистую ошибку ParamRequiredError
+ * (stub-промптер конфига не отвечает, enquirer не вызывается).
  */
-interface PromptArgs {
-  type: string;
-  name: string;
-  message: string;
+class Hooks {
+  static params = [
+    { name: 'root', type: 'string', required: true, message: 'Root path:' },
+    { name: 'app-name', type: 'string', required: true, message: 'App name:' },
+    {
+      name: 'app-description',
+      type: 'string',
+      required: true,
+      message: 'App description:',
+    },
+    {
+      name: 'cut-examples',
+      type: 'boolean',
+      required: true,
+      default: false,
+      message: 'Cut examples?',
+    },
+    {
+      name: 'add-web-socket',
+      type: 'boolean',
+      required: true,
+      default: false,
+      message: 'Add WebSocket?',
+    },
+  ];
 }
 
-interface PromptInput {
-  prompter: { prompt: (questions: PromptArgs[]) => Promise<Record<string, unknown>> };
-  args: Record<string, unknown>;
-}
-
-export default class Hooks {
-  async prompt({ prompter, args }: PromptInput) {
-    const missing = (key: string) => {
-      const value = args[key];
-      return (
-        value === undefined ||
-        value === null ||
-        (Array.isArray(value) && value.length === 0) ||
-        value === ''
-      );
-    };
-    if (!process.stdin.isTTY) return {};
-    return prompter.prompt(
-      (
-        [
-          missing('app-name') && {
-            type: 'input',
-            name: 'app-name',
-            message: 'App name:',
-          },
-          missing('app-description') && {
-            type: 'input',
-            name: 'app-description',
-            message: 'App description:',
-          },
-          missing('cut-examples') && {
-            type: 'confirm',
-            name: 'cut-examples',
-            message: 'Cut examples?',
-          },
-          missing('add-web-socket') && {
-            type: 'confirm',
-            name: 'add-web-socket',
-            message: 'Add WebSocket?',
-          },
-        ] as (PromptArgs | false | null)[]
-      ).filter(Boolean) as PromptArgs[],
-    );
-  }
-}
+export default Hooks;

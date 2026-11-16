@@ -42,6 +42,7 @@
 - **Node.js** ≥ 20
 - **pnpm** ≥ 9.7.1 (в `package.json` также указаны совместимые версии npm/yarn)
 - **ts-node** ≥ 10.9.2 и **typescript** ^5.0.4 (devDeps; ts-node@10.9.2 несовместим с TS 7 — TS ограничен версией ^5.0.4)
+- **enquirer** ^2.3.6 (прямой devDep: TTY-ветка `createPrompter` в `.hygen.ts`; сгенерированной цели он нужен только при запуске генератора в TTY)
 
 ## Типичный сценарий: создать приложение из шаблона
 
@@ -65,9 +66,9 @@ npx hygen create root,client,server --root=tmp/my-app --app-name=name-of-the-app
 | `--cut-examples`    | Убрать примеры из сгенерированного кода                                                                                                                                         |
 | `--add-web-socket`  | Добавить WebSocket (Nest gateways + события в шаблоне)                                                                                                                          |
 
-В TTY недостающие параметры запрашиваются интерактивно (классовые hook-файлы `hooks.ts` в каждом действии — дефолт-экспорт класса с async-методом `prompt({ prompter, args })`; современная форма `@biorate/hygen` — legacy `prompt.js` не используется); в не-интерактивном режиме (CI) все флаги передаются явно. Действие `root` доставляет фабрику хелперов `.hygen.ts` в сгенерированную цель (`_templates/create/root/$ROOT$/.hygen.ts.t`, `mirror: true` + `unless_exists: true`, тело байт-в-байт синхронно с `.hygen.ts`; повторная генерация не затирает).
+В TTY недостающие параметры запрашиваются интерактивно (декларативная схема `static params` в hook-файлах `hooks.ts` каждого действия: параметры `root`, `app-name`, `app-description` — string, `cut-examples`, `add-web-socket` — boolean с `default: false`, все `required`; params-фаза движка приводит флаги к типам и спрашивает только недостающие required-параметры); в не-интерактивном режиме (CI) все флаги передаются явно — `createPrompter` в `.hygen.ts` возвращает stub-промптер, нарушение контракта даёт быструю ошибку `ParamRequiredError` (enquirer в non-TTY зависает, поэтому не вызывается). Действие `root` доставляет фабрику хелперов `.hygen.ts` в сгенерированную цель (`_templates/create/root/$ROOT$/.hygen.ts.t`, `mirror: true` + `unless_exists: true`, тело байт-в-байт синхронно с `.hygen.ts`; повторная генерация не затирает).
 
-Обязательны `--root`, `--app-name` и `--app-description` (проверка в `.hygen.ts`; несуществующий `--root` разрешён — путь ресолвится к ближайшему существующему предку перед `realpathSync`).
+Обязательны `--root`, `--app-name` и `--app-description` (проверка в params-схеме хуков и фабрике; несуществующий `--root` разрешён — guard запрещает только точное совпадение пути с корнем репозитория шаблона, существующий путь сверяется через `realpathSync`).
 
 После генерации рабочая разработка идёт **уже в созданном монорепозитории** (команды из генерируемого README), например:
 

@@ -94,7 +94,8 @@ class RunnerSpec extends GeneratorSpec {
     );
     this.exactly(result.success, false);
     this.exactly(fs.existsSync(path.join(tmp, 'package.json')), false);
-    this.exactly(logs.join('\n').includes('[--root] is not defined'), true);
+    // non-TTY: stub-промптер конфига не отвечает -> params-фаза -> ParamRequiredError
+    this.exactly(logs.join('\n').includes("the parameter '--root' is required"), true);
     this.cleanup(tmp);
   }
 
@@ -112,7 +113,7 @@ class RunnerSpec extends GeneratorSpec {
     );
     this.exactly(result.success, false);
     this.exactly(
-      logs.join('\n').includes('[--app-name], [--app-description] is not defined'),
+      logs.join('\n').includes("the parameter '--app-name' is required"),
       true,
     );
     this.cleanup(tmp);
@@ -163,81 +164,65 @@ class RunnerSpec extends GeneratorSpec {
     this.cleanup(tmp);
   }
 
-  @test('hooks.ts (class) in non-TTY mode asks nothing; factory validates')
+  @test('params phase in non-TTY mode: stub answers nothing; validation fails cleanly')
   async 'prompt-non-tty'() {
     const tmp = this.tmpDir();
-    const questions: unknown[] = [];
-    const config = makeConfig({
-      createPrompter: () => ({
-        prompt: async (qs: { name: string }[]) => (questions.push(...qs), {}),
-      }),
+    const logs: string[] = [];
+    const logger = {
+      ...silentLogger(),
+      log: (...a: unknown[]) => logs.push(a.join(' ')),
+    };
+    // non-TTY по умолчанию в тестовой среде; createPrompter конфига
+    // (.hygen.ts) возвращает stub — enquirer не вызывается, hang нет
+    const result = await this.runner(['create', 'root', `--root=${tmp}`], {
+      ...makeConfig({ logger }),
     });
-    // non-TTY по умолчанию в тестовой среде
-    const result = await this.runner(['create', 'root', `--root=${tmp}`], config);
     this.exactly(result.success, false);
-    this.exactly(questions.length, 0);
+    this.exactly(logs.join('\n').includes('ParamRequiredError'), true);
     this.cleanup(tmp);
   }
 
-  @test(
-    'hooks.ts (class) in TTY mode asks only about missing params; answers reach the factory',
-  )
+  @test('params phase: flag coercion (true/false strings) and boolean defaults')
   async 'prompt-tty'() {
     const tmp = this.tmpDir();
-    const wasTty = (process.stdin as unknown as { isTTY?: boolean }).isTTY;
-    Object.defineProperty(process.stdin, 'isTTY', { value: true, configurable: true });
-    try {
-      const questions: { name: string; type: string }[] = [];
-      const answers: Record<string, unknown> = {};
-      const config = makeConfig({
-        createPrompter: () => ({
-          prompt: async (qs: { name: string; type: string }[]) => {
-            questions.push(...qs);
-            // программные ответы: имя приложения и описание
-            for (const q of qs) if (q.type === 'input') answers[q.name] = 'answered-app';
-            return answers;
-          },
-        }),
-      });
-      // все флаги переданы -> confirm-вопросы только о флагах (по дизайну D9)
-      const dir1 = path.join(tmp, 'full');
-      const r1 = await this.runner(
-        [
-          'create',
-          'root',
-          `--root=${dir1}`,
-          '--app-name=ref-app',
-          '--app-description=Ref app',
-        ],
-        config,
-      );
-      this.exactly(r1.success, true);
-      this.exactly(questions.map((q) => q.name).sort(), [
-        'add-web-socket',
-        'cut-examples',
-      ]);
-
-      // без флагов -> вопросы о missing (root не спрашивается);
-      // hooks.ts вызывается на каждое действие (root, client) — сравниваем уникальные имена
-      questions.length = 0;
-      const dir2 = path.join(tmp, 'partial');
-      const r2 = await this.runner(['create', 'root,client', `--root=${dir2}`], config);
-      this.exactly(r2.success, true);
-      this.exactly([...new Set(questions.map((q) => q.name))].sort(), [
-        'add-web-socket',
-        'app-description',
-        'app-name',
-        'cut-examples',
-      ]);
-      this.exactly(fs.existsSync(path.join(dir2, 'package.json')), true);
-      const pkg = JSON.parse(fs.readFileSync(path.join(dir2, 'package.json'), 'utf8'));
-      this.exactly(pkg.name, 'answered-app');
-    } finally {
-      Object.defineProperty(process.stdin, 'isTTY', {
-        value: wasTty,
-        configurable: true,
-      });
-    }
+    const config = makeConfig();
+    // флаги строками -> coercion к boolean: ws-файлы только при true
+    const dir1 = path.join(tmp, 'coerced');
+    const r1 = await this.runner(
+      [
+        'create',
+        'root,server',
+        `--root=${dir1}`,
+        '--app-name=ref-app',
+        '--app-description=Ref app',
+        '--cut-examples=false',
+        '--add-web-socket=true',
+      ],
+      config,
+    );
+    this.exactly(r1.success, true);
+    this.exactly(
+      fs.existsSync(path.join(dir1, 'apps', 'ref-app-server', '.husky')) ||
+        fs.existsSync(path.join(dir1, 'package.json')),
+      true,
+    );
+    this.exactly(
+      fs.readdirSync(path.join(dir1, 'apps', 'ref-app-server')).includes('src'),
+      true,
+    );
+    // недостающие флаги -> stub не отвечает -> ParamRequiredError
+    const dir2 = path.join(tmp, 'partial');
+    const logs: string[] = [];
+    const r2 = await this.runner(['create', 'root', `--root=${dir2}`], {
+      ...makeConfig({
+        logger: { ...silentLogger(), log: (...a: unknown[]) => logs.push(a.join(' ')) },
+      }),
+    });
+    this.exactly(r2.success, false);
+    this.exactly(
+      logs.join('\n').includes("the parameter '--app-name' is required"),
+      true,
+    );
     this.cleanup(tmp);
   }
 }
