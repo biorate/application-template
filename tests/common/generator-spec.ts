@@ -92,14 +92,35 @@ export function normalizeConfig(mod: Record<string, unknown>): Record<string, un
 }
 
 /**
+ * Эмулирует доставку флагов params-фазой движка при
+ * argCase: 'upper-underscore': движок добавляет UPPER_UNDERSCORE-ключи
+ * ('app-name' → 'APP_NAME'), сохраняя исходные kebab-ключи (их читает guard).
+ */
+function argCaseNormalize(locals: Record<string, unknown>): Record<string, unknown> {
+  const reserved = new Set(['_', 'action']);
+  return {
+    ...locals,
+    ...Object.fromEntries(
+      Object.entries(locals)
+        .filter(([k]) => !reserved.has(k))
+        .map(([k, v]) => [
+          k.toUpperCase().replace(/-([A-Z])/g, (_, c: string) => `_${c}`),
+          v,
+        ]),
+    ),
+  };
+}
+
+/**
  * Вызывает фабрику хелперов как это делает движок hygen для действия root:
  * модуль .hygen.ts нормализуется по семантике config-resolver движка
- * (named-экспорты либо default-класс, инстанцируемый движком).
+ * (named-экспорты либо default-класс, инстанцируемый движком),
+ * locals проходят переименование как на params-фазе движка.
  */
 export function runFactory(locals: Record<string, unknown>) {
   const project = normalizeConfig(loadFactory());
   return project.helpers(
-    { _: ['create', 'root'], action: 'root', ...locals },
+    { _: ['create', 'root'], action: 'root', ...argCaseNormalize(locals) },
     { templates: TEMPLATES },
   );
 }

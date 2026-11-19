@@ -81,7 +81,8 @@ class RunnerSpec extends GeneratorSpec {
     const before = fs.statSync(huskyHook).mode;
     await new Hooks().afterAll!(
       {
-        args: { root: tmp },
+        // движок (argCase: 'upper-underscore') доставляет флаг как ROOT
+        args: { ROOT: tmp },
         dry: false,
         logger: silentLogger(),
       } as never,
