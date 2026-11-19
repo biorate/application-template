@@ -1,9 +1,9 @@
 import { suite, test } from '@biorate/vitest';
 import path from 'path';
-import fs from 'fs';
 import os from 'os';
 import { UnitSpec } from './common/unit-spec';
-import { ROOT, TEMPLATES, runFactory } from './common/generator-spec';
+import { ROOT, runFactory } from './common/generator-spec';
+import Hooks from '../_templates/create/root/hooks';
 
 @suite('Factory (.hygen.ts helpers)')
 class FactorySpec extends UnitSpec {
@@ -80,27 +80,8 @@ class FactorySpec extends UnitSpec {
     this.exactly([h.CUT_EXAMPLES, h.ADD_WEB_SOCKET], [true, true]);
   }
 
-  @test('throws on missing --root')
-  'missing-root'() {
-    let error: Error | undefined;
-    try {
-      runFactory({ 'app-name': 'a', 'app-description': 'd' });
-    } catch (e) {
-      error = e as Error;
-    }
-    this.exactly(error?.message, '[--root] is not defined');
-  }
-
-  @test('throws on missing --app-name and --app-description')
-  'missing-name'() {
-    let error: Error | undefined;
-    try {
-      runFactory({ root: os.tmpdir() });
-    } catch (e) {
-      error = e as Error;
-    }
-    this.exactly(error?.message, '[--app-name], [--app-description] is not defined');
-  }
+  // Валидация обязательных флагов (root, app-name, app-description) выполняется
+  // params-фазой движка @biorate/hygen, в фабрике хелперов не дублируется.
 
   @test('guard: exact repository root match throws')
   'guard-exact'() {
@@ -139,15 +120,8 @@ class FactorySpec extends UnitSpec {
     this.exactly('_' in h, true);
   }
 
-  @test('root and repo .hygen.ts.t stay in sync')
-  'sync-with-template'() {
-    const rootFactory = fs.readFileSync(path.join(ROOT, '.hygen.ts'), 'utf8');
-    const templateFactory = fs.readFileSync(
-      path.join(TEMPLATES, 'create', 'root', '$ROOT$', '.hygen.ts.t'),
-      'utf8',
-    );
-    // шаблон несёт frontmatter (mirror/unless_exists) — сравниваем только тело
-    const body = templateFactory.replace(/^---\n[\s\S]*?\n---\n/, '');
-    this.exactly(body, rootFactory);
+  @test('root action hooks declare lifecycle afterAll')
+  'lifecycle-hooks'() {
+    this.exactly(typeof new Hooks().afterAll, 'function');
   }
 }

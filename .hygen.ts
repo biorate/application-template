@@ -7,16 +7,8 @@ export default class Config extends HygenConfig {
   public helpers = (locals: Record<string, unknown>, config: RunnerContextConfig) => {
     if (locals.action === 'help') return { _ };
 
-    // Обязательные параметры: валидация до резолва путей
-    const missing = ['root', 'app-name', 'app-description'].filter(
-      (key) => locals[key] === undefined || locals[key] === '',
-    );
-    if (missing.length) {
-      throw new Error(`[--${missing.map(_.kebabCase).join('], [--')}] is not defined`);
-    }
-
     const templatesRoot = fs.realpathSync.native(
-      path.resolve(path.dirname(config.templates)),
+      path.resolve(path.dдаirname(config.templates)),
     );
     let rootPath = path.resolve(<string>locals.root);
     if (fs.existsSync(rootPath)) rootPath = fs.realpathSync.native(rootPath);
@@ -46,4 +38,6 @@ export default class Config extends HygenConfig {
       ADD_WEB_SOCKET: locals['add-web-socket'],
     };
   };
+
+  protected;
 }
