@@ -70,10 +70,35 @@ export function loadFactory() {
 }
 
 /**
- * Вызывает фабрику хелперов как это делает движок hygen для действия root.
+ * Нормализует модуль .hygen.ts так же, как config-resolver движка 0.8.x:
+ * named-экспорты приоритетны, default-класс инстанцируется, его
+ * собственные перечислимые свойства становятся конфигом проекта.
+ */
+export function normalizeConfig(mod: Record<string, unknown>): Record<string, unknown> {
+  const named = Object.keys(mod).filter((k) => k !== 'default' && k !== '__esModule');
+  if (named.length > 0) return Object.fromEntries(named.map((k) => [k, mod[k]]));
+  const Ctor = mod.default;
+  if (typeof Ctor !== 'function') return (Ctor as object) ?? {};
+  const instance = new (Ctor as new () => Record<string, unknown>)();
+  if (
+    typeof (instance as { toRunnerConfig?: () => Record<string, unknown> })
+      .toRunnerConfig === 'function'
+  ) {
+    return (
+      instance as { toRunnerConfig: () => Record<string, unknown> }
+    ).toRunnerConfig();
+  }
+  return instance;
+}
+
+/**
+ * Вызывает фабрику хелперов как это делает движок hygen для действия root:
+ * модуль .hygen.ts нормализуется по семантике config-resolver движка
+ * (named-экспорты либо default-класс, инстанцируемый движком).
  */
 export function runFactory(locals: Record<string, unknown>) {
-  return loadFactory().helpers(
+  const project = normalizeConfig(loadFactory());
+  return project.helpers(
     { _: ['create', 'root'], action: 'root', ...locals },
     { templates: TEMPLATES },
   );
