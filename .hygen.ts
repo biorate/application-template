@@ -8,7 +8,7 @@ export default class Config extends HygenConfig {
     if (locals.action === 'help') return { _ };
 
     const templatesRoot = fs.realpathSync.native(
-      path.resolve(path.dдаirname(config.templates)),
+      path.resolve(path.dirname(config.templates)),
     );
     let rootPath = path.resolve(<string>locals.root);
     if (fs.existsSync(rootPath)) rootPath = fs.realpathSync.native(rootPath);
@@ -19,14 +19,6 @@ export default class Config extends HygenConfig {
     }
     return {
       _,
-      stringify: (data: unknown) => JSON.stringify(data),
-      defined: (args: Record<string, unknown>) => {
-        for (const field in args) {
-          if (typeof args[field] === 'undefined') {
-            throw new Error(`[--${_.kebabCase(field)}] is not defined`);
-          }
-        }
-      },
       ROOT: locals.root,
       APP_NAME: locals['app-name'],
       APP_DESCRIPTION: locals['app-description'],
