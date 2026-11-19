@@ -27,7 +27,7 @@ tests/
     +-- generate-manifests.mjs   <- регенерация golden-фикстур
     +-- manifests/
         +-- {cs,cl,sv,cut,ws}.json        <- манифесты (relPath -> sha256)
-        +-- {cs,cl,sv,cut,ws}.exec.json   <- captured shell-команды (z-after и др.)
+        +-- {cs,cl,sv,cut,ws}.exec.json   <- captured shell-команды (frontmatter sh:)
 ```
 
 ## 🧬 Spec-иерархия
@@ -57,7 +57,7 @@ tests/
 
 - **Golden-матрица**: 5 кейсов (`cs`=root,client,server; `cl`=root,client; `sv`=root,server; `cut`=`--cut-examples`; `ws`=`--add-web-socket`) сравниваются с фикстурами по sha256-манифестам и captured exec-командам.
 - Websocket-файлы генерируются только в server-поддереве.
-- Порядок: `z-after.t` (prettier + chmod husky на linux) — последним в exec.
+- exec-фикстуры (`*.exec.json`) капчурят frontmatter-команды `sh:`; пост-обработка prettier/chmod исполняется в проектном хуке `hooks.afterAll` (`.hygen.ts`) и в капчур не попадает.
 - Негативы: без `--root` / без `--app-name` — `success: false`, ноль записанных файлов.
 - Guard: генерация в корень репозитория запрещена.
 - Идемпотентность: повторный прогон — ноль `added`.

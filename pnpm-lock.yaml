@@ -12,8 +12,8 @@ importers:
         specifier: 0.1.9
         version: 0.1.9
       '@biorate/hygen':
-        specifier: 0.5.1
-        version: 0.5.1
+        specifier: 0.9.1
+        version: 0.9.1
       lodash:
         specifier: 4.17.23
         version: 4.17.23
@@ -28,37 +28,37 @@ importers:
         version: 2.8.8
     devDependencies:
       '@biorate/vitest':
-        specifier: ^2.4.5
+        specifier: 2.4.5
         version: 2.4.5(allure-js-commons@3.14.0)(allure-vitest@3.14.0(@vitest/runner@4.1.11)(vitest@5.1.0(@types/node@26.6.6)(vite@8.3.8(@types/node@26.6.6))))(reflect-metadata@0.2.2)(vitest@5.1.0(@types/node@26.6.6)(vite@8.3.8(@types/node@26.6.6)))
       '@biorate/vitest-spec':
-        specifier: ^2.2.5
+        specifier: 2.2.5
         version: 2.2.5(class-validator@0.15.1)(lodash-es@4.18.1)(reflect-metadata@0.2.2)(vitest@5.1.0(@types/node@26.6.6)(vite@8.3.8(@types/node@26.6.6)))
       '@types/lodash':
-        specifier: ^4.17.27
+        specifier: 4.17.27
         version: 4.17.27
       '@types/node':
-        specifier: ^26.6.6
+        specifier: 26.6.6
         version: 26.6.6
       allure-js-commons:
-        specifier: ^3.14.0
+        specifier: 3.14.0
         version: 3.14.0
       allure-vitest:
-        specifier: ^3.14.0
+        specifier: 3.14.0
         version: 3.14.0(@vitest/runner@4.1.11)(vitest@5.1.0(@types/node@26.6.6)(vite@8.3.8(@types/node@26.6.6)))
       enquirer:
         specifier: 2.3.6
         version: 2.3.6
       reflect-metadata:
-        specifier: ^0.2.2
+        specifier: 0.2.2
         version: 0.2.2
       ts-node:
-        specifier: ^10.9.2
+        specifier: 10.9.2
         version: 10.9.2(@types/node@26.6.6)(typescript@5.0.4)
       typescript:
-        specifier: ^5.0.4
+        specifier: 5.0.4
         version: 5.0.4
       vitest:
-        specifier: ^5.1.0
+        specifier: 5.1.0
         version: 5.1.0(@types/node@26.6.6)(vite@8.3.8(@types/node@26.6.6))
 
 packages:
@@ -75,8 +75,11 @@ packages:
   '@biorate/errors@3.1.2':
     resolution: {integrity: sha512-u9oft4/MGmbENsP/4G/Ovr2DJA+WxYRa9wMKBA+cNRRnC/HD+ThBQM4uo6vCm0fxokQNUrYhZik8aHyM4AK//w==}
 
-  '@biorate/hygen@0.5.1':
-    resolution: {integrity: sha512-6vCAz+PfYY8ambZ0dd+FA0pi7KhGbOXMRIpQmOjpt75VMXV95ctVbP5ynmi93txwwxBQHrIUL0NwyDzuzRD0kw==}
+  '@biorate/errors@3.1.3':
+    resolution: {integrity: sha512-Cl7CbwXP0PG/fJMCAMp94DxD/5Fye9kS56QkPinFTYEJxV/Kx/pZltwucC05qKz43We5dmSiQ6z+PCeym/nVbw==}
+
+  '@biorate/hygen@0.9.1':
+    resolution: {integrity: sha512-fpUggjYA44pnalV3RX5aZsVHU4A593/Pu5TZI6SVwk6AP1NxrgS0dRTQ2AyixB/BiqZJv+vy1ZxouQc59B80kQ==}
     hasBin: true
 
   '@biorate/run-context@2.1.3':
@@ -1409,9 +1412,11 @@ snapshots:
 
   '@biorate/errors@3.1.2': {}
 
-  '@biorate/hygen@0.5.1':
+  '@biorate/errors@3.1.3': {}
+
+  '@biorate/hygen@0.9.1':
     dependencies:
-      '@biorate/errors': 3.1.2
+      '@biorate/errors': 3.1.3
       chalk: 4.1.2
       change-case: 3.1.0
       debug: 4.3.3

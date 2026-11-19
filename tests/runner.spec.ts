@@ -1,6 +1,7 @@
 import { suite, test } from '@biorate/vitest';
 import path from 'path';
 import fs from 'fs';
+import Hooks from '../_templates/create/root/hooks';
 import {
   GeneratorSpec,
   ROOT,
@@ -59,10 +60,9 @@ class RunnerSpec extends GeneratorSpec {
     this.cleanup(tmp);
   }
 
-  @test('z-after (prettier, chmod husky on linux) is executed last')
-  async 'order-z-after-last'() {
+  @test('project hook afterAll formats the tree and sets husky exec bits')
+  async 'project-hook-after-all'() {
     const tmp = this.tmpDir();
-    const execCalls: string[] = [];
     await this.runner(
       [
         'create',
@@ -71,12 +71,52 @@ class RunnerSpec extends GeneratorSpec {
         '--app-name=ref-app',
         '--app-description=Ref app',
       ],
-      makeConfig({ exec: (cmd) => execCalls.push(cmd) }),
+      makeConfig(),
     );
-    this.exactly(execCalls.length > 0, true);
-    const last = execCalls[execCalls.length - 1];
-    this.exactly(last.includes('prettier'), true);
-    if (process.platform === 'linux') this.exactly(last.includes('chmod ug+x'), true);
+    // ломаем формат в корневом файле и снимаем exec-биты husky
+    const file = path.join(tmp, 'package.json');
+    fs.writeFileSync(file, JSON.stringify({ name: 'x' }, null, 12));
+    const huskyHook = path.join(tmp, '.husky', 'pre-commit');
+    if (process.platform !== 'win32') fs.chmodSync(huskyHook, 0o644);
+    const before = fs.statSync(huskyHook).mode;
+    await new Hooks().afterAll!(
+      {
+        args: { root: tmp },
+        dry: false,
+        logger: silentLogger(),
+      } as never,
+      [{}],
+    );
+    this.exactly(fs.readFileSync(file, 'utf8').includes('\n  "name"'), true);
+    if (process.platform !== 'win32')
+      this.exactly(fs.statSync(huskyHook).mode !== before, true);
+    this.cleanup(tmp);
+  }
+
+  @test('afterAll without --root warns and does not throw')
+  async 'after-all-no-root'() {
+    const logs: string[] = [];
+    await new Hooks().afterAll!(
+      {
+        args: {},
+        dry: false,
+        logger: { ...silentLogger(), warn: (m: string) => logs.push(m) },
+      } as never,
+      [{}],
+    );
+    this.exactly(logs.join('\n').includes('afterAll'), true);
+  }
+
+  @test('afterAll with no results skips post-processing (failed generation)')
+  async 'after-all-empty-results'() {
+    const tmp = this.tmpDir();
+    const file = path.join(tmp, 'x.json');
+    fs.writeFileSync(file, '{ "a": 1 }');
+    await new Hooks().afterAll!(
+      { args: { root: tmp }, dry: false, logger: silentLogger() } as never,
+      [],
+    );
+    this.exactly(fs.readFileSync(file, 'utf8'), '{ "a": 1 }');
     this.cleanup(tmp);
   }
 
@@ -158,7 +198,7 @@ class RunnerSpec extends GeneratorSpec {
     };
     const second = await this.runCs(makeConfig({ logger }), [], tmp);
     this.exactly(second.success, true);
-    // шелл-опы (a-before/z-after) исполняются всегда, файлы — не перезаписываются
+    // файлы не перезаписываются повторной генерацией
     this.exactly(added.length, 0);
     this.exactly(manifest(tmp), before);
     this.cleanup(tmp);
