@@ -2,8 +2,10 @@ import { suite, test } from '@biorate/vitest';
 import path from 'path';
 import os from 'os';
 import { UnitSpec } from './common/unit-spec';
-import { ROOT, runFactory } from './common/generator-spec';
+import { ROOT, loadFactory, normalizeConfig, runFactory } from './common/generator-spec';
 import Hooks from '../_templates/create/root/hooks';
+import ClientHooks from '../_templates/create/client/hooks';
+import ServerHooks from '../_templates/create/server/hooks';
 
 @suite('Factory (.hygen.ts helpers)')
 class FactorySpec extends UnitSpec {
@@ -123,5 +125,36 @@ class FactorySpec extends UnitSpec {
   @test('root action hooks declare lifecycle afterAll')
   'lifecycle-hooks'() {
     this.exactly(typeof new Hooks().afterAll, 'function');
+  }
+
+  @test('action hooks declare params as an instance property')
+  'hooks-instance-params'() {
+    for (const Ctor of [Hooks, ClientHooks, ServerHooks]) {
+      const anyCtor = Ctor as unknown as { params?: unknown };
+      this.exactly(anyCtor.params, undefined, 'no static params');
+      const params = new Ctor().params as Array<{
+        name: string;
+        type: string;
+        required?: boolean;
+        default?: unknown;
+      }>;
+      this.exactly(
+        params.map((p) => [p.name, p.type, p.required, p.default ?? null]),
+        [
+          ['root', 'string', true, null],
+          ['app-name', 'string', true, null],
+          ['app-description', 'string', true, null],
+          ['cut-examples', 'boolean', true, false],
+          ['add-web-socket', 'boolean', true, false],
+        ],
+        Ctor.name,
+      );
+    }
+  }
+
+  @test('factory config declares no params (per-action hooks own the schema)')
+  'factory-no-params'() {
+    const project = normalizeConfig(loadFactory() as Record<string, unknown>);
+    this.exactly('params' in project, false);
   }
 }

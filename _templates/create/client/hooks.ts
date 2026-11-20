@@ -1,5 +1,5 @@
 export default class Hooks {
-  public static params = [
+  public params = [
     { name: 'root', type: 'string', required: true, message: 'Root path:' },
     { name: 'app-name', type: 'string', required: true, message: 'App name:' },
     {
