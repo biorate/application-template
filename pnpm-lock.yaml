@@ -12,8 +12,8 @@ importers:
         specifier: 0.1.9
         version: 0.1.9
       '@biorate/hygen':
-        specifier: 0.9.1
-        version: 0.9.1
+        specifier: 0.10.1
+        version: 0.10.1
       lodash:
         specifier: 4.17.23
         version: 4.17.23
@@ -78,8 +78,8 @@ packages:
   '@biorate/errors@3.1.3':
     resolution: {integrity: sha512-Cl7CbwXP0PG/fJMCAMp94DxD/5Fye9kS56QkPinFTYEJxV/Kx/pZltwucC05qKz43We5dmSiQ6z+PCeym/nVbw==}
 
-  '@biorate/hygen@0.9.1':
-    resolution: {integrity: sha512-fpUggjYA44pnalV3RX5aZsVHU4A593/Pu5TZI6SVwk6AP1NxrgS0dRTQ2AyixB/BiqZJv+vy1ZxouQc59B80kQ==}
+  '@biorate/hygen@0.10.1':
+    resolution: {integrity: sha512-wCTlJW13h/SGavd2B1n464qRFkVO5QdN1PJRsEfTnGeJXURVV44h8YjgU0OT3v54ZFiXdh186v+IRLPLNhRHyg==}
     hasBin: true
 
   '@biorate/run-context@2.1.3':
@@ -1414,7 +1414,7 @@ snapshots:
 
   '@biorate/errors@3.1.3': {}
 
-  '@biorate/hygen@0.9.1':
+  '@biorate/hygen@0.10.1':
     dependencies:
       '@biorate/errors': 3.1.3
       chalk: 4.1.2
