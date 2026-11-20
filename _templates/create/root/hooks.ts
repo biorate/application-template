@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import { execSync } from 'child_process';
 
 export default class Hooks {
@@ -38,13 +36,12 @@ export default class Hooks {
   ) {
     if (ctx.dry || !results?.length) return;
     const root = ctx.args.ROOT;
-    if (!root)
-      return void ctx.logger.warn(
-        'afterAll: --root is not defined, post-processing skipped',
-      );
-    execSync(`npx prettier --write ${root}`, { stdio: 'inherit' });
-    if (process.platform !== 'win32' && fs.existsSync(path.join(root, '.husky'))) {
-      execSync(`chmod ug+x ${root}/.husky/*`, { stdio: 'ignore' });
+    try {
+      execSync(`npx prettier --write ${root}`, { stdio: 'inherit' });
+      if (process.platform !== 'win32')
+        execSync(`chmod ug+x ${root}/.husky/*`, { stdio: 'ignore' });
+    } catch (e) {
+      ctx.logger.warn(`afterAll: ${e?.message ?? e?.toString?.() ?? String(e)}`);
     }
   }
 }
